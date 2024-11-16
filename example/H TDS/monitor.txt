@@ -1,0 +1,1692 @@
+ Box_length is defined, automatically generating cell grids...
+ Please make sure that large_cell_size is larger than max diameter of defects
+ loading         5095 clusters from lmp file
+        5104 clusters successfully loaded
+ 
+ ########## INPUT PARAMETERS ##########
+ ########### BOX ##########
+                PBC=              0              1              1
+       grain_radius=  0.1000000E+16
+         box_length=   5000.0000000    600.0000000    600.0000000
+          cell_size=     10.0000000     10.0000000     10.0000000
+        cell_number=            500             60             60
+    large_cell_size=     20.0000000     20.0000000     20.0000000
+  large_cell_number=            250             30             30
+      surface_depth=      3.1652000
+    critical_radius=      5.0000000
+ ########### ion and irradiation ##########
+     uniform_damage=              0              1              1
+           ion_type=              2
+            iso_eff=              0
+  implant_direction=              1
+ ########## initial defects ##########
+     initial_defect=      0.0000000      0.0000000      0.0000000      0.0000000
+     intrinsic_type=              1
+ ########## others ##########
+           cfg_type=lmp            
+       Random seeds=         314159       12131415        1234567        7654321
+ ##################################
+ 
+ ########## CONTROL MATRIX ##########
+   #temperature           time rate                name outp
+      0.0000000  0.0000000E+00  0.0000000E+00            initiate    1
+    795.0000000  0.6000000E+02  0.0000000E+00            cool_795    0
+    790.0000000  0.6000000E+02  0.0000000E+00            cool_790    0
+    785.0000000  0.6000000E+02  0.0000000E+00            cool_785    0
+    780.0000000  0.6000000E+02  0.0000000E+00            cool_780    0
+    775.0000000  0.6000000E+02  0.0000000E+00            cool_775    0
+    770.0000000  0.6000000E+02  0.0000000E+00            cool_770    0
+    765.0000000  0.6000000E+02  0.0000000E+00            cool_765    0
+    760.0000000  0.6000000E+02  0.0000000E+00            cool_760    0
+    755.0000000  0.6000000E+02  0.0000000E+00            cool_755    0
+    750.0000000  0.6000000E+02  0.0000000E+00            cool_750    0
+    745.0000000  0.6000000E+02  0.0000000E+00            cool_745    0
+    740.0000000  0.6000000E+02  0.0000000E+00            cool_740    0
+    735.0000000  0.6000000E+02  0.0000000E+00            cool_735    0
+    730.0000000  0.6000000E+02  0.0000000E+00            cool_730    0
+    725.0000000  0.6000000E+02  0.0000000E+00            cool_725    0
+    720.0000000  0.6000000E+02  0.0000000E+00            cool_720    0
+    715.0000000  0.6000000E+02  0.0000000E+00            cool_715    0
+    710.0000000  0.6000000E+02  0.0000000E+00            cool_710    0
+    705.0000000  0.6000000E+02  0.0000000E+00            cool_705    0
+    700.0000000  0.6000000E+02  0.0000000E+00            cool_700    0
+    695.0000000  0.6000000E+02  0.0000000E+00            cool_695    0
+    690.0000000  0.6000000E+02  0.0000000E+00            cool_690    0
+    685.0000000  0.6000000E+02  0.0000000E+00            cool_685    0
+    680.0000000  0.6000000E+02  0.0000000E+00            cool_680    0
+    675.0000000  0.6000000E+02  0.0000000E+00            cool_675    0
+    670.0000000  0.6000000E+02  0.0000000E+00            cool_670    0
+    665.0000000  0.6000000E+02  0.0000000E+00            cool_665    0
+    660.0000000  0.6000000E+02  0.0000000E+00            cool_660    0
+    655.0000000  0.6000000E+02  0.0000000E+00            cool_655    0
+    650.0000000  0.6000000E+02  0.0000000E+00            cool_650    0
+    645.0000000  0.6000000E+02  0.0000000E+00            cool_645    0
+    640.0000000  0.6000000E+02  0.0000000E+00            cool_640    0
+    635.0000000  0.6000000E+02  0.0000000E+00            cool_635    0
+    630.0000000  0.6000000E+02  0.0000000E+00            cool_630    0
+    625.0000000  0.6000000E+02  0.0000000E+00            cool_625    0
+    620.0000000  0.6000000E+02  0.0000000E+00            cool_620    0
+    615.0000000  0.6000000E+02  0.0000000E+00            cool_615    0
+    610.0000000  0.6000000E+02  0.0000000E+00            cool_610    0
+    605.0000000  0.6000000E+02  0.0000000E+00            cool_605    0
+    600.0000000  0.6000000E+02  0.0000000E+00            cool_600    0
+    595.0000000  0.6000000E+02  0.0000000E+00            cool_595    0
+    590.0000000  0.6000000E+02  0.0000000E+00            cool_590    0
+    585.0000000  0.6000000E+02  0.0000000E+00            cool_585    0
+    580.0000000  0.6000000E+02  0.0000000E+00            cool_580    0
+    575.0000000  0.6000000E+02  0.0000000E+00            cool_575    0
+    570.0000000  0.6000000E+02  0.0000000E+00            cool_570    0
+    565.0000000  0.6000000E+02  0.0000000E+00            cool_565    0
+    560.0000000  0.6000000E+02  0.0000000E+00            cool_560    0
+    555.0000000  0.6000000E+02  0.0000000E+00            cool_555    0
+    550.0000000  0.6000000E+02  0.0000000E+00            cool_550    0
+    545.0000000  0.6000000E+02  0.0000000E+00            cool_545    0
+    540.0000000  0.6000000E+02  0.0000000E+00            cool_540    0
+    535.0000000  0.6000000E+02  0.0000000E+00            cool_535    0
+    530.0000000  0.6000000E+02  0.0000000E+00            cool_530    0
+    525.0000000  0.6000000E+02  0.0000000E+00            cool_525    0
+    520.0000000  0.6000000E+02  0.0000000E+00            cool_520    0
+    515.0000000  0.6000000E+02  0.0000000E+00            cool_515    0
+    510.0000000  0.6000000E+02  0.0000000E+00            cool_510    0
+    505.0000000  0.6000000E+02  0.0000000E+00            cool_505    0
+    500.0000000  0.6000000E+02  0.0000000E+00            cool_500    0
+    495.0000000  0.6000000E+02  0.0000000E+00            cool_495    0
+    490.0000000  0.6000000E+02  0.0000000E+00            cool_490    0
+    485.0000000  0.6000000E+02  0.0000000E+00            cool_485    0
+    480.0000000  0.6000000E+02  0.0000000E+00            cool_480    0
+    475.0000000  0.6000000E+02  0.0000000E+00            cool_475    0
+    470.0000000  0.6000000E+02  0.0000000E+00            cool_470    0
+    465.0000000  0.6000000E+02  0.0000000E+00            cool_465    0
+    460.0000000  0.6000000E+02  0.0000000E+00            cool_460    0
+    455.0000000  0.6000000E+02  0.0000000E+00            cool_455    0
+    450.0000000  0.6000000E+02  0.0000000E+00            cool_450    0
+    445.0000000  0.6000000E+02  0.0000000E+00            cool_445    0
+    440.0000000  0.6000000E+02  0.0000000E+00            cool_440    0
+    435.0000000  0.6000000E+02  0.0000000E+00            cool_435    0
+    430.0000000  0.6000000E+02  0.0000000E+00            cool_430    0
+    425.0000000  0.6000000E+02  0.0000000E+00            cool_425    0
+    420.0000000  0.6000000E+02  0.0000000E+00            cool_420    0
+    415.0000000  0.6000000E+02  0.0000000E+00            cool_415    0
+    410.0000000  0.6000000E+02  0.0000000E+00            cool_410    0
+    405.0000000  0.6000000E+02  0.0000000E+00            cool_405    0
+    400.0000000  0.6000000E+02  0.0000000E+00            cool_400    0
+    395.0000000  0.6000000E+02  0.0000000E+00            cool_395    0
+    390.0000000  0.6000000E+02  0.0000000E+00            cool_390    0
+    385.0000000  0.6000000E+02  0.0000000E+00            cool_385    0
+    380.0000000  0.6000000E+02  0.0000000E+00            cool_380    0
+    375.0000000  0.6000000E+02  0.0000000E+00            cool_375    0
+    370.0000000  0.6000000E+02  0.0000000E+00            cool_370    0
+    365.0000000  0.6000000E+02  0.0000000E+00            cool_365    0
+    360.0000000  0.6000000E+02  0.0000000E+00            cool_360    0
+    355.0000000  0.6000000E+02  0.0000000E+00            cool_355    0
+    350.0000000  0.6000000E+02  0.0000000E+00            cool_350    0
+    345.0000000  0.6000000E+02  0.0000000E+00            cool_345    0
+    340.0000000  0.6000000E+02  0.0000000E+00            cool_340    0
+    335.0000000  0.6000000E+02  0.0000000E+00            cool_335    0
+    330.0000000  0.6000000E+02  0.0000000E+00            cool_330    0
+    325.0000000  0.6000000E+02  0.0000000E+00            cool_325    0
+    320.0000000  0.6000000E+02  0.0000000E+00            cool_320    0
+    315.0000000  0.6000000E+02  0.0000000E+00            cool_315    0
+    310.0000000  0.6000000E+02  0.0000000E+00            cool_310    0
+    305.0000000  0.6000000E+02  0.0000000E+00            cool_305    0
+    300.0000000  0.6000000E+02  0.0000000E+00            cool_300    0
+    300.0000000  0.3000000E+03  0.0000000E+00           after_ann    1
+    300.0000000  0.2000000E+02  0.5000000E+17      implantation01    1
+    300.0000000  0.2000000E+02  0.5000000E+17      implantation02    1
+    300.0000000  0.2000000E+02  0.5000000E+17      implantation03    1
+    300.0000000  0.2000000E+02  0.5000000E+17      implantation04    1
+    300.0000000  0.2000000E+02  0.5000000E+17      implantation05    1
+    300.0000000  0.2000000E+02  0.5000000E+17      implantation06    1
+    300.0000000  0.2000000E+02  0.5000000E+17      implantation07    1
+    300.0000000  0.2000000E+02  0.5000000E+17      implantation08    1
+    300.0000000  0.2000000E+02  0.5000000E+17      implantation09    1
+    300.0000000  0.2000000E+02  0.5000000E+17      implantation10    1
+    300.0000000  0.3000000E+03  0.0000000E+00           after_imp    1
+    300.0000000  0.1000000E+02  0.0000000E+00                 300    1
+    310.0000000  0.1000000E+02  0.0000000E+00                 310    1
+    320.0000000  0.1000000E+02  0.0000000E+00                 320    1
+    330.0000000  0.1000000E+02  0.0000000E+00                 330    1
+    340.0000000  0.1000000E+02  0.0000000E+00                 340    1
+    350.0000000  0.1000000E+02  0.0000000E+00                 350    1
+    360.0000000  0.1000000E+02  0.0000000E+00                 360    1
+    370.0000000  0.1000000E+02  0.0000000E+00                 370    1
+    380.0000000  0.1000000E+02  0.0000000E+00                 380    1
+    390.0000000  0.1000000E+02  0.0000000E+00                 390    1
+    400.0000000  0.1000000E+02  0.0000000E+00                 400    1
+    410.0000000  0.1000000E+02  0.0000000E+00                 410    1
+    420.0000000  0.1000000E+02  0.0000000E+00                 420    1
+    430.0000000  0.1000000E+02  0.0000000E+00                 430    1
+    440.0000000  0.1000000E+02  0.0000000E+00                 440    1
+    450.0000000  0.1000000E+02  0.0000000E+00                 450    1
+    460.0000000  0.1000000E+02  0.0000000E+00                 460    1
+    470.0000000  0.1000000E+02  0.0000000E+00                 470    1
+    480.0000000  0.1000000E+02  0.0000000E+00                 480    1
+    490.0000000  0.1000000E+02  0.0000000E+00                 490    1
+    500.0000000  0.1000000E+02  0.0000000E+00                 500    1
+    510.0000000  0.1000000E+02  0.0000000E+00                 510    1
+    520.0000000  0.1000000E+02  0.0000000E+00                 520    1
+    530.0000000  0.1000000E+02  0.0000000E+00                 530    1
+    540.0000000  0.1000000E+02  0.0000000E+00                 540    1
+    550.0000000  0.1000000E+02  0.0000000E+00                 550    1
+    560.0000000  0.1000000E+02  0.0000000E+00                 560    1
+    570.0000000  0.1000000E+02  0.0000000E+00                 570    1
+    580.0000000  0.1000000E+02  0.0000000E+00                 580    1
+    590.0000000  0.1000000E+02  0.0000000E+00                 590    1
+    600.0000000  0.1000000E+02  0.0000000E+00                 600    1
+    610.0000000  0.1000000E+02  0.0000000E+00                 610    1
+    620.0000000  0.1000000E+02  0.0000000E+00                 620    1
+    630.0000000  0.1000000E+02  0.0000000E+00                 630    1
+    640.0000000  0.1000000E+02  0.0000000E+00                 640    1
+    650.0000000  0.1000000E+02  0.0000000E+00                 650    1
+    660.0000000  0.1000000E+02  0.0000000E+00                 660    1
+    670.0000000  0.1000000E+02  0.0000000E+00                 670    1
+    680.0000000  0.1000000E+02  0.0000000E+00                 680    1
+    690.0000000  0.1000000E+02  0.0000000E+00                 690    1
+    700.0000000  0.1000000E+02  0.0000000E+00                 700    1
+    710.0000000  0.1000000E+02  0.0000000E+00                 710    1
+    720.0000000  0.1000000E+02  0.0000000E+00                 720    1
+    730.0000000  0.1000000E+02  0.0000000E+00                 730    1
+    740.0000000  0.1000000E+02  0.0000000E+00                 740    1
+    750.0000000  0.1000000E+02  0.0000000E+00                 750    1
+    760.0000000  0.1000000E+02  0.0000000E+00                 760    1
+    770.0000000  0.1000000E+02  0.0000000E+00                 770    1
+    780.0000000  0.1000000E+02  0.0000000E+00                 780    1
+    790.0000000  0.1000000E+02  0.0000000E+00                 790    1
+    800.0000000  0.1000000E+02  0.0000000E+00                 800    1
+    810.0000000  0.1000000E+02  0.0000000E+00                 810    1
+    820.0000000  0.1000000E+02  0.0000000E+00                 820    1
+    830.0000000  0.1000000E+02  0.0000000E+00                 830    1
+    840.0000000  0.1000000E+02  0.0000000E+00                 840    1
+    850.0000000  0.1000000E+02  0.0000000E+00                 850    1
+    860.0000000  0.1000000E+02  0.0000000E+00                 860    1
+    870.0000000  0.1000000E+02  0.0000000E+00                 870    1
+    880.0000000  0.1000000E+02  0.0000000E+00                 880    1
+    890.0000000  0.1000000E+02  0.0000000E+00                 890    1
+    900.0000000  0.1000000E+02  0.0000000E+00                 900    1
+    910.0000000  0.1000000E+02  0.0000000E+00                 910    1
+    920.0000000  0.1000000E+02  0.0000000E+00                 920    1
+    930.0000000  0.1000000E+02  0.0000000E+00                 930    1
+    940.0000000  0.1000000E+02  0.0000000E+00                 940    1
+    950.0000000  0.1000000E+02  0.0000000E+00                 950    1
+    960.0000000  0.1000000E+02  0.0000000E+00                 960    1
+    970.0000000  0.1000000E+02  0.0000000E+00                 970    1
+    980.0000000  0.1000000E+02  0.0000000E+00                 980    1
+    990.0000000  0.1000000E+02  0.0000000E+00                 990    1
+   1000.0000000  0.1000000E+02  0.0000000E+00                1000    1
+ ##################################
+ 
+ ----------simulation unit <initiate> started----------
+ unit temperature=  0.000000000000000E+000
+ unit time=  0.000000000000000E+000
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=  0.000000000000000E+000
+ ---------simulation unit <initiate> finished----------
+ 
+ ----------simulation unit <cool_795> started----------
+ unit temperature=   795.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   4.93750000000000     
+ overall CPU simulation time comsuption=   4.93750000000000     
+ ---------simulation unit <cool_795> finished----------
+ 
+ ----------simulation unit <cool_790> started----------
+ unit temperature=   790.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   2.95312500000000     
+ overall CPU simulation time comsuption=   7.89062500000000     
+ ---------simulation unit <cool_790> finished----------
+ 
+ ----------simulation unit <cool_785> started----------
+ unit temperature=   785.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   1.56250000000000     
+ overall CPU simulation time comsuption=   9.45312500000000     
+ ---------simulation unit <cool_785> finished----------
+ 
+ ----------simulation unit <cool_780> started----------
+ unit temperature=   780.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   1.35937500000000     
+ overall CPU simulation time comsuption=   10.8125000000000     
+ ---------simulation unit <cool_780> finished----------
+ 
+ ----------simulation unit <cool_775> started----------
+ unit temperature=   775.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   1.18750000000000     
+ overall CPU simulation time comsuption=   12.0000000000000     
+ ---------simulation unit <cool_775> finished----------
+ 
+ ----------simulation unit <cool_770> started----------
+ unit temperature=   770.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   1.21875000000000     
+ overall CPU simulation time comsuption=   13.2187500000000     
+ ---------simulation unit <cool_770> finished----------
+ 
+ ----------simulation unit <cool_765> started----------
+ unit temperature=   765.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.812500000000000     
+ overall CPU simulation time comsuption=   14.0312500000000     
+ ---------simulation unit <cool_765> finished----------
+ 
+ ----------simulation unit <cool_760> started----------
+ unit temperature=   760.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.625000000000000     
+ overall CPU simulation time comsuption=   14.6562500000000     
+ ---------simulation unit <cool_760> finished----------
+ 
+ ----------simulation unit <cool_755> started----------
+ unit temperature=   755.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.343750000000000     
+ overall CPU simulation time comsuption=   15.0000000000000     
+ ---------simulation unit <cool_755> finished----------
+ 
+ ----------simulation unit <cool_750> started----------
+ unit temperature=   750.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.500000000000000     
+ overall CPU simulation time comsuption=   15.5000000000000     
+ ---------simulation unit <cool_750> finished----------
+ 
+ ----------simulation unit <cool_745> started----------
+ unit temperature=   745.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.437500000000000     
+ overall CPU simulation time comsuption=   15.9375000000000     
+ ---------simulation unit <cool_745> finished----------
+ 
+ ----------simulation unit <cool_740> started----------
+ unit temperature=   740.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  6.250000000000000E-002
+ overall CPU simulation time comsuption=   16.0000000000000     
+ ---------simulation unit <cool_740> finished----------
+ 
+ ----------simulation unit <cool_735> started----------
+ unit temperature=   735.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.125000000000000     
+ overall CPU simulation time comsuption=   16.1250000000000     
+ ---------simulation unit <cool_735> finished----------
+ 
+ ----------simulation unit <cool_730> started----------
+ unit temperature=   730.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  7.812500000000000E-002
+ overall CPU simulation time comsuption=   16.2031250000000     
+ ---------simulation unit <cool_730> finished----------
+ 
+ ----------simulation unit <cool_725> started----------
+ unit temperature=   725.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  7.812500000000000E-002
+ overall CPU simulation time comsuption=   16.2812500000000     
+ ---------simulation unit <cool_725> finished----------
+ 
+ ----------simulation unit <cool_720> started----------
+ unit temperature=   720.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.109375000000000     
+ overall CPU simulation time comsuption=   16.3906250000000     
+ ---------simulation unit <cool_720> finished----------
+ 
+ ----------simulation unit <cool_715> started----------
+ unit temperature=   715.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  9.375000000000000E-002
+ overall CPU simulation time comsuption=   16.4843750000000     
+ ---------simulation unit <cool_715> finished----------
+ 
+ ----------simulation unit <cool_710> started----------
+ unit temperature=   710.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  7.812500000000000E-002
+ overall CPU simulation time comsuption=   16.5625000000000     
+ ---------simulation unit <cool_710> finished----------
+ 
+ ----------simulation unit <cool_705> started----------
+ unit temperature=   705.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  9.375000000000000E-002
+ overall CPU simulation time comsuption=   16.6562500000000     
+ ---------simulation unit <cool_705> finished----------
+ 
+ ----------simulation unit <cool_700> started----------
+ unit temperature=   700.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  6.250000000000000E-002
+ overall CPU simulation time comsuption=   16.7187500000000     
+ ---------simulation unit <cool_700> finished----------
+ 
+ ----------simulation unit <cool_695> started----------
+ unit temperature=   695.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.125000000000000     
+ overall CPU simulation time comsuption=   16.8437500000000     
+ ---------simulation unit <cool_695> finished----------
+ 
+ ----------simulation unit <cool_690> started----------
+ unit temperature=   690.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  3.125000000000000E-002
+ overall CPU simulation time comsuption=   16.8750000000000     
+ ---------simulation unit <cool_690> finished----------
+ 
+ ----------simulation unit <cool_685> started----------
+ unit temperature=   685.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  3.125000000000000E-002
+ overall CPU simulation time comsuption=   16.9062500000000     
+ ---------simulation unit <cool_685> finished----------
+ 
+ ----------simulation unit <cool_680> started----------
+ unit temperature=   680.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  4.687500000000000E-002
+ overall CPU simulation time comsuption=   16.9531250000000     
+ ---------simulation unit <cool_680> finished----------
+ 
+ ----------simulation unit <cool_675> started----------
+ unit temperature=   675.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   16.9531250000000     
+ ---------simulation unit <cool_675> finished----------
+ 
+ ----------simulation unit <cool_670> started----------
+ unit temperature=   670.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  1.562500000000000E-002
+ overall CPU simulation time comsuption=   16.9687500000000     
+ ---------simulation unit <cool_670> finished----------
+ 
+ ----------simulation unit <cool_665> started----------
+ unit temperature=   665.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   16.9687500000000     
+ ---------simulation unit <cool_665> finished----------
+ 
+ ----------simulation unit <cool_660> started----------
+ unit temperature=   660.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  1.562500000000000E-002
+ overall CPU simulation time comsuption=   16.9843750000000     
+ ---------simulation unit <cool_660> finished----------
+ 
+ ----------simulation unit <cool_655> started----------
+ unit temperature=   655.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   16.9843750000000     
+ ---------simulation unit <cool_655> finished----------
+ 
+ ----------simulation unit <cool_650> started----------
+ unit temperature=   650.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   16.9843750000000     
+ ---------simulation unit <cool_650> finished----------
+ 
+ ----------simulation unit <cool_645> started----------
+ unit temperature=   645.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   16.9843750000000     
+ ---------simulation unit <cool_645> finished----------
+ 
+ ----------simulation unit <cool_640> started----------
+ unit temperature=   640.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   16.9843750000000     
+ ---------simulation unit <cool_640> finished----------
+ 
+ ----------simulation unit <cool_635> started----------
+ unit temperature=   635.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  1.562500000000000E-002
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_635> finished----------
+ 
+ ----------simulation unit <cool_630> started----------
+ unit temperature=   630.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_630> finished----------
+ 
+ ----------simulation unit <cool_625> started----------
+ unit temperature=   625.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_625> finished----------
+ 
+ ----------simulation unit <cool_620> started----------
+ unit temperature=   620.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_620> finished----------
+ 
+ ----------simulation unit <cool_615> started----------
+ unit temperature=   615.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_615> finished----------
+ 
+ ----------simulation unit <cool_610> started----------
+ unit temperature=   610.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_610> finished----------
+ 
+ ----------simulation unit <cool_605> started----------
+ unit temperature=   605.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_605> finished----------
+ 
+ ----------simulation unit <cool_600> started----------
+ unit temperature=   600.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_600> finished----------
+ 
+ ----------simulation unit <cool_595> started----------
+ unit temperature=   595.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_595> finished----------
+ 
+ ----------simulation unit <cool_590> started----------
+ unit temperature=   590.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_590> finished----------
+ 
+ ----------simulation unit <cool_585> started----------
+ unit temperature=   585.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_585> finished----------
+ 
+ ----------simulation unit <cool_580> started----------
+ unit temperature=   580.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_580> finished----------
+ 
+ ----------simulation unit <cool_575> started----------
+ unit temperature=   575.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_575> finished----------
+ 
+ ----------simulation unit <cool_570> started----------
+ unit temperature=   570.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_570> finished----------
+ 
+ ----------simulation unit <cool_565> started----------
+ unit temperature=   565.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_565> finished----------
+ 
+ ----------simulation unit <cool_560> started----------
+ unit temperature=   560.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_560> finished----------
+ 
+ ----------simulation unit <cool_555> started----------
+ unit temperature=   555.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_555> finished----------
+ 
+ ----------simulation unit <cool_550> started----------
+ unit temperature=   550.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_550> finished----------
+ 
+ ----------simulation unit <cool_545> started----------
+ unit temperature=   545.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_545> finished----------
+ 
+ ----------simulation unit <cool_540> started----------
+ unit temperature=   540.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_540> finished----------
+ 
+ ----------simulation unit <cool_535> started----------
+ unit temperature=   535.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_535> finished----------
+ 
+ ----------simulation unit <cool_530> started----------
+ unit temperature=   530.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_530> finished----------
+ 
+ ----------simulation unit <cool_525> started----------
+ unit temperature=   525.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_525> finished----------
+ 
+ ----------simulation unit <cool_520> started----------
+ unit temperature=   520.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_520> finished----------
+ 
+ ----------simulation unit <cool_515> started----------
+ unit temperature=   515.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_515> finished----------
+ 
+ ----------simulation unit <cool_510> started----------
+ unit temperature=   510.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_510> finished----------
+ 
+ ----------simulation unit <cool_505> started----------
+ unit temperature=   505.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_505> finished----------
+ 
+ ----------simulation unit <cool_500> started----------
+ unit temperature=   500.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_500> finished----------
+ 
+ ----------simulation unit <cool_495> started----------
+ unit temperature=   495.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_495> finished----------
+ 
+ ----------simulation unit <cool_490> started----------
+ unit temperature=   490.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_490> finished----------
+ 
+ ----------simulation unit <cool_485> started----------
+ unit temperature=   485.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_485> finished----------
+ 
+ ----------simulation unit <cool_480> started----------
+ unit temperature=   480.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_480> finished----------
+ 
+ ----------simulation unit <cool_475> started----------
+ unit temperature=   475.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_475> finished----------
+ 
+ ----------simulation unit <cool_470> started----------
+ unit temperature=   470.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_470> finished----------
+ 
+ ----------simulation unit <cool_465> started----------
+ unit temperature=   465.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_465> finished----------
+ 
+ ----------simulation unit <cool_460> started----------
+ unit temperature=   460.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_460> finished----------
+ 
+ ----------simulation unit <cool_455> started----------
+ unit temperature=   455.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_455> finished----------
+ 
+ ----------simulation unit <cool_450> started----------
+ unit temperature=   450.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_450> finished----------
+ 
+ ----------simulation unit <cool_445> started----------
+ unit temperature=   445.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_445> finished----------
+ 
+ ----------simulation unit <cool_440> started----------
+ unit temperature=   440.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_440> finished----------
+ 
+ ----------simulation unit <cool_435> started----------
+ unit temperature=   435.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_435> finished----------
+ 
+ ----------simulation unit <cool_430> started----------
+ unit temperature=   430.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_430> finished----------
+ 
+ ----------simulation unit <cool_425> started----------
+ unit temperature=   425.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_425> finished----------
+ 
+ ----------simulation unit <cool_420> started----------
+ unit temperature=   420.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_420> finished----------
+ 
+ ----------simulation unit <cool_415> started----------
+ unit temperature=   415.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_415> finished----------
+ 
+ ----------simulation unit <cool_410> started----------
+ unit temperature=   410.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_410> finished----------
+ 
+ ----------simulation unit <cool_405> started----------
+ unit temperature=   405.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_405> finished----------
+ 
+ ----------simulation unit <cool_400> started----------
+ unit temperature=   400.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_400> finished----------
+ 
+ ----------simulation unit <cool_395> started----------
+ unit temperature=   395.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_395> finished----------
+ 
+ ----------simulation unit <cool_390> started----------
+ unit temperature=   390.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_390> finished----------
+ 
+ ----------simulation unit <cool_385> started----------
+ unit temperature=   385.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_385> finished----------
+ 
+ ----------simulation unit <cool_380> started----------
+ unit temperature=   380.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_380> finished----------
+ 
+ ----------simulation unit <cool_375> started----------
+ unit temperature=   375.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_375> finished----------
+ 
+ ----------simulation unit <cool_370> started----------
+ unit temperature=   370.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_370> finished----------
+ 
+ ----------simulation unit <cool_365> started----------
+ unit temperature=   365.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_365> finished----------
+ 
+ ----------simulation unit <cool_360> started----------
+ unit temperature=   360.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_360> finished----------
+ 
+ ----------simulation unit <cool_355> started----------
+ unit temperature=   355.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_355> finished----------
+ 
+ ----------simulation unit <cool_350> started----------
+ unit temperature=   350.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_350> finished----------
+ 
+ ----------simulation unit <cool_345> started----------
+ unit temperature=   345.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_345> finished----------
+ 
+ ----------simulation unit <cool_340> started----------
+ unit temperature=   340.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_340> finished----------
+ 
+ ----------simulation unit <cool_335> started----------
+ unit temperature=   335.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_335> finished----------
+ 
+ ----------simulation unit <cool_330> started----------
+ unit temperature=   330.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_330> finished----------
+ 
+ ----------simulation unit <cool_325> started----------
+ unit temperature=   325.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_325> finished----------
+ 
+ ----------simulation unit <cool_320> started----------
+ unit temperature=   320.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_320> finished----------
+ 
+ ----------simulation unit <cool_315> started----------
+ unit temperature=   315.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_315> finished----------
+ 
+ ----------simulation unit <cool_310> started----------
+ unit temperature=   310.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_310> finished----------
+ 
+ ----------simulation unit <cool_305> started----------
+ unit temperature=   305.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_305> finished----------
+ 
+ ----------simulation unit <cool_300> started----------
+ unit temperature=   300.000000000000     
+ unit time=   60.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <cool_300> finished----------
+ 
+ ----------simulation unit <after_ann> started----------
+ unit temperature=   300.000000000000     
+ unit time=   300.000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0000000000000     
+ ---------simulation unit <after_ann> finished----------
+ 
+ ----------simulation unit <implantation01> started----------
+ unit temperature=   300.000000000000     
+ unit time=   20.0000000000000     
+ unit irradiation flux=  5.000000000000000E+016
+ CPU time comsuption of simulation unit=  3.125000000000000E-002
+ overall CPU simulation time comsuption=   17.0312500000000     
+ ---------simulation unit <implantation01> finished----------
+ 
+ ----------simulation unit <implantation02> started----------
+ unit temperature=   300.000000000000     
+ unit time=   20.0000000000000     
+ unit irradiation flux=  5.000000000000000E+016
+ CPU time comsuption of simulation unit=  1.562500000000000E-002
+ overall CPU simulation time comsuption=   17.0468750000000     
+ ---------simulation unit <implantation02> finished----------
+ 
+ ----------simulation unit <implantation03> started----------
+ unit temperature=   300.000000000000     
+ unit time=   20.0000000000000     
+ unit irradiation flux=  5.000000000000000E+016
+ CPU time comsuption of simulation unit=  3.125000000000000E-002
+ overall CPU simulation time comsuption=   17.0781250000000     
+ ---------simulation unit <implantation03> finished----------
+ 
+ ----------simulation unit <implantation04> started----------
+ unit temperature=   300.000000000000     
+ unit time=   20.0000000000000     
+ unit irradiation flux=  5.000000000000000E+016
+ CPU time comsuption of simulation unit=  1.562500000000000E-002
+ overall CPU simulation time comsuption=   17.0937500000000     
+ ---------simulation unit <implantation04> finished----------
+ 
+ ----------simulation unit <implantation05> started----------
+ unit temperature=   300.000000000000     
+ unit time=   20.0000000000000     
+ unit irradiation flux=  5.000000000000000E+016
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0937500000000     
+ ---------simulation unit <implantation05> finished----------
+ 
+ ----------simulation unit <implantation06> started----------
+ unit temperature=   300.000000000000     
+ unit time=   20.0000000000000     
+ unit irradiation flux=  5.000000000000000E+016
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0937500000000     
+ ---------simulation unit <implantation06> finished----------
+ 
+ ----------simulation unit <implantation07> started----------
+ unit temperature=   300.000000000000     
+ unit time=   20.0000000000000     
+ unit irradiation flux=  5.000000000000000E+016
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.0937500000000     
+ ---------simulation unit <implantation07> finished----------
+ 
+ ----------simulation unit <implantation08> started----------
+ unit temperature=   300.000000000000     
+ unit time=   20.0000000000000     
+ unit irradiation flux=  5.000000000000000E+016
+ CPU time comsuption of simulation unit=  1.562500000000000E-002
+ overall CPU simulation time comsuption=   17.1093750000000     
+ ---------simulation unit <implantation08> finished----------
+ 
+ ----------simulation unit <implantation09> started----------
+ unit temperature=   300.000000000000     
+ unit time=   20.0000000000000     
+ unit irradiation flux=  5.000000000000000E+016
+ CPU time comsuption of simulation unit=  1.562500000000000E-002
+ overall CPU simulation time comsuption=   17.1406250000000     
+ ---------simulation unit <implantation09> finished----------
+ 
+ ----------simulation unit <implantation10> started----------
+ unit temperature=   300.000000000000     
+ unit time=   20.0000000000000     
+ unit irradiation flux=  5.000000000000000E+016
+ CPU time comsuption of simulation unit=  1.562500000000000E-002
+ overall CPU simulation time comsuption=   17.1562500000000     
+ ---------simulation unit <implantation10> finished----------
+ 
+ ----------simulation unit <after_imp> started----------
+ unit temperature=   300.000000000000     
+ unit time=   300.000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.1562500000000     
+ ---------simulation unit <after_imp> finished----------
+ 
+ ----------simulation unit <300> started----------
+ unit temperature=   300.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.1562500000000     
+ ---------simulation unit <300> finished----------
+ 
+ ----------simulation unit <310> started----------
+ unit temperature=   310.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.1562500000000     
+ ---------simulation unit <310> finished----------
+ 
+ ----------simulation unit <320> started----------
+ unit temperature=   320.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.1562500000000     
+ ---------simulation unit <320> finished----------
+ 
+ ----------simulation unit <330> started----------
+ unit temperature=   330.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.1562500000000     
+ ---------simulation unit <330> finished----------
+ 
+ ----------simulation unit <340> started----------
+ unit temperature=   340.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.1562500000000     
+ ---------simulation unit <340> finished----------
+ 
+ ----------simulation unit <350> started----------
+ unit temperature=   350.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.1562500000000     
+ ---------simulation unit <350> finished----------
+ 
+ ----------simulation unit <360> started----------
+ unit temperature=   360.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.1562500000000     
+ ---------simulation unit <360> finished----------
+ 
+ ----------simulation unit <370> started----------
+ unit temperature=   370.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.1562500000000     
+ ---------simulation unit <370> finished----------
+ 
+ ----------simulation unit <380> started----------
+ unit temperature=   380.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.1562500000000     
+ ---------simulation unit <380> finished----------
+ 
+ ----------simulation unit <390> started----------
+ unit temperature=   390.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.1562500000000     
+ ---------simulation unit <390> finished----------
+ 
+ ----------simulation unit <400> started----------
+ unit temperature=   400.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.1562500000000     
+ ---------simulation unit <400> finished----------
+ 
+ ----------simulation unit <410> started----------
+ unit temperature=   410.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.1562500000000     
+ ---------simulation unit <410> finished----------
+ 
+ ----------simulation unit <420> started----------
+ unit temperature=   420.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.1562500000000     
+ ---------simulation unit <420> finished----------
+ 
+ ----------simulation unit <430> started----------
+ unit temperature=   430.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.1562500000000     
+ ---------simulation unit <430> finished----------
+ 
+ ----------simulation unit <440> started----------
+ unit temperature=   440.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.1562500000000     
+ ---------simulation unit <440> finished----------
+ 
+ ----------simulation unit <450> started----------
+ unit temperature=   450.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.1562500000000     
+ ---------simulation unit <450> finished----------
+ 
+ ----------simulation unit <460> started----------
+ unit temperature=   460.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.1562500000000     
+ ---------simulation unit <460> finished----------
+ 
+ ----------simulation unit <470> started----------
+ unit temperature=   470.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.1562500000000     
+ ---------simulation unit <470> finished----------
+ 
+ ----------simulation unit <480> started----------
+ unit temperature=   480.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.1562500000000     
+ ---------simulation unit <480> finished----------
+ 
+ ----------simulation unit <490> started----------
+ unit temperature=   490.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.1562500000000     
+ ---------simulation unit <490> finished----------
+ 
+ ----------simulation unit <500> started----------
+ unit temperature=   500.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.1562500000000     
+ ---------simulation unit <500> finished----------
+ 
+ ----------simulation unit <510> started----------
+ unit temperature=   510.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.1562500000000     
+ ---------simulation unit <510> finished----------
+ 
+ ----------simulation unit <520> started----------
+ unit temperature=   520.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.1562500000000     
+ ---------simulation unit <520> finished----------
+ 
+ ----------simulation unit <530> started----------
+ unit temperature=   530.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.1562500000000     
+ ---------simulation unit <530> finished----------
+ 
+ ----------simulation unit <540> started----------
+ unit temperature=   540.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.1718750000000     
+ ---------simulation unit <540> finished----------
+ 
+ ----------simulation unit <550> started----------
+ unit temperature=   550.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.1718750000000     
+ ---------simulation unit <550> finished----------
+ 
+ ----------simulation unit <560> started----------
+ unit temperature=   560.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.1718750000000     
+ ---------simulation unit <560> finished----------
+ 
+ ----------simulation unit <570> started----------
+ unit temperature=   570.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.1718750000000     
+ ---------simulation unit <570> finished----------
+ 
+ ----------simulation unit <580> started----------
+ unit temperature=   580.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  3.125000000000000E-002
+ overall CPU simulation time comsuption=   17.2031250000000     
+ ---------simulation unit <580> finished----------
+ 
+ ----------simulation unit <590> started----------
+ unit temperature=   590.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   17.2031250000000     
+ ---------simulation unit <590> finished----------
+ 
+ ----------simulation unit <600> started----------
+ unit temperature=   600.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  1.562500000000000E-002
+ overall CPU simulation time comsuption=   17.2187500000000     
+ ---------simulation unit <600> finished----------
+ 
+ ----------simulation unit <610> started----------
+ unit temperature=   610.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  1.562500000000000E-002
+ overall CPU simulation time comsuption=   17.2343750000000     
+ ---------simulation unit <610> finished----------
+ 
+ ----------simulation unit <620> started----------
+ unit temperature=   620.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  4.687500000000000E-002
+ overall CPU simulation time comsuption=   17.2968750000000     
+ ---------simulation unit <620> finished----------
+ 
+ ----------simulation unit <630> started----------
+ unit temperature=   630.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  4.687500000000000E-002
+ overall CPU simulation time comsuption=   17.3437500000000     
+ ---------simulation unit <630> finished----------
+ 
+ ----------simulation unit <640> started----------
+ unit temperature=   640.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.125000000000000     
+ overall CPU simulation time comsuption=   17.4687500000000     
+ ---------simulation unit <640> finished----------
+ 
+ ----------simulation unit <650> started----------
+ unit temperature=   650.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.265625000000000     
+ overall CPU simulation time comsuption=   17.7343750000000     
+ ---------simulation unit <650> finished----------
+ 
+ ----------simulation unit <660> started----------
+ unit temperature=   660.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.406250000000000     
+ overall CPU simulation time comsuption=   18.1562500000000     
+ ---------simulation unit <660> finished----------
+ 
+ ----------simulation unit <670> started----------
+ unit temperature=   670.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.453125000000000     
+ overall CPU simulation time comsuption=   18.6093750000000     
+ ---------simulation unit <670> finished----------
+ 
+ ----------simulation unit <680> started----------
+ unit temperature=   680.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.546875000000000     
+ overall CPU simulation time comsuption=   19.1875000000000     
+ ---------simulation unit <680> finished----------
+ 
+ ----------simulation unit <690> started----------
+ unit temperature=   690.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.703125000000000     
+ overall CPU simulation time comsuption=   19.9062500000000     
+ ---------simulation unit <690> finished----------
+ 
+ ----------simulation unit <700> started----------
+ unit temperature=   700.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.765625000000000     
+ overall CPU simulation time comsuption=   20.6718750000000     
+ ---------simulation unit <700> finished----------
+ 
+ ----------simulation unit <710> started----------
+ unit temperature=   710.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.703125000000000     
+ overall CPU simulation time comsuption=   21.3750000000000     
+ ---------simulation unit <710> finished----------
+ 
+ ----------simulation unit <720> started----------
+ unit temperature=   720.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   1.45312500000000     
+ overall CPU simulation time comsuption=   22.8437500000000     
+ ---------simulation unit <720> finished----------
+ 
+ ----------simulation unit <730> started----------
+ unit temperature=   730.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   3.93750000000000     
+ overall CPU simulation time comsuption=   26.8125000000000     
+ ---------simulation unit <730> finished----------
+ 
+ ----------simulation unit <740> started----------
+ unit temperature=   740.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   4.82812500000000     
+ overall CPU simulation time comsuption=   31.6562500000000     
+ ---------simulation unit <740> finished----------
+ 
+ ----------simulation unit <750> started----------
+ unit temperature=   750.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   5.84375000000000     
+ overall CPU simulation time comsuption=   37.5000000000000     
+ ---------simulation unit <750> finished----------
+ 
+ ----------simulation unit <760> started----------
+ unit temperature=   760.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   8.20312500000000     
+ overall CPU simulation time comsuption=   45.7031250000000     
+ ---------simulation unit <760> finished----------
+ 
+ ----------simulation unit <770> started----------
+ unit temperature=   770.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   10.2031250000000     
+ overall CPU simulation time comsuption=   55.9062500000000     
+ ---------simulation unit <770> finished----------
+ 
+ ----------simulation unit <780> started----------
+ unit temperature=   780.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   8.23437500000000     
+ overall CPU simulation time comsuption=   64.1406250000000     
+ ---------simulation unit <780> finished----------
+ 
+ ----------simulation unit <790> started----------
+ unit temperature=   790.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   10.0625000000000     
+ overall CPU simulation time comsuption=   74.2187500000000     
+ ---------simulation unit <790> finished----------
+ 
+ ----------simulation unit <800> started----------
+ unit temperature=   800.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   6.59375000000000     
+ overall CPU simulation time comsuption=   80.8125000000000     
+ ---------simulation unit <800> finished----------
+ 
+ ----------simulation unit <810> started----------
+ unit temperature=   810.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   2.43750000000000     
+ overall CPU simulation time comsuption=   83.2500000000000     
+ ---------simulation unit <810> finished----------
+ 
+ ----------simulation unit <820> started----------
+ unit temperature=   820.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   1.09375000000000     
+ overall CPU simulation time comsuption=   84.3437500000000     
+ ---------simulation unit <820> finished----------
+ 
+ ----------simulation unit <830> started----------
+ unit temperature=   830.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   1.43750000000000     
+ overall CPU simulation time comsuption=   85.7812500000000     
+ ---------simulation unit <830> finished----------
+ 
+ ----------simulation unit <840> started----------
+ unit temperature=   840.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   1.59375000000000     
+ overall CPU simulation time comsuption=   87.3750000000000     
+ ---------simulation unit <840> finished----------
+ 
+ ----------simulation unit <850> started----------
+ unit temperature=   850.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   1.67187500000000     
+ overall CPU simulation time comsuption=   89.0468750000000     
+ ---------simulation unit <850> finished----------
+ 
+ ----------simulation unit <860> started----------
+ unit temperature=   860.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=  0.984375000000000     
+ overall CPU simulation time comsuption=   90.0312500000000     
+ ---------simulation unit <860> finished----------
+ 
+ ----------simulation unit <870> started----------
+ unit temperature=   870.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   6.32812500000000     
+ overall CPU simulation time comsuption=   96.3593750000000     
+ ---------simulation unit <870> finished----------
+ 
+ ----------simulation unit <880> started----------
+ unit temperature=   880.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   9.82812500000000     
+ overall CPU simulation time comsuption=   106.203125000000     
+ ---------simulation unit <880> finished----------
+ 
+ ----------simulation unit <890> started----------
+ unit temperature=   890.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   10.2968750000000     
+ overall CPU simulation time comsuption=   116.515625000000     
+ ---------simulation unit <890> finished----------
+ 
+ ----------simulation unit <900> started----------
+ unit temperature=   900.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   8.76562500000000     
+ overall CPU simulation time comsuption=   125.312500000000     
+ ---------simulation unit <900> finished----------
+ 
+ ----------simulation unit <910> started----------
+ unit temperature=   910.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   9.28125000000000     
+ overall CPU simulation time comsuption=   134.593750000000     
+ ---------simulation unit <910> finished----------
+ 
+ ----------simulation unit <920> started----------
+ unit temperature=   920.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   9.96875000000000     
+ overall CPU simulation time comsuption=   144.578125000000     
+ ---------simulation unit <920> finished----------
+ 
+ ----------simulation unit <930> started----------
+ unit temperature=   930.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   11.0625000000000     
+ overall CPU simulation time comsuption=   155.656250000000     
+ ---------simulation unit <930> finished----------
+ 
+ ----------simulation unit <940> started----------
+ unit temperature=   940.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   9.40625000000000     
+ overall CPU simulation time comsuption=   165.062500000000     
+ ---------simulation unit <940> finished----------
+ 
+ ----------simulation unit <950> started----------
+ unit temperature=   950.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   10.5625000000000     
+ overall CPU simulation time comsuption=   175.625000000000     
+ ---------simulation unit <950> finished----------
+ 
+ ----------simulation unit <960> started----------
+ unit temperature=   960.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   12.5781250000000     
+ overall CPU simulation time comsuption=   188.203125000000     
+ ---------simulation unit <960> finished----------
+ 
+ ----------simulation unit <970> started----------
+ unit temperature=   970.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   15.7031250000000     
+ overall CPU simulation time comsuption=   203.906250000000     
+ ---------simulation unit <970> finished----------
+ 
+ ----------simulation unit <980> started----------
+ unit temperature=   980.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   14.0000000000000     
+ overall CPU simulation time comsuption=   217.906250000000     
+ ---------simulation unit <980> finished----------
+ 
+ ----------simulation unit <990> started----------
+ unit temperature=   990.000000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   7.73437500000000     
+ overall CPU simulation time comsuption=   225.640625000000     
+ ---------simulation unit <990> finished----------
+ 
+ ----------simulation unit <1000> started----------
+ unit temperature=   1000.00000000000     
+ unit time=   10.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+ CPU time comsuption of simulation unit=   8.35937500000000     
+ overall CPU simulation time comsuption=   234.015625000000     
+ ---------simulation unit <1000> finished----------
+ 
+ 
+ All simulation units completed
+ Total CPU time=   234.015625000000     
