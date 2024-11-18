@@ -71,12 +71,12 @@ subroutine cfg2okmc()
     do i=1,filelines-19
         if(defect_type(i,2)==ion_previous(defect_type(i,1)))then
             !与上一同类缺陷属于同一cascade
-            write(1000+defect_type(i,1),*)defect_type(i,2),coord(i,3),coord(i,1),coord(i,2)
+            write(1000+defect_type(i,1),*)defect_type(i,2),coord(i,:)
         else
             !与上一同类缺陷属于不同cascade
             if(defect_type(i,2)==ion_previous(defect_type(i,1))+1)then
                 !属于下一cascade产生的缺陷
-                write(1000+defect_type(i,1),*)defect_type(i,2),coord(i,3),coord(i,1),coord(i,2)
+                write(1000+defect_type(i,1),*)defect_type(i,2),coord(i,:)
                 ion_previous(defect_type(i,1))=ion_previous(defect_type(i,1))+1
             else
                 !下一cascade没有产生该类缺陷，自动填入空缺陷
@@ -84,7 +84,7 @@ subroutine cfg2okmc()
                     ion_previous(defect_type(i,1))=ion_previous(defect_type(i,1))+1
                     write(1000+defect_type(i,1),*)ion_previous(defect_type(i,1)),-10000,-10000,-10000
                 enddo
-                write(1000+defect_type(i,1),*)defect_type(i,2),coord(i,3),coord(i,1),coord(i,2)
+                write(1000+defect_type(i,1),*)defect_type(i,2),coord(i,:)
                 ion_previous(defect_type(i,1))=ion_previous(defect_type(i,1))+1
             endif
         endif
