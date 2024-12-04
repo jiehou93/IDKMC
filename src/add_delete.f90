@@ -1,10 +1,10 @@
-    subroutine add(coord,orien,formula)
+    subroutine add(coord_in,orien,formula)
     !添加团簇子程序，将团簇添加至团簇列表的尾部，并更新元胞列表和二叉树速率
     use typ
     use intf
     implicit none
     integer*4 i,j,n,formula(element),orien,a,b,c,nclu1
-    real*8 coord(3)
+    real*8 coord(3),coord_in(3)
     real*8,external::parameters
 
     if(nclu>=size(clu)-1) call extend()                     !注意clu(0)不在nclu统计范围内
@@ -14,6 +14,7 @@
     nclu=nclu+1                                             !团簇总数+1
     clu(nclu)%r=parameters(4,formula)                       !团簇的俘获半径
 
+    coord=coord_in-floor(coord_in/length)*length                  !PBC correction
     if(clu(nclu)%r<critical_radius)then                     !根据团簇大小判断加入哪个元胞列表
         a=coord(1)/cell_size(1)+1                                !计算添加团簇所在的元胞位置
         b=coord(2)/cell_size(2)+1

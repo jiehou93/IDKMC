@@ -2,7 +2,7 @@
     !∂¡»°ππ–Õ
     use typ
     implicit none
-    integer*4 i,j,orien,formula(element),num,GetFileN,file_lines,string_length,note_location
+    integer*4 i,j,orien,formula(element),num,GetFileN,file_lines,string_length,note_location,pbc_check(3)
     real*8 distance,ran1,ran2,ran3,ran4,alpha,beta,coord(3),box(3,2)
     character*300 dummy_string
     
@@ -23,6 +23,10 @@
                 endif
 
                 read(dummy_string(1:string_length),*)coord,formula,orien
+                pbc_check=coord/length+1
+                if(pbc_check(1)*pbc_check(2)*pbc_check(3)/=1)then
+                    write(10,*)'Warrning, cluster',i,'is not in the simulation box, wrapping with PBC...'
+                endif
                 call add(coord,orien,formula)
             enddo
             write(10,*)file_lines, 'clusters successfully loaded'
@@ -56,6 +60,10 @@
                 endif
 
                 read(dummy_string(1:string_length),*)coord,formula,orien
+                pbc_check=coord/length+1
+                if(pbc_check(1)*pbc_check(2)*pbc_check(3)/=1)then
+                    write(10,*)'Warrning, cluster',i,'is not in the simulation box, wrapping with PBC...'
+                endif
                 call add(coord,orien,formula)
             enddo
             write(10,*)file_lines, 'clusters successfully loaded'          

@@ -27,7 +27,6 @@
 
     if(coord(implant_direction)>surface_depth)then                                  !小于0表示离子离开靶材
         coord=rand_coord+coord
-        coord=coord-floor(coord/length)*length                      !周期性边界条件矫正
         formula=(/0,0,0,0/)
 		formula(ion_type)=1;
         call add_and_vicinity(coord,orien,formula)                  !添加指定类型原子
@@ -38,7 +37,6 @@
         coord=cascade(ion_number)%vac_coord(:,i)
         if(coord(implant_direction)>surface_depth)then
             coord=rand_coord+coord
-            coord=coord-floor(coord/length)*length                  !周期性边界条件矫正
             call RANDOM_NUMBER(ran1)
             orien=ran1*8+1                                          !随机方向
             formula=(/1,0,0,0/)
@@ -50,7 +48,6 @@
         coord=cascade(ion_number)%SIA_coord(:,i)
         if(coord(implant_direction)>surface_depth)then
             coord=rand_coord+coord
-            coord=coord-floor(coord/length)*length                  !周期性边界条件矫正
             call RANDOM_NUMBER(ran1)
             orien=ran1*8+1                                          !随机方向
             formula=(/-1,0,0,0/)

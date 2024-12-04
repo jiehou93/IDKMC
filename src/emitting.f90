@@ -45,7 +45,7 @@
     call RANDOM_NUMBER(ran1)
     orien2=ran1*8+1
     x2=x+(radius1+radius2+mig_step)*move(:,orien2)          !单团簇解离后的坐标
-    x2=x2-floor(x2/length)*length                           !周期性边界条件矫正   
+ 
 
     
 

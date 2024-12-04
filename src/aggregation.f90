@@ -138,7 +138,6 @@
                 x2=x1+(x1-x)*abs(eigen)/(abs(eigen1)+abs(eigen))
             endif
         endif
-        x2=x2-floor(x2/length)*length
     endif
                 
 
