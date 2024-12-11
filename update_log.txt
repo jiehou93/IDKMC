@@ -1,0 +1,86 @@
+20241211
+增加了avi.xyz.cfg转换为ION/SIA/VAC.txt文件时的完整性检查，确保三个文件中生成的ION数量相等
+
+20241113
+添加了对IM3D输出文件aiv.xyz.cfg的支持，可以用该文件替代ION/SIA/VAC.txt文件作为输入
+
+20241105
+CONTROLLING.txt改名为CONTROL.txt
+INPUT中参数名变化：isoeff→iso_eff，iontype→ion_type
+元胞的数据结构由数组改为指针链表，内存自动分配，删除INPUT中的cell_capacity和large_cell_capacity参数
+默认通过box_length设置盒子大小，元胞大小、数量自动计算，critical radius设置为cell_size最小值的一半
+当体系生成的缺陷未在PARA.txt中定义时，输出warning，并将其自动设为不稳定，发射团簇内含量最多的点缺陷
+warning信息优化：删除了warning.txt，warning都集成到monitor.txt输出，新增文件检查功能，会在程序开始时检查必要文件是否丢失
+添加了指定随机数种子功能
+删除了explicit spherical grain的相关代码，仅采用implicit grain boundary
+修改了点缺陷步长为0的时候，团簇发射点缺陷后会立刻聚合的bug，现在修改为点缺陷在发射时至少移动0.1 A
+
+20240803
+时间增量修改为-1/rtot*log(random)
+修改了unit的结束时间判据，取消1e-30的最小速率判据，当第一步的时间增量大于unit_time时，不进行任何操作，直接结束该unit
+
+20240511
+添加了同位素功能
+添加了lmp格式的io支持
+
+20220607
+修复了无法读取纯tab符号行的bug
+
+20190813
+添加cluster_remained 输出
+
+
+20190701
+即使当前盒子中没有任何缺陷，模拟结束时也会输出一个空文件，防止与之前的模拟结果混淆
+最小速率调低至1e-30，以模拟超长时间演化
+
+20190528
+修复了上一版本中，非本征缺陷团簇时，坐标清零的bug
+
+20190517
+修改了aggregation的坐标计算方式
+旧版本中，聚合物的坐标等于较大反应物的坐标
+新版本当中，根据聚合物坐标为反应物的加权平均值，权值取正比于反应物中所含本征缺陷数目（考虑正负号）的数量
+
+20190516
+设置默认critical_radius为grid最小边长的一半
+增加grain absorption功能，每次扩散都有一定几率被grain吸收，吸收概率=2.5(d/R_GB)^2
+
+20190514
+修改了ION/SIA/VAC的坐标轴读取方式，现在在OKMC中不再进行xyz->zxy坐标轴旋转
+修复了0423-0509版本中，defect transmit只在z方向发生的bug
+
+20190509
+修改了PBC坐标的计算算法
+
+20190423
+修改PBC的定义方式，现在PBC由一个1x3数组描述
+增加uniform_damage参数，描述辐照级联是否在三个维度均匀分布
+移除CONTROLLING中的irradiation type参数，电子辐照通过修改辐照参数库和设置uniform_damage参数的方式定义
+
+201807
+修改能量参数库默认设置，不再要求必须再PARA.txt内定义所有团簇的参数。未在PARA.txt中定义的参数会被自动设置为不稳定团簇。
+
+201804
+新增nucleation rate计算模块
+
+20171114
+修复了读取第四组分时产生的bug
+
+20151019
+优化了离子注入数据库的存储方式，大幅度减少内存开销，但增加载入耗时
+
+20150915
+文件读入时，自动判断跳过空行、仅含空格与制表符的行
+增加系统自检程序，检查基本的错误
+
+20150913
+修复了聚合缺陷被表面吸附时出错的Bug
+
+20151030
+cell_capacity 和 large_cell_capacity现在按体积自动计算，而非手动定义
+
+20151029
+将H与空位团簇的极限定扎能从1.95eV提高至2.16eV
+
+

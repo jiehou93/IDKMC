@@ -1,7 +1,7 @@
 fc = ifort
-target = okmc.x
+target = IDKMC
 source1 = *.f90
-source0 = default_setting.f90 global.f90
+source0 = default_setting.f90 global.f90 interface.f90
 object = *.o
  
 $(target): $(source1)
