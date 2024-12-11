@@ -25,6 +25,9 @@
         write(10,*)'Neither box_length nor cell grid is defined, no way to continue.'
         stop
     endif
+    !增加浮点偏移，防止缺陷正好落在边界上时因浮点误差导致越界
+    cell_size=cell_size+1E-6
+    large_cell_size=large_cell_size+1E-6
         
     surface_area=1
     do i=1,3

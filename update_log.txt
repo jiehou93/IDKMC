@@ -1,5 +1,8 @@
 20241211
 增加了avi.xyz.cfg转换为ION/SIA/VAC.txt文件时的完整性检查，确保三个文件中生成的ION数量相等
+合并cluster_remain defect_remain defect_transmitted defect_released grain_released文件的输出信息至defect_statistic文件
+增加了output_rate参数，控制缺陷构型输出时是否添加速率信息，默认为0，若设为1，则会额外输出团簇的单向迁移、转向迁移、发射点缺陷的动力学速率
+添加了缺陷团簇的选择性输出功能，由CONTROL文件的第五列参数“输出类型”控制。取值0时不输出任何团簇，取值为1时输出所有缺陷团簇（这部分与旧版本一致）。取值为2/3/4/5时，仅输出f1/f2/f3/f4组分不等于0的缺陷团簇
 
 20241113
 添加了对IM3D输出文件aiv.xyz.cfg的支持，可以用该文件替代ION/SIA/VAC.txt文件作为输入

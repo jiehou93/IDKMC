@@ -74,43 +74,90 @@
     
     end subroutine load_cfg
     
-    subroutine write_cfg(file_name)
+    subroutine write_cfg(file_name,unit_outp)
     !读取构型
     use typ
     implicit none
-    integer*4 i,j,orien,formula(element),num,GetFileN,file_lines,string_length,note_location
+    integer*4 i,j,orien,formula(element),num,GetFileN,file_lines,string_length,note_location,unit_outp,selective_output,n_outp
     real*8 distance,ran1,ran2,ran3,ran4,alpha,beta,coord(3),box(3,2)
     character*300 dummy_string,file_name
     
+    if(unit_outp==0) return !不进行输出，直接返回
+    
+    selective_output=unit_outp-1
     if(cfg_type=='txt')then
         file_name=trim(adjustl(file_name))//'.txt'                                  
         open(110,file=trim(adjustl(file_name)),status='replace')
-            do i=1,nclu
-                write(110,'(1x,3F16.6,5I6)')clu(i)%coord,clu(i)%formula,clu(i)%orien !详细构型
-            enddo
-        close(110)
     elseif(cfg_type=='lmp')then
         file_name=trim(adjustl(file_name))//'.lmp'                                  
         open(110,file=trim(adjustl(file_name)),status='replace')
-        
-            !文件头
-            write(110,'(A,L)')'ITEM: TIMESTEP'
-            write(110,'(A,L)')'0'
-            write(110,'(A,L)')'ITEM: NUMBER OF ATOMS'
-            write(110,*)nclu
-            write(110,'(A,L)')'ITEM: BOX BOUNDS pp pp pp'
-            write(110,*)0.0,length(1)
-            write(110,*)0.0,length(2)
-            write(110,*)0.0,length(3)
-            write(110,'(A,L)')'ITEM: ATOMS x y z nV nH f3 f4 orient'
-            
-            !数据
+        !文件头
+        write(110,'(A,L)')'ITEM: TIMESTEP'
+        write(110,'(A,L)')'0'
+        write(110,'(A,L)')'ITEM: NUMBER OF ATOMS'
+        if(selective_output==0)then
+            n_outp=nclu
+        else
+            n_outp=0
             do i=1,nclu
-                write(110,'(1x,3F16.6,5I6)')clu(i)%coord,clu(i)%formula,clu(i)%orien !详细构型
+                if(clu(i)%formula(selective_output)/=0)  n_outp=n_outp+1
             enddo
+        endif
+        write(110,*)n_outp
+            
+        write(110,'(A,L)')'ITEM: BOX BOUNDS pp pp pp'
+        write(110,*)0.0,length(1)
+        write(110,*)0.0,length(2)
+        write(110,*)0.0,length(3)
+        if(output_rate==0)then
+            write(110,'(A,L)')'ITEM: ATOMS x y z f1 f2 f3 f4 orient radius'
+        elseif(output_rate==1)then
+            write(110,'(A,L)')'ITEM: ATOMS x y z f1 f2 f3 f4 orient radius rate_mig rate_rot rate_emit'
+        else
+             write(10,*)'Error, output_rate must be 0 or 1'
+        endif
+        
     else    
         write(10,*)'Error, cfg_type not supported, please choose txt or lmp.'
         stop
     endif
     
+    !详细构型输出
+    if(output_rate==0)then
+        !不输出速率信息
+        if(selective_output==0)then
+            !输出所有缺陷
+            do i=1,nclu
+                write(110,'(1x,3F16.6,5I6,F8.3)')clu(i)%coord,clu(i)%formula,clu(i)%orien,clu(i)%r 
+            enddo
+        else
+            !输出指定类型缺陷
+            do i=1,nclu
+                if((clu(i)%formula(selective_output)/=0))then
+                     write(110,'(1x,3F16.6,5I6,F8.3)')clu(i)%coord,clu(i)%formula,clu(i)%orien,clu(i)%r 
+                endif
+            enddo
+        endif
+    elseif(output_rate==1)then
+        !输出速率信息
+        if(selective_output==0)then
+            !输出所有缺陷
+            do i=1,nclu
+                write(110,'(1x,3F16.6,5I6,F8.3,3E10.3)')clu(i)%coord,clu(i)%formula,clu(i)%orien,clu(i)%r,clu(i)%rate(1),clu(i)%rate(2)-clu(i)%rate(1),clu(i)%rate(3)-clu(i)%rate(2) 
+            enddo
+        else
+            !输出指定类型缺陷
+            do i=1,nclu
+                if((clu(i)%formula(selective_output)/=0))then
+                     write(110,'(1x,3F16.6,5I6,F8.3,3E10.3)')clu(i)%coord,clu(i)%formula,clu(i)%orien,clu(i)%r,clu(i)%rate(1),clu(i)%rate(2)-clu(i)%rate(1),clu(i)%rate(3)-clu(i)%rate(2) 
+                endif
+            enddo
+        endif
+    else
+        write(10,*)'Error, output_rate must be 0 or 1'
+    endif
+    
+    
+    close(110)
+        
     end subroutine write_cfg

@@ -6,12 +6,11 @@ subroutine ctrl_sequence()
     integer*4 i,j,k
 
 
-    open(101,file='defect_remain.txt')
-    open(102,file='defect_released.txt')
-    open(103,file='defect_transmitted.txt')
-    open(104,file='grain_released.txt')
-    open(105,file='cluster_remain.txt')
-
+    open(101,file='defect_statistic.txt')
+    write(101,'(18A10,A20)')'Temp','N_cluster','f1_remain','f2_remain','f3_remain','f4_remain',&
+                                              &'f1_desorb','f2_desorb','f3_desorb','f4_desorb',&
+                                              &'f1_trans' ,'f2_trans' ,'f3_trans' ,'f4_trans' ,&
+                                              &'f1_grain' ,'f2_grain' ,'f3_grain' ,'f4_grain','unit_name'
     call cpu_time(time0)                                                                            !cpu计时
 
     do i=1,nctrl                                                                                    !逐个运行模拟单元
@@ -19,10 +18,6 @@ subroutine ctrl_sequence()
     enddo
 
     close(101)
-    close(102)
-    close(103)
-    close(104)
-    close(105)
 end subroutine ctrl_sequence
 
 subroutine run_unit(unit_tem,unit_time,unit_irr_flux,unit_name,unit_outp)
@@ -61,22 +56,18 @@ subroutine run_unit(unit_tem,unit_time,unit_irr_flux,unit_name,unit_outp)
     
     !输出结果
     file_name=trim(adjustl(unit_name))
-    if(unit_outp==1) then
-        call write_cfg(file_name)                                
-    endif
+
+    call write_cfg(file_name,unit_outp)                                
+ 
 
     !统计数量    
     do i=1,nclu
         defect_remain=defect_remain+clu(i)%formula
     enddo
 
-    write(101,'(4I10,F12.3,A20)')defect_remain,tem,trim(adjustl(unit_name))                                                  !滞留的缺陷
-    write(102,'(4I10,F12.3,A20)')defect_released,tem,trim(adjustl(unit_name))                                                !脱附的缺陷
-    write(103,'(4I10,F12.3,A20)')defect_transmitted,tem,trim(adjustl(unit_name))                                             !透射的缺陷
-    write(104,'(4I10,F12.3,A20)')grain_released,tem,trim(adjustl(unit_name))                                                 !晶界吸收的缺陷
-    write(105,'(I10,F12.3,A20)')nclu,tem,trim(adjustl(unit_name))                                                            !晶界吸收的缺陷
     
-
+    write(101,'(F10.3,17I10,A20)')tem,nclu,defect_remain,defect_released,defect_transmitted,grain_released,trim(adjustl(unit_name))                                                !滞留的缺陷
+    
     write(10,*)'CPU time comsuption of simulation unit=',time2-time1
     write(10,*)'overall CPU simulation time comsuption=',time2-time0
     write(10,*)'---------simulation unit <'//trim(adjustl(unit_name))//'> finished----------'

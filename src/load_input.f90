@@ -67,7 +67,9 @@
     case('cfg_type','CFG_TYPE')                           					!构型输入/输出格式，可设置为txt/lmp，默认为txt
         read(variable_value,*)cfg_type  
     case('damage_type','DAMAGE_TYPE')                           				!辐照损伤文件格式，可设置为txt/cfg，默认为txt
-        read(variable_value,*)damage_type  
+        read(variable_value,*)damage_type 
+    case('output_rate','OUTPUT_RATE')                                       !缺陷构型输出时是否添加速率信息
+        read(variable_value,*)output_rate
     end select
 
 
