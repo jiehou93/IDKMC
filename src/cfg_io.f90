@@ -2,13 +2,16 @@
     !读取构型
     use typ
     implicit none
-    integer*4 i,j,orien,formula(element),num,GetFileN,file_lines,string_length,note_location,pbc_check(3)
+    integer*4 i,j,orien,formula(element),num,GetFileN,file_lines,string_length,note_location,pbc_check(3),stat
     real*8 distance,ran1,ran2,ran3,ran4,alpha,beta,coord(3),box(3,2)
-    character*300 dummy_string
+    character*300 dummy_string,msg
     
     !从指定文件载入初始构型
     if(cfg_type=='txt')then
-        open(2000,file='POSITION.txt',STATUS='OLD')             
+        open(2000,file='POSITION.txt',STATUS='OLD',iostat=stat,iomsg=msg) 
+        if (stat /= 0 ) then
+            return
+        endif
             file_lines=GetFileN(2000)
             write(10,*)'loading ',file_lines, 'clusters from txt file'
             
@@ -32,7 +35,10 @@
             write(10,*)file_lines, 'clusters successfully loaded'
         close(2000)
     elseif(cfg_type=='lmp')then
-        open(2000,file='POSITION.lmp',STATUS='OLD')   
+        open(2000,file='POSITION.lmp',STATUS='OLD',iostat=stat,iomsg=msg) 
+         if (stat /= 0 ) then
+            return
+        endif
             file_lines=GetFileN(2000)
             if(file_lines==0) return
             !读取头文件

@@ -27,7 +27,7 @@
         nctrl=nctrl+1                                                               !新增一个控制单元并赋予读取的参数值
         ctrl_matrix(nctrl)%tem=unit_tem
         ctrl_matrix(nctrl)%time=unit_time
-        ctrl_matrix(nctrl)%irr_flux=unit_irr_flux
+        ctrl_matrix(nctrl)%irr_flux=unit_irr_flux*irr_status                        !若位提供相应文件，这里会自动将辐照通量设为0
         ctrl_matrix(nctrl)%name=unit_name
         ctrl_matrix(nctrl)%outp=unit_outp
     enddo

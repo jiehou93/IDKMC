@@ -7,6 +7,7 @@
     
     integer*4,parameter::main_procedure=1                                           !主进程选择0、调试；1、OKMC模拟
     integer*4,parameter::element=4                                                  !考虑的缺陷种数（SIA和空位视为一类）
+    integer*4,save::irr_status=1                                                    !辐照功能开关，默认为1表示开启，若未提供辐照损伤文件，自动关闭（设为0），此时所有辐照通量会归0
     
     integer*4,save::pbc(3)=(/1,1,0/)                                                !默认2维PBC
     real*8,save::length(3)=(/0,0,0/)                                              !盒子的边长，默认为0，若手动设置该参数，会自动生成大小元胞网格，并忽略大小元胞的手动设置  

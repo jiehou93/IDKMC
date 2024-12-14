@@ -1,11 +1,11 @@
-    subroutine sys_checker()
+    subroutine sys_check()
     !系统自检器，检查是否有明显的数据错误
     use typ
     implicit none
-    integer*4 i,j,k,l,GetFileN,file_lines,string_length,num
+    integer*4 i,j,k,l,GetFileN,file_lines,string_length,num,stat
     REAL*8 dmax,lmin
     logical log1,log2,log3,warning
-    character*300 dummy_string
+    character*300 dummy_string,msg
 
     warning=.false.
     write(*,*)'Self diagnosing...'
@@ -28,7 +28,10 @@
     log2=.false.
     
     if(cfg_type=='txt')then
-        open(2000,file='POSITION.txt',STATUS='OLD')   
+        open(2000,file='POSITION.txt',STATUS='OLD',iostat=stat,iomsg=msg) 
+         if (stat /= 0 ) then
+            return
+        endif
         file_lines=GetFileN(2000)
 
         do i=1,file_lines
@@ -45,7 +48,10 @@
         enddo
         close(2000)
     elseif(cfg_type=='lmp')then
-        open(2000,file='POSITION.lmp',STATUS='OLD') 
+        open(2000,file='POSITION.lmp',STATUS='OLD',iostat=stat,iomsg=msg) 
+         if (stat /= 0 ) then
+            return
+        endif
         file_lines=GetFileN(2000)
         if(file_lines<9)then
             write(10,*)'Error, error in reading lmp file'
@@ -99,4 +105,4 @@
 
     
     
-    end subroutine sys_checker
+    end subroutine sys_check

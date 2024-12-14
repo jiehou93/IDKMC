@@ -1,3 +1,9 @@
+20241214
+允许不设置辐照数据库和初始构型文件。
+将POSITION文件、aic.xyz.cfg（或ION.txt、VAC.txt、SIA.txt）这几个输入文件为可选项，若用不上可以不提供（旧版本中，即使用不上，也需要提供一个空文件）。
+程序未找到POSITION文件时，会跳过读取初始构型的步骤。
+未找到aic.xyz.cfg以及ION.txt、VAC.txt、SIA.txt时，辐照功能将会关闭，此时即便CONTROL文件中设置了不为0的辐照通量，也不会产生任何辐照。
+
 20241211
 增加了avi.xyz.cfg转换为ION/SIA/VAC.txt文件时的完整性检查，确保三个文件中生成的ION数量相等
 合并cluster_remain defect_remain defect_transmitted defect_released grain_released文件的输出信息至defect_statistic文件

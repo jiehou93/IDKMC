@@ -1,4 +1,5 @@
 subroutine file_check()
+    use typ
     integer*4 stat,stat1,stat2,stat3
     character*300 msg,msg1,msg2,msg3
     
@@ -29,7 +30,8 @@ subroutine file_check()
             write(10,'(A300)')msg1
             write(10,'(A300)')msg2
             write(10,'(A300)')msg3
-            stop
+            write(10,*)'Implantation database files incomplete, irradiation function will be disabled.....'
+            irr_status=0
         endif
     endif
     close(2000)
@@ -42,7 +44,7 @@ subroutine file_check()
     if (stat*stat1 /= 0 ) then
         write(10,'(A300)')msg
         write(10,'(A300)')msg1
-        stop
+        write(10,*)'POSITION file not found, system will start from stracth......'
     endif
     close(2000)
     close(2001)

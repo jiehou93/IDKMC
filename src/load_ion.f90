@@ -4,6 +4,11 @@ subroutine load_ion_database()
     implicit none
         
     write(*,*)'Loading ion implantation database...'
+    if(irr_status==0)then
+        write(*,*)'Implantation database files incomplete, disabling irradiation function.....'
+        return
+    endif
+    
     if(damage_type=='txt')then
         write(10,*)'Loading ion implantation database from ION/VAC/SIA.txt files...'
         call load_ion_database_txt()
@@ -114,6 +119,7 @@ subroutine load_ion_database_txt()
     real*8 pair_radius,ran1,ran2,ran3,alpha,beta,rad
     real*8 coord(3)
     character*300 dummy_string
+
 
     vpi_max=0
     ipi_max=0

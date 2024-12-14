@@ -17,9 +17,10 @@
         call load_para()                    !定义部分动力学参数
         call pre_calcul()                   !预计算常用变量
         call initiate()                     !数据结构和构型初始化
-        call sys_checker()                  !系统参数自检查
+        call sys_check()                    !系统参数自检查
         call output_settings()              !输出参数设置
         !call para_test()                   !手动参数测试（debug功能）
+        
         call ctrl_sequence()                !模拟主体
         
         write(10,*)

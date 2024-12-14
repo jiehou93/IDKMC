@@ -8,10 +8,6 @@
     !几个材料常数应作为输入值输入
     real*8,parameter::pi=3.1415926                      !圆周率
     real*8,parameter::a0=3.1652                         !晶格常数
-    real*8,parameter::r1=a0/2                           !半晶格常数
-    real*8,parameter::r0=2.7411436                      !最密排原子距离
-    real*8,parameter::v0=6.1e12                         !钨原子基础频率
-    real*8,parameter::vh=5.0467e+013                    !氢原子基础频率
     real*8,parameter::kb=8.6173324e-5                   !玻尔兹曼常量
     
 
