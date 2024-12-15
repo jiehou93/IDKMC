@@ -3,17 +3,16 @@ subroutine file_check()
     integer*4 stat,stat1,stat2,stat3
     character*300 msg,msg1,msg2,msg3
     
-    
     open(2000,file='INPUT.txt',STATUS='OLD',iostat=stat,iomsg=msg) 
     if (stat /= 0) then
-        write(10,'(A300)')msg
+        write(10,*)'Error: ',trim(msg)
         stop
     endif
     close(2000)
     
     open(2000,file='CONTROL.txt',STATUS='OLD',iostat=stat,iomsg=msg) 
     if (stat /= 0) then
-        write(10,'(A300)')msg
+        write(10,*)'Error: ',trim(msg)
         stop
     endif
     close(2000)
@@ -26,11 +25,7 @@ subroutine file_check()
     
     if(stat/=0)then
         if(stat1/=0 .OR. stat2/=0 .OR. stat3/=0)then
-            write(10,'(A300)')msg
-            write(10,'(A300)')msg1
-            write(10,'(A300)')msg2
-            write(10,'(A300)')msg3
-            write(10,*)'Implantation database files incomplete, irradiation function will be disabled.....'
+            write(10,*)'    Implantation files incomplete, irradiation function will be disabled...'
             irr_status=0
         endif
     endif
@@ -42,9 +37,7 @@ subroutine file_check()
     open(2000,file='POSITION.txt',STATUS='OLD',iostat=stat,iomsg=msg) 
     open(2001,file='POSITION.lmp',STATUS='OLD',iostat=stat1,iomsg=msg1) 
     if (stat*stat1 /= 0 ) then
-        write(10,'(A300)')msg
-        write(10,'(A300)')msg1
-        write(10,*)'POSITION file not found, system will start from stracth......'
+        write(10,*)'    POSITION file not found, system will start from stracth...'
     endif
     close(2000)
     close(2001)

@@ -7,13 +7,14 @@
     character*300 dummy_string,msg
     
     !从指定文件载入初始构型
+    write(10,*)'    Loading POSITION file...'
     if(cfg_type=='txt')then
         open(2000,file='POSITION.txt',STATUS='OLD',iostat=stat,iomsg=msg) 
         if (stat /= 0 ) then
-            return
-        endif
+            write(10,*)'    POSITION file not found, starting from stracth...'
+        else
             file_lines=GetFileN(2000)
-            write(10,*)'loading ',file_lines, 'clusters from txt file'
+            write(10,*)'    loading ',file_lines, 'clusters from txt file'
             
             orien=1
             do i=1,file_lines
@@ -28,17 +29,18 @@
                 read(dummy_string(1:string_length),*)coord,formula,orien
                 pbc_check=coord/length+1
                 if(pbc_check(1)*pbc_check(2)*pbc_check(3)/=1)then
-                    write(10,*)'Warrning, cluster',i,'is not in the simulation box, wrapping with PBC...'
+                    write(10,*)'    Warrning, cluster',i,'is not in the simulation box, wrapping with PBC...'
                 endif
                 call add(coord,orien,formula)
             enddo
             write(10,*)file_lines, 'clusters successfully loaded'
+        endif
         close(2000)
     elseif(cfg_type=='lmp')then
         open(2000,file='POSITION.lmp',STATUS='OLD',iostat=stat,iomsg=msg) 
-         if (stat /= 0 ) then
-            return
-        endif
+        if (stat /= 0 ) then
+            write(10,*)'    POSITION file not found, starting from stracth...'
+        else
             file_lines=GetFileN(2000)
             if(file_lines==0) return
             !读取头文件
@@ -46,12 +48,12 @@
             read(2000,*)
             read(2000,*)
             read(2000,*)num
-            write(10,*)'loading ',num, 'clusters from lmp file'
+            write(10,*)'    loading ',num, 'clusters from lmp file'
             read(2000,*)
             read(2000,*)box(1,:)
             read(2000,*)box(2,:)
             read(2000,*)box(3,:)
-            if(sum(box(:,2)-length)/=0) write(10,*)'POSITION box size differs with INPUT box size, using INPUT box size'
+            if(sum(box(:,2)-length)/=0) write(10,*)'    POSITION box size differs with INPUT box size, using INPUT box size'
             read(2000,*)
             
             !读取数据
@@ -68,13 +70,15 @@
                 read(dummy_string(1:string_length),*)coord,formula,orien
                 pbc_check=coord/length+1
                 if(pbc_check(1)*pbc_check(2)*pbc_check(3)/=1)then
-                    write(10,*)'Warrning, cluster',i,'is not in the simulation box, wrapping with PBC...'
+                    write(10,*)'    Warrning, cluster',i,'is not in the simulation box, wrapping with PBC...'
                 endif
                 call add(coord,orien,formula)
             enddo
-            write(10,*)file_lines, 'clusters successfully loaded'          
+            write(10,*)file_lines, 'clusters successfully loaded'   
+        endif
+        close(2000)
     else
-        write(10,*)'Error, cfg_type not supported, please choose txt or lmp.'
+        write(10,*)'    Error, cfg_type not supported, please choose txt or lmp.'
         stop
     endif
     
@@ -120,11 +124,11 @@
         elseif(output_rate==1)then
             write(110,'(A,L)')'ITEM: ATOMS x y z f1 f2 f3 f4 orient radius rate_mig rate_rot rate_emit'
         else
-             write(10,*)'Error, output_rate must be 0 or 1'
+             write(10,*)'   Error, output_rate must be 0 or 1'
         endif
         
     else    
-        write(10,*)'Error, cfg_type not supported, please choose txt or lmp.'
+        write(10,*)'    Error, cfg_type not supported, please choose txt or lmp.'
         stop
     endif
     
@@ -160,7 +164,7 @@
             enddo
         endif
     else
-        write(10,*)'Error, output_rate must be 0 or 1'
+        write(10,*)'    Error, output_rate must be 0 or 1'
     endif
     
     

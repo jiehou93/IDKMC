@@ -8,19 +8,18 @@
     character*300 dummy_string,msg
 
     warning=.false.
-    write(*,*)'Self diagnosing...'
     !检查元胞列表是否匹配
     log1=abs(cell_size(1)*cell_number(1)-large_cell_size(1)*large_cell_number(1))>0.01
     log2=abs(cell_size(2)*cell_number(2)-large_cell_size(2)*large_cell_number(2))>0.01
     log3=abs(cell_size(3)*cell_number(3)-large_cell_size(3)*large_cell_number(3))>0.01
     if(log1.or.log2.or.log3)then
-        write(10,*)'Error! The size of small cell list dose not match with the large cell list.'
+        write(10,*)'    Error! The size of small cell list dose not match with the large cell list.'
         warning=.true.
     endif
     !初始浓度警告
     log1=sum(concen)>500000
     if(log1)then
-        write(10,*)'Warning! Initial defect concentration is higher than 500000appm.'
+        write(10,*)'    Warning! Initial defect concentration is higher than 500000appm.'
         warning=.true.
     endif
     !多次定义初始构型警告
@@ -29,51 +28,48 @@
     
     if(cfg_type=='txt')then
         open(2000,file='POSITION.txt',STATUS='OLD',iostat=stat,iomsg=msg) 
-         if (stat /= 0 ) then
-            return
+        if (stat == 0 ) then
+            file_lines=GetFileN(2000)
+            do i=1,file_lines
+                read(2000,'(A300)')dummy_string               
+
+                call de_note(dummy_string)                    
+                string_length=len_trim(dummy_string)
+                if(file_lines==0)then
+                    cycle                                                                   
+                else
+                    log1=.true.
+                    exit
+                endif
+            enddo
         endif
-        file_lines=GetFileN(2000)
-
-        do i=1,file_lines
-            read(2000,'(A300)')dummy_string               
-
-            call de_note(dummy_string)                    
-            string_length=len_trim(dummy_string)
-            if(file_lines==0)then
-                cycle                                                                   
-            else
-                log1=.true.
-                exit
-            endif
-        enddo
         close(2000)
     elseif(cfg_type=='lmp')then
         open(2000,file='POSITION.lmp',STATUS='OLD',iostat=stat,iomsg=msg) 
-         if (stat /= 0 ) then
-            return
-        endif
-        file_lines=GetFileN(2000)
-        if(file_lines<9)then
-            write(10,*)'Error, error in reading lmp file'
-        endif
-        
-        read(2000,*)dummy_string
-        read(2000,*)dummy_string
-        read(2000,*)dummy_string
-        read(2000,*)num
-        if(num>0)then
-            log1=.true.
+        if (stat == 0 ) then
+            file_lines=GetFileN(2000)
+            if(file_lines<9)then
+                write(10,*)'    Error, error in reading lmp file'
+            endif
+            
+            read(2000,*)dummy_string
+            read(2000,*)dummy_string
+            read(2000,*)dummy_string
+            read(2000,*)num
+            if(num>0)then
+                log1=.true.
+            endif
         endif
         close(2000)
     else
-        write(10,*)'Error, cfg_type not supported, please choose txt or lmp.'
+        write(10,*)'    Error, cfg_type not supported, please choose txt or lmp.'
         stop
     endif
     
 
     log2=sum(concen)/=0
     if(log1 .and. log2)then
-        write(10,*)'Warning! Costomizing initial configuration while randomly adding defects'
+        write(10,*)'    Warning! Costomizing initial configuration while randomly adding defects'
         warning=.true.
     endif
 
@@ -83,7 +79,7 @@
         log2=clu(i)%coord(2)<0.or.clu(i)%coord(2)>length(2)
         log3=clu(i)%coord(3)<0.or.clu(i)%coord(3)>length(3)
         if(log1.or.log2.or.log3)then
-            write(10,*)'Error! The cluster',i,'in POSITION lie outside of the box'
+            write(10,*)'    Error! The cluster',i,'in POSITION lie outside of the box'
             warning=.true.
         endif
     enddo
@@ -92,15 +88,15 @@
     lmin=minval(large_cell_size)
     dmax=2*maxval(ion_para(4,:,:,:,:))
     if(lmin<dmax)then
-        write(10,*)'Warning! Large_cell_size < max defect diameter. Correct neighbor search is not guaranteed. Two large defects can overlap without clustering together.'
+        write(10,*)'    Warning! Large_cell_size < max defect diameter. Correct neighbor search is not guaranteed. Two large defects can overlap without clustering together.'
         warning=.true.
     endif
     
-    write(*,*)'    System checked.'
     if(warning)then
         write(*,*)'    Warning! I find something wierd, plese check the monitor.txt file. '
     else
-        write(*,*)'    Nothing to worry about.At least for now...'
+        write(*,*)'    Nothing to worry about. At least for now...'
+        write(10,*)'    Nothing to worry about. At least for now...'
     endif
 
     

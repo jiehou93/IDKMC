@@ -3,26 +3,23 @@ subroutine load_ion_database()
     use typ
     implicit none
         
-    write(*,*)'Loading ion implantation database...'
     if(irr_status==0)then
-        write(*,*)'Implantation database files incomplete, disabling irradiation function.....'
+        write(10,*)'    Implantation database files incomplete, disabling irradiation function.....'
         return
     endif
     
     if(damage_type=='txt')then
-        write(10,*)'Loading ion implantation database from ION/VAC/SIA.txt files...'
+        write(10,*)'    Loading ion implantation database from ION/VAC/SIA.txt files...'
         call load_ion_database_txt()
     elseif(damage_type=='cfg')then    
-        write(10,*)'Converting aiv.xyz.cfg file to ION/VAC/SIA.txt files...'
+        write(10,*)'    Converting aiv.xyz.cfg file to ION/VAC/SIA.txt files...'
         call cfg2okmc()
         call load_ion_database_txt()
         !write(10,*)'Deleting ION/VAC/SIA.txt files...'
     else
-        write(10,*)'Error, damage_type not supported, please choose txt or cfg.'
+        write(10,*)'    Error, damage_type not supported, please choose txt or cfg.'
         stop
     endif
-        
-    write(*,*)'Database loaded'    
 end subroutine load_ion_database
     
 subroutine cfg2okmc()

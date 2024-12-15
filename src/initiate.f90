@@ -7,16 +7,18 @@
     real*8 distance,ran1,ran2,ran3,ran4,alpha,beta,coord(3)
     character*300 dummy_string
 
+    call pre_calcul()                   !预计算常用变量
+    
     !设置随机数种子
     if(rd_seed(1)==0)then
-        write(*,*)'Using default random seeds...'
+        write(10,*)'    Using default random seeds...'
         call RANDOM_SEED()
         call random_seed(size = n)
         allocate(seed(n))
         call random_seed(get=seed)
         rd_seed(1:n)=seed
     else            
-        write(*,*)'Using customized random seeds...'
+        write(10,*)'    Using customized random seeds...'
         call random_seed(size = n)
         allocate(seed(n))
         if (n==2)then
@@ -24,17 +26,15 @@
         elseif(n==4)then
             seed=rd_seed
         else
-            write(*,*)'Random seed size not supported, please set as default!'
+            write(10,*)'    Random seed size not supported, please set as default!'
         endif
         
         call RANDOM_SEED(put=seed)
         call random_seed(get=seed)
         
     endif
-    write (*, *) 'Random seeds set to:',seed
+    write (10, *) '    Random seeds set to:',seed
     
-
-    write(*,*)'Initiating configuration...'
 
     ndef=0
     do i=1,element                                                                  !预算每种类型缺陷的初始浓度以及缺陷总数
@@ -92,5 +92,5 @@
             endif
         enddo  
     enddo
-    write(*,*)'    Configuration initiated'
+    write(10,*)'    Configuration initiated'
     end subroutine initiate

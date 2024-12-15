@@ -2,27 +2,45 @@
     !初始化模拟空间与元胞列表。
     use typ
     implicit none
-    integer*4 i,j,k
+    integer*4 i,j,k,large2small_ratio,n_cell
+    real*8 dmax,lmin
     
     if(length(1)*length(2)*length(3)/=0)then
         !直接设置box大小，元胞网格自动生成,元胞尺寸约为10 A
-        write(10,*)'Box_length is defined, automatically generating cell grids...'
-        write(10,*)'Please make sure that large_cell_size is larger than max diameter of defects'
-        if(length(1)>20 .and. length(2)>20 .and. length(3)>20)then
-            large_cell_number=floor(length/20)
-            large_cell_size=length/large_cell_number
-            cell_number=large_cell_number*2
-            cell_size=large_cell_size/2
-        else
-            write(10,*)'Failed to generate cell grids, box size is too small, please manually define cell grids, or increase box size'
+        write(10,*)'    Box_length is defined, automatically generating cell grids...'
+        !确定最大捕获直径，确保大元胞网格尺寸大于该值
+        dmax=2*maxval(ion_para(4,:,:,:,:))
+        lmin=max(20.0,dmax)
+        !小元胞网格尺寸在10左右
+        large2small_ratio=floor(lmin/10)
+        
+        if(length(1)<20 .or. length(2)<20 .or. length(3)<20)then
+            write(10,*)'    Failed to generate cell grids, box size is too small, please manually define cell grids, or increase box size'
             stop
+        else
+            large_cell_number=floor(length/lmin)
+            large_cell_size=length/large_cell_number
+            cell_number=large_cell_number*large2small_ratio
+            cell_size=large_cell_size/large2small_ratio
         endif
+        
+        !网格数量太大容易导致内存不足，逐步增大网格尺寸，降低网格数量
+        n_cell=cell_number(1)*cell_number(2)*cell_number(3)
+        do while(n_cell>5e6)
+            lmin=lmin*1.001
+            large_cell_number=floor(length/lmin)
+            large_cell_size=length/large_cell_number
+            cell_number=large_cell_number*large2small_ratio
+            cell_size=large_cell_size/large2small_ratio
+            n_cell=cell_number(1)*cell_number(2)*cell_number(3)
+        enddo
+        
     elseif(cell_number(1)*cell_number(2)*cell_number(3)/=0)then
         !未设置box大小，但设置了元胞网格，根据元胞网格计算box大小
-        write(10,*)'box_length not defined, set as cell_number*cell_size'
+        write(10,*)'    box_length not defined, set as cell_number*cell_size'
         length=cell_number*cell_size                              !盒子边长
     else
-        write(10,*)'Neither box_length nor cell grid is defined, no way to continue.'
+        write(10,*)'    Neither box_length nor cell grid is defined, no way to continue.'
         stop
     endif
     !增加浮点偏移，防止缺陷正好落在边界上时因浮点误差导致越界

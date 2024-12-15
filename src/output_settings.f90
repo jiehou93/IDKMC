@@ -30,6 +30,7 @@
     
     write(10,*)'########## others ##########'
     write(10,'(A20,A15)')'cfg_type=',cfg_type
+    write(10,'(A20,A15)')'damage_type=',damage_type
     write(10,'(A20,4I15)')'rd_seed=',rd_seed
     write(10,'(A20,I15)')'output_rate=',output_rate
     

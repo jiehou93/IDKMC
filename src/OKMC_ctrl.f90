@@ -68,6 +68,11 @@ subroutine run_unit(unit_tem,unit_time,unit_irr_flux,unit_name,unit_outp)
     
     write(101,'(F10.3,17I10,A20)')tem,nclu,defect_remain,defect_released,defect_transmitted,grain_released,trim(adjustl(unit_name))                                                !÷Õ¡Ùµƒ»±œ›
     
+    write(10,'(A40,1I10)')'No. of clusters remained=',nclu
+    write(10,'(A40,4I10)')'No. of defects remained=',defect_remain
+    write(10,'(A40,4I10)')'No. of defects released=',defect_released
+    write(10,'(A40,4I10)')'No. of defects transmitted=',defect_transmitted
+    write(10,'(A40,4I10)')'No. of defects absored by grain=',grain_released
     write(10,*)'CPU time comsuption of simulation unit=',time2-time1
     write(10,*)'overall CPU simulation time comsuption=',time2-time0
     write(10,*)'---------simulation unit <'//trim(adjustl(unit_name))//'> finished----------'
