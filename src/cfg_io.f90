@@ -31,6 +31,10 @@
                 if(pbc_check(1)*pbc_check(2)*pbc_check(3)/=1)then
                     write(10,*)'    Warrning, cluster',i,'is not in the simulation box, wrapping with PBC...'
                 endif
+                if(lattice_type=='bcc' .AND. orien>8)then
+                     write(10,*)'    Error! In bcc lattice, orien>8 for cluster',i
+                     stop
+                endif
                 call add(coord,orien,formula)
             enddo
             write(10,*)file_lines, 'clusters successfully loaded'
@@ -71,6 +75,10 @@
                 pbc_check=coord/length+1
                 if(pbc_check(1)*pbc_check(2)*pbc_check(3)/=1)then
                     write(10,*)'    Warrning, cluster',i,'is not in the simulation box, wrapping with PBC...'
+                endif
+                if(lattice_type=='bcc' .AND. orien>8)then
+                     write(10,*)'    Error! In bcc lattice, orien>8 for cluster',i
+                     stop
                 endif
                 call add(coord,orien,formula)
             enddo

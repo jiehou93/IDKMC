@@ -2,7 +2,7 @@
     !初始化速率树，往体系中加入指定浓度的初始缺陷，或者从输入文件中读取初始缺陷构型
     use typ
     implicit none
-    integer*4 i,j,n,orien,formula(element),num,GetFileN,file_lines,string_length,note_location
+    integer*4 i,j,n,orien,formula(element),num,GetFileN,file_lines,string_length,note_location,natom_in_lattice
     integer*4, allocatable :: seed(:)
     real*8 distance,ran1,ran2,ran3,ran4,alpha,beta,coord(3)
     character*300 dummy_string
@@ -36,10 +36,49 @@
     write (10, *) '    Random seeds set to:',seed
     
 
+    if(lattice_type=='bcc')then
+        !注意bcc单胞内含2个原子，fcc含4个
+        natom_in_lattice=2
+        ndirection=8
+        allocate(move(3,ndirection))
+        move(:,1)=(/ 1, 1, 1/)                         !设置移动基矢，
+        move(:,2)=(/-1,-1,-1/)
+        move(:,3)=(/ 1,-1, 1/)
+        move(:,4)=(/-1, 1,-1/)
+        move(:,5)=(/ 1,-1,-1/)
+        move(:,6)=(/-1, 1, 1/)
+        move(:,7)=(/-1,-1, 1/)
+        move(:,8)=(/ 1, 1,-1/)
+    elseif(lattice_type=='fcc')then
+        natom_in_lattice=4
+        ndirection=12
+        allocate(move(3,ndirection))
+        move(:,1) =(/ 1, 1, 0/)
+        move(:,2) =(/-1,-1, 0/)
+        move(:,3) =(/ 1,-1, 0/)
+        move(:,4) =(/-1, 1, 0/)
+        move(:,5) =(/ 1, 0, 1/)
+        move(:,6) =(/-1, 0,-1/)
+        move(:,7) =(/ 1, 0,-1/)
+        move(:,8) =(/-1, 0, 1/)
+        move(:,9) =(/ 0, 1, 1/)
+        move(:,10)=(/ 0,-1,-1/)
+        move(:,11)=(/ 0, 1,-1/)
+        move(:,12)=(/ 0,-1, 1/)
+    else
+        write(10,*)'    Error! Only bcc or fcc lattice_types are supportted!'
+        stop
+    endif
+    
+    
+
+    move=move*sqrt(3.0d0)/3.0d0                       !归一化移动基矢
+    
     ndef=0
     do i=1,element                                                                  !预算每种类型缺陷的初始浓度以及缺陷总数
-        nformula(i)=(cell_number(1)*cell_number(2)*cell_number(3)*10**(-6.0d0)*cell_size(1)*cell_size(2)*cell_size(3)/(a0**3/2.0d0))*concen(i)!注意运算顺序，避免中间运算数值超出4字节整型数的范围
-        if(concen(i)<0) nformula(i)=1                                               !concen(i)<0表示添加一个缺陷
+        nformula(i)=(length(1)*length(2)*length(3)*10**(-6.0d0)/(a0**3))*concen(i)  !注意运算顺序，避免中间运算数值超出4字节整型数的范围
+        nformula(i)=nformula(i)*natom_in_lattice
+        
         if(i==1.and.intrinsic_type==0)then
             ndef=ndef+2*nformula(i)             !i=1代表本征缺陷，本征缺陷是以frenkel对形式成双加入的。
         else

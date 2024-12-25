@@ -15,13 +15,10 @@
         else
             dart=dart-current%left%rate             !飞镖击中右枝
             current=>current%right
-        endif                                       !此时直接结束此步，重新投掷飞镖
+        endif                                       
     enddo
 
     clu_dart=current%obj
-    !at_end=nclu
-    !at_mid=clu_dart%sn
-    !write(104,*)'nclu-pos=',at_end-at_mid
     if(clu_dart%sn==0)then                          !辐照选项
         call ion_implantation()
     elseif(dart<clu_dart%rate(1))then               !选中对象后，再选择执行哪种反应
@@ -30,6 +27,6 @@
         call migrate(clu_dart%sn,.true.)            !转向迁移
     elseif(dart<clu_dart%rate(3))then               !注意浮点误差导致的零概率事件被选中。
         call emitting(clu_dart%sn)
-11  endif
+	endif
 
     end subroutine

@@ -2,9 +2,7 @@ subroutine ctrl_sequence()
     !模拟氘滞留的TDS实验
     use typ
     implicit none
-
     integer*4 i,j,k
-
 
     open(101,file='defect_statistic.txt')
     write(101,'(18A10,A20)')'Temp','N_cluster','f1_remain','f2_remain','f3_remain','f4_remain',&
@@ -32,13 +30,12 @@ subroutine run_unit(unit_tem,unit_time,unit_irr_flux,unit_name,unit_outp)
     write(10,*)'unit temperature=',unit_tem
     write(10,*)'unit time=',unit_time
     write(10,*)'unit irradiation flux=',unit_irr_flux
-
-    damage_rate=unit_irr_flux*surface_area*10**-20.0                            !根据通量计算损伤速率(电子/中子dpa需要进行换算)
-
+	call cpu_time(time1)
+	
+    damage_rate=unit_irr_flux*surface_area*10.0**-20.0                            !根据通量计算损伤速率(电子/中子dpa需要进行换算)
     tem=unit_tem                                                                !设置温度
     call renew_rate_all()
-
-    call cpu_time(time1) 
+     
     defect_remain=0
     defect_released=0
     defect_transmitted=0
@@ -66,8 +63,7 @@ subroutine run_unit(unit_tem,unit_time,unit_irr_flux,unit_name,unit_outp)
     enddo
 
     
-    write(101,'(F10.3,17I10,A20)')tem,nclu,defect_remain,defect_released,defect_transmitted,grain_released,trim(adjustl(unit_name))                                                !滞留的缺陷
-    
+    write(101,'(F10.3,17I10,A20)')tem,nclu,defect_remain,defect_released,defect_transmitted,grain_released,trim(adjustl(unit_name))                                                
     write(10,'(A40,1I10)')'No. of clusters remained=',nclu
     write(10,'(A40,4I10)')'No. of defects remained=',defect_remain
     write(10,'(A40,4I10)')'No. of defects released=',defect_released

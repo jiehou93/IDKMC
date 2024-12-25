@@ -29,3 +29,10 @@
 # Executables
 *.out
 *.app
+
+# Word
+*.doc
+*.docx
+
+# private
+todo.txt

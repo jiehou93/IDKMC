@@ -14,9 +14,9 @@
 
     orien=clu(i)%orien                          !读取团簇的方位
 
-    if(rot)then                                 !若发生转向，随机选择1~8方位中的1个
+    if(rot)then                                 !若发生转向，随机选择ndirection个方位中的1个
         call random_number(ran1)
-        orien1=ran1*8+1
+        orien1=ran1*ndirection+1
     else                                        !若不转向，方位保持不变或反向
         call random_number(ran1)
         orien1=(int(orien-0.1)/2+ran1)*2.0+1
@@ -93,9 +93,6 @@
         v=vicinity(i)
 
         do while(v>0)                                                   !检查是否聚合
-            if(clu(v)%n==13)then
-                clu(v)%n=13
-            endif
             
             call aggregation(nclu1,v,aggregated)                        !注意避免递归调用
             nclu1=aggregated

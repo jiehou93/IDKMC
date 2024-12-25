@@ -22,7 +22,7 @@
                       
 
     call RANDOM_NUMBER(ran1)
-    orien=ran1*8+1                                                  !随机方向
+    orien=ran1*ndirection+1                                                  !随机方向
     coord=cascade(ion_number)%ion_coord                             !离子的相对坐标
 
     if(coord(implant_direction)>surface_depth)then                                  !小于0表示离子离开靶材
@@ -38,7 +38,7 @@
         if(coord(implant_direction)>surface_depth)then
             coord=rand_coord+coord
             call RANDOM_NUMBER(ran1)
-            orien=ran1*8+1                                          !随机方向
+            orien=ran1*ndirection+1                                          !随机方向
             formula=(/1,0,0,0/)
             call add_and_vicinity(coord,orien,formula)              !添加空位
         endif
@@ -49,7 +49,7 @@
         if(coord(implant_direction)>surface_depth)then
             coord=rand_coord+coord
             call RANDOM_NUMBER(ran1)
-            orien=ran1*8+1                                          !随机方向
+            orien=ran1*ndirection+1                                          !随机方向
             formula=(/-1,0,0,0/)
             call add_and_vicinity(coord,orien,formula)              !添加SIA)
         endif

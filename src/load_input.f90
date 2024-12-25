@@ -60,7 +60,7 @@
         read(variable_value,*)uniform_damage
     case('implant_direction','IMPLANT_DIRECTION')                           !辐照注入方向，默认从第3个方向注入
         read(variable_value,*)implant_direction       
-	case('ion_type','ION_TYPE')                           					    !注入离子类型，默认为第二个元素
+	case('ion_type','ION_TYPE')                                             !注入离子类型，默认为第二个元素
         read(variable_value,*)ion_type  
 	case('iso_eff','ISO_EFF')                           						!同位素效应，0/1表示关闭/开启
         read(variable_value,*)iso_eff  
@@ -70,6 +70,10 @@
         read(variable_value,*)damage_type 
     case('output_rate','OUTPUT_RATE')                                       !缺陷构型输出时是否添加速率信息
         read(variable_value,*)output_rate
+    case('a0','A0')                                                         !晶格常数
+        read(variable_value,*)a0
+    case('lattice_type','LATTICE_TYPE')                                     !晶格类型
+        read(variable_value,*)lattice_type
     end select
 
 

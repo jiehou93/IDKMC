@@ -5,11 +5,8 @@
 
     real*8,save,allocatable::ion_para(:,:,:,:,:)        !已有参数列表
 
-    !几个材料常数应作为输入值输入
     real*8,parameter::pi=3.1415926                      !圆周率
-    real*8,parameter::a0=3.1652                         !晶格常数
     real*8,parameter::kb=8.6173324e-5                   !玻尔兹曼常量
-    
 
     real*8,save::timer                                  !模拟计时器
     real*8,save::time0                                  !CPU计时器
@@ -17,9 +14,10 @@
     real*8,save::time2                              
     real*8,save::tem                                    !温度
     real*8,save::damage_rate=0                          !损伤速率
-    real*8,save::move(3,8)                              !8个方向的迁移矢量
+    real*8,save,allocatable::move(:,:)                  !迁移矢量
     real*8,save::surface_area=0                         !注入方向表面积
     integer*4,save::nformula(element)                   !缺陷统计数组
+    integer*4,save::ndirection                          !可选迁移方向数量，bcc为8，fcc为12
     integer*4,save::para_range(4,2)                     !读入参数组分范围
 
     !integer*4,allocatable,save::cell(:,:,:,:)           !元胞列表

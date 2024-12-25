@@ -154,17 +154,6 @@
     
     !设置默认critical_radius为cell_size最小边长的一半
     critical_radius=minval(cell_size)/2
-    
-    move(:,1)=(/1,1,1/)                         !设置移动基矢
-    move(:,2)=(/-1,-1,-1/)
-    move(:,3)=(/1,-1,1/)
-    move(:,4)=(/-1,1,-1/)
-    move(:,5)=(/1,-1,-1/)
-    move(:,6)=(/-1,1,1/)
-    move(:,7)=(/-1,-1,1/)
-    move(:,8)=(/1,1,-1/)
-    move=move*sqrt(3.0d0)/3.0d0                       !归一化移动基矢
-
 
     !定义一个空缺陷clunull，用来填充被删除的缺陷
     nullify(clunull%up)

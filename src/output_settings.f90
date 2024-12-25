@@ -27,6 +27,8 @@
     write(10,*)'########## initial defects ##########'    
     write(10,'(A20,4F15.7)')'initial_defect=',concen(1:4)
     write(10,'(A20,I15)')'intrinsic_type=',intrinsic_type
+    write(10,'(A20,A15)')'lattice_type=',lattice_type
+    write(10,'(A20,F15.7)')'a0=',a0
     
     write(10,*)'########## others ##########'
     write(10,'(A20,A15)')'cfg_type=',cfg_type

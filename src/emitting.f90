@@ -34,7 +34,7 @@
 
     orien1=clu(i)%orien                                     !解离后大团簇的方位取原团簇方位
     call RANDOM_NUMBER(ran1)
-    orien2=ran1*8+1
+    orien2=ran1*ndirection+1
 
     radius1=parameters(4,formula1)                          !解离后的半径
     radius2=parameters(4,formula2)
@@ -43,7 +43,7 @@
 
     mig_step=max(parameters(8,formula2),0.1)                !防止mig_step=0，导致发射后立刻聚合，陷入死循环
     call RANDOM_NUMBER(ran1)
-    orien2=ran1*8+1
+    orien2=ran1*ndirection+1
     x2=x+(radius1+radius2+mig_step)*move(:,orien2)          !单团簇解离后的坐标
  
 

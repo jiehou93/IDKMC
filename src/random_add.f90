@@ -25,7 +25,7 @@
     !    coord(3)=rad*cos(beta)
     !endif
 
-    orien=ran4*8+1                                      !随机方向
+    orien=ran4*ndirection+1                                      !随机方向
 
     call add_and_vicinity(coord,orien,formula)          !在该位置加入一个该类型单缺陷团簇
     end subroutine
