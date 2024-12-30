@@ -27,6 +27,7 @@
                 endif
 
                 read(dummy_string(1:string_length),*)coord,formula,orien
+                coord=coord+1e-8                                                            !防止正好落在边界上导致报错
                 pbc_check=coord/length+1
                 if(pbc_check(1)*pbc_check(2)*pbc_check(3)/=1)then
                     write(10,*)'    Warrning, cluster',i,'is not in the simulation box, wrapping with PBC...'
@@ -72,6 +73,7 @@
                 endif
 
                 read(dummy_string(1:string_length),*)coord,formula,orien
+                coord=coord+1e-8                                                            !防止正好落在边界上导致报错
                 pbc_check=coord/length+1
                 if(pbc_check(1)*pbc_check(2)*pbc_check(3)/=1)then
                     write(10,*)'    Warrning, cluster',i,'is not in the simulation box, wrapping with PBC...'

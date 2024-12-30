@@ -17,6 +17,12 @@ subroutine file_check()
     endif
     close(2000)
     
+    open(2000,file='PARA.txt',STATUS='OLD',iostat=stat,iomsg=msg) 
+    if (stat /= 0) then
+        write(10,*)'Error: ',trim(msg)
+        stop
+    endif
+    close(2000)
     
     open(2000,file='aiv.xyz.cfg',STATUS='OLD',iostat=stat,iomsg=msg) 
     open(2001,file='SIA.txt',STATUS='OLD',iostat=stat1,iomsg=msg1) 

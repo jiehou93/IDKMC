@@ -2,10 +2,35 @@
     !初始化模拟空间与元胞列表。
     use typ
     implicit none
-    integer*4 i,j,k,large2small_ratio,n_cell
-    real*8 dmax,lmin
+    integer*4 i,j,k,large2small_ratio,n_cell,stat,file_lines,GetFileN
+    real*8 dmax,lmin,box(3,2)
+    character*300 dummy_string,msg
     
-    if(length(1)*length(2)*length(3)/=0)then
+    if(length(1)<1e-6)then
+        if(cfg_type=='lmp')then
+             write(10,*)'    Box_length is undefined, try reading from POSITION.lmp...'
+            !INPUT中未定义盒子尺寸，尝试从POSITION.lmp读取
+            open(2000,file='POSITION.lmp',STATUS='OLD',iostat=stat,iomsg=msg) 
+            if (stat == 0 ) then
+                file_lines=GetFileN(2000)
+                if(file_lines/=0) then
+                    !读取头文件
+                    read(2000,*)
+                    read(2000,*)
+                    read(2000,*)
+                    read(2000,*)
+                    read(2000,*)
+                    read(2000,*)box(1,:)
+                    read(2000,*)box(2,:)
+                    read(2000,*)box(3,:)
+                    length(:)=box(:,2)-box(:,1)
+                    write(10,*)'    Successfully read box_length from POSITION.lmp...'
+                endif
+            endif
+        endif
+    endif
+    
+    if(length(1)>1e-6)then
         !直接设置box大小，元胞网格自动生成,元胞尺寸约为10 A
         write(10,*)'    Box_length is defined, automatically generating cell grids...'
         !确定最大捕获直径，确保大元胞网格尺寸大于该值
@@ -14,7 +39,7 @@
         !小元胞网格尺寸在10左右
         large2small_ratio=floor(lmin/10)
         
-        if(length(1)<20 .or. length(2)<20 .or. length(3)<20)then
+        if(length(1)<30 .or. length(2)<30 .or. length(3)<30)then
             write(10,*)'    Failed to generate cell grids, box size is too small, please manually define cell grids, or increase box size'
             stop
         else
@@ -34,18 +59,18 @@
             cell_size=large_cell_size/large2small_ratio
             n_cell=cell_number(1)*cell_number(2)*cell_number(3)
         enddo
-        
     elseif(cell_number(1)*cell_number(2)*cell_number(3)/=0)then
         !未设置box大小，但设置了元胞网格，根据元胞网格计算box大小
         write(10,*)'    box_length not defined, set as cell_number*cell_size'
         length=cell_number*cell_size                              !盒子边长
     else
-        write(10,*)'    Neither box_length nor cell grid is defined, no way to continue.'
+        write(10,*)'    box_length must be set manually, or read from POSITION.lmp'
         stop
     endif
+    
     !增加浮点偏移，防止缺陷正好落在边界上时因浮点误差导致越界
-    cell_size=cell_size+1E-6
-    large_cell_size=large_cell_size+1E-6
+    cell_size=cell_size
+    large_cell_size=large_cell_size
         
     surface_area=1
     do i=1,3

@@ -1,3 +1,6 @@
+20241230
+优化盒子尺寸的读取逻辑，先尝试从INPUT中直接读取box_length参数，若没有定义该参数，尝试从POSITION.lmp文件读取，若读取失败，则尝试根据cell_number*cell_size设置
+
 20241225
 增加了晶体类型lattice_type、晶格常数a0两个参数
 lattice_type默认为bcc（旧版本仅支持bcc），新增对fcc的支持，fcc晶体的1D迁移取向为12个<110>方向
