@@ -1,0 +1,13 @@
+      Temp N_cluster f1_remain f2_remain f3_remain f4_remain f1_desorb f2_desorb f3_desorb f4_desorb  f1_trans  f2_trans  f3_trans  f4_trans  f1_grain  f2_grain  f3_grain  f4_grain           unit_name
+     0.000         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0            initiate
+   300.000        63        67        10         0         0       -63         2         0         0        -4         0         0         0         0         0         0         0      implantation01
+   300.000       115       128        22         0         0       -56         2         0         0        -5         1         0         0         0         0         0         0      implantation02
+   300.000       216       243        55         0         0      -100         0         0         0       -15         0         0         0         0         0         0         0      implantation03
+   300.000       460       534       133         0         0      -261         1         0         0       -30         1         0         0         0         0         0         0      implantation04
+   300.000       750       868       264         0         0      -303         1         0         0       -29         0         0         0         0         0         0         0      implantation05
+   300.000      1270      1455       546         0         0      -525         3         0         0       -53         0         0         0         0         0         0         0      implantation06
+   300.000      1909      2199      1070         0         0      -684         0         0         0       -52         1         0         0         0         0         0         0      implantation07
+   300.000      2699      3101      2091         0         0      -821         2         0         0       -61         5         0         0         0         0         0         0      implantation08
+   300.000      3819      4315      4328         0         0     -1078         8         0         0       -99         5         0         0         0         0         0         0      implantation09
+   300.000      5065      5850      8588         0         0     -1337         8         0         0      -131        10         0         0         0         0         0         0      implantation10
+   300.000      5065      5850      8586         0         0         0         0         0         0         0         2         0         0         0         0         0         0           after_imp

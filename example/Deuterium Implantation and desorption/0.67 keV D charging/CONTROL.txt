@@ -1,0 +1,14 @@
+#模拟的流程控制矩阵，用若干参数描述一个模块的特征，多个模块拼接实现复杂流程的模拟
+#温度		时间		dpas/通量	模块名称	是否输出构型（1是/0否）
+0			0			0			initiate		1
+300			20			5.0E+16		implantation01	1
+300			20			5.0E+16		implantation02	1
+300			20			5.0E+16		implantation03	1
+300			20			5.0E+16		implantation04	1
+300			20			5.0E+16		implantation05	1
+300			20			5.0E+16		implantation06	1
+300			20			5.0E+16		implantation07	1
+300			20			5.0E+16		implantation08	1
+300			20			5.0E+16		implantation09	1
+300		 	20			5.0E+16		implantation10	1
+300			300			0			after_imp		1

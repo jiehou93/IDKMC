@@ -1,30 +1,48 @@
- Box_length is defined, automatically generating cell grids...
- Please make sure that large_cell_size is larger than max diameter of defects
- loading            0 clusters from lmp file
-           9 clusters successfully loaded
+ Checking files...
+     Implantation files incomplete, irradiation function will be disabled...
+     POSITION file not found, system will start from stracth...
+ Loading INPUT file...
+ Loading CONTROL file...
+ Loading implantation database...
+     Implantation database files incomplete, disabling irradiation function.....
+ Loading parameter database...
+ Initiating system...
+     Box_length is defined, automatically generating cell grids...
+     Using default random seeds...
+     Random seeds set to:   760571849         494
+     Loading POSITION file...
+     POSITION file not found, starting from stracth...
+     Configuration initiated
+ Running diagnostics...
+     Nothing to worry about. At least for now...
+ Output settings...
  
  ########## INPUT PARAMETERS ##########
  ########### BOX ##########
                 PBC=              1              1              1
        grain_radius=  0.1000000E+16
          box_length=    500.0000000    500.0000000    500.0000000
-          cell_size=     10.0000000     10.0000000     10.0000000
-        cell_number=             50             50             50
-    large_cell_size=     20.0000000     20.0000000     20.0000000
-  large_cell_number=             25             25             25
+          cell_size=     11.9047619     11.9047619     11.9047619
+        cell_number=             42             42             42
+    large_cell_size=     71.4285714     71.4285714     71.4285714
+  large_cell_number=              7              7              7
       surface_depth=      3.1652000
-    critical_radius=      5.0000000
+    critical_radius=      5.9523810
  ########### ion and irradiation ##########
-     uniform_damage=              1              1              1
+     uniform_damage=              1              1              0
            ion_type=              2
             iso_eff=              0
   implant_direction=              3
  ########## initial defects ##########
      initial_defect=   1000.0000000      0.0000000      0.0000000      0.0000000
      intrinsic_type=              1
+       lattice_type=bcc            
+                 a0=      3.1652000
  ########## others ##########
            cfg_type=lmp            
-       Random seeds=      737568639            494              0              0
+        damage_type=txt            
+            rd_seed=      760571849            494              0              0
+        output_rate=              0
  ##################################
  
  ########## CONTROL MATRIX ##########
@@ -83,10 +101,16 @@
    1000.0000000  0.1000000E+02  0.0000000E+00                1000    1
  ##################################
  
+ All set! Starting simulation...
  ----------simulation unit <initiate> started----------
  unit temperature=  0.000000000000000E+000
  unit time=  0.000000000000000E+000
  unit irradiation flux=  0.000000000000000E+000
+               No. of clusters remained=      7848
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
  CPU time comsuption of simulation unit=  0.000000000000000E+000
  overall CPU simulation time comsuption=  0.000000000000000E+000
  ---------simulation unit <initiate> finished----------
@@ -95,6 +119,11 @@
  unit temperature=   500.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
+               No. of clusters remained=      7852
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
  CPU time comsuption of simulation unit=  0.000000000000000E+000
  overall CPU simulation time comsuption=  0.000000000000000E+000
  ---------simulation unit <500> finished----------
@@ -103,6 +132,11 @@
  unit temperature=   510.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
+               No. of clusters remained=      7860
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
  CPU time comsuption of simulation unit=  0.000000000000000E+000
  overall CPU simulation time comsuption=  0.000000000000000E+000
  ---------simulation unit <510> finished----------
@@ -111,54 +145,89 @@
  unit temperature=   520.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
+               No. of clusters remained=      7868
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
  CPU time comsuption of simulation unit=  0.000000000000000E+000
- overall CPU simulation time comsuption=  1.562500000000000E-002
+ overall CPU simulation time comsuption=  0.000000000000000E+000
  ---------simulation unit <520> finished----------
  
  ----------simulation unit <530> started----------
  unit temperature=   530.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
+               No. of clusters remained=      7875
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
  CPU time comsuption of simulation unit=  0.000000000000000E+000
- overall CPU simulation time comsuption=  3.125000000000000E-002
+ overall CPU simulation time comsuption=  0.000000000000000E+000
  ---------simulation unit <530> finished----------
  
  ----------simulation unit <540> started----------
  unit temperature=   540.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
+               No. of clusters remained=      7882
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
  CPU time comsuption of simulation unit=  0.000000000000000E+000
- overall CPU simulation time comsuption=  3.125000000000000E-002
+ overall CPU simulation time comsuption=  1.562500000000000E-002
  ---------simulation unit <540> finished----------
  
  ----------simulation unit <550> started----------
  unit temperature=   550.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
+               No. of clusters remained=      7881
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
  CPU time comsuption of simulation unit=  0.000000000000000E+000
- overall CPU simulation time comsuption=  3.125000000000000E-002
+ overall CPU simulation time comsuption=  1.562500000000000E-002
  ---------simulation unit <550> finished----------
  
  ----------simulation unit <560> started----------
  unit temperature=   560.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
+               No. of clusters remained=      7882
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
  CPU time comsuption of simulation unit=  0.000000000000000E+000
- overall CPU simulation time comsuption=  3.125000000000000E-002
+ overall CPU simulation time comsuption=  1.562500000000000E-002
  ---------simulation unit <560> finished----------
  
  ----------simulation unit <570> started----------
  unit temperature=   570.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
- CPU time comsuption of simulation unit=  0.000000000000000E+000
- overall CPU simulation time comsuption=  4.687500000000000E-002
+               No. of clusters remained=      7881
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=  1.562500000000000E-002
+ overall CPU simulation time comsuption=  3.125000000000000E-002
  ---------simulation unit <570> finished----------
  
  ----------simulation unit <580> started----------
  unit temperature=   580.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
+               No. of clusters remained=      7881
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
  CPU time comsuption of simulation unit=  0.000000000000000E+000
  overall CPU simulation time comsuption=  4.687500000000000E-002
  ---------simulation unit <580> finished----------
@@ -167,338 +236,548 @@
  unit temperature=   590.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
+               No. of clusters remained=      7880
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
  CPU time comsuption of simulation unit=  0.000000000000000E+000
- overall CPU simulation time comsuption=  6.250000000000000E-002
+ overall CPU simulation time comsuption=  4.687500000000000E-002
  ---------simulation unit <590> finished----------
  
  ----------simulation unit <600> started----------
  unit temperature=   600.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
+               No. of clusters remained=      7882
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
  CPU time comsuption of simulation unit=  0.000000000000000E+000
- overall CPU simulation time comsuption=  6.250000000000000E-002
+ overall CPU simulation time comsuption=  4.687500000000000E-002
  ---------simulation unit <600> finished----------
  
  ----------simulation unit <610> started----------
  unit temperature=   610.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
+               No. of clusters remained=      7882
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
  CPU time comsuption of simulation unit=  0.000000000000000E+000
- overall CPU simulation time comsuption=  6.250000000000000E-002
+ overall CPU simulation time comsuption=  4.687500000000000E-002
  ---------simulation unit <610> finished----------
  
  ----------simulation unit <620> started----------
  unit temperature=   620.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
+               No. of clusters remained=      7882
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
  CPU time comsuption of simulation unit=  0.000000000000000E+000
- overall CPU simulation time comsuption=  7.812500000000000E-002
+ overall CPU simulation time comsuption=  4.687500000000000E-002
  ---------simulation unit <620> finished----------
  
  ----------simulation unit <630> started----------
  unit temperature=   630.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
- CPU time comsuption of simulation unit=  0.000000000000000E+000
- overall CPU simulation time comsuption=  9.375000000000000E-002
+               No. of clusters remained=      7882
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=  1.562500000000000E-002
+ overall CPU simulation time comsuption=  6.250000000000000E-002
  ---------simulation unit <630> finished----------
  
  ----------simulation unit <640> started----------
  unit temperature=   640.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
- CPU time comsuption of simulation unit=  0.000000000000000E+000
- overall CPU simulation time comsuption=  0.109375000000000     
+               No. of clusters remained=      7880
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=  1.562500000000000E-002
+ overall CPU simulation time comsuption=  7.812500000000000E-002
  ---------simulation unit <640> finished----------
  
  ----------simulation unit <650> started----------
  unit temperature=   650.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
- CPU time comsuption of simulation unit=  3.125000000000000E-002
- overall CPU simulation time comsuption=  0.156250000000000     
+               No. of clusters remained=      7880
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=  7.812500000000000E-002
  ---------simulation unit <650> finished----------
  
  ----------simulation unit <660> started----------
  unit temperature=   660.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
- CPU time comsuption of simulation unit=  3.125000000000000E-002
- overall CPU simulation time comsuption=  0.187500000000000     
+               No. of clusters remained=      7881
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=  7.812500000000000E-002
  ---------simulation unit <660> finished----------
  
  ----------simulation unit <670> started----------
  unit temperature=   670.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
- CPU time comsuption of simulation unit=  3.125000000000000E-002
- overall CPU simulation time comsuption=  0.218750000000000     
+               No. of clusters remained=      7878
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=  4.687500000000000E-002
+ overall CPU simulation time comsuption=  0.125000000000000     
  ---------simulation unit <670> finished----------
  
  ----------simulation unit <680> started----------
  unit temperature=   680.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
- CPU time comsuption of simulation unit=  3.125000000000000E-002
- overall CPU simulation time comsuption=  0.250000000000000     
+               No. of clusters remained=      7878
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=  6.250000000000000E-002
+ overall CPU simulation time comsuption=  0.187500000000000     
  ---------simulation unit <680> finished----------
  
  ----------simulation unit <690> started----------
  unit temperature=   690.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
- CPU time comsuption of simulation unit=  0.140625000000000     
- overall CPU simulation time comsuption=  0.406250000000000     
+               No. of clusters remained=      7878
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=  7.812500000000000E-002
+ overall CPU simulation time comsuption=  0.265625000000000     
  ---------simulation unit <690> finished----------
  
  ----------simulation unit <700> started----------
  unit temperature=   700.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
- CPU time comsuption of simulation unit=  9.375000000000000E-002
- overall CPU simulation time comsuption=  0.500000000000000     
+               No. of clusters remained=      7878
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=  0.109375000000000     
+ overall CPU simulation time comsuption=  0.375000000000000     
  ---------simulation unit <700> finished----------
  
  ----------simulation unit <710> started----------
  unit temperature=   710.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
- CPU time comsuption of simulation unit=  0.203125000000000     
- overall CPU simulation time comsuption=  0.703125000000000     
+               No. of clusters remained=      7877
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=  0.109375000000000     
+ overall CPU simulation time comsuption=  0.484375000000000     
  ---------simulation unit <710> finished----------
  
  ----------simulation unit <720> started----------
  unit temperature=   720.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
- CPU time comsuption of simulation unit=  0.203125000000000     
- overall CPU simulation time comsuption=  0.906250000000000     
+               No. of clusters remained=      7874
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=  0.234375000000000     
+ overall CPU simulation time comsuption=  0.718750000000000     
  ---------simulation unit <720> finished----------
  
  ----------simulation unit <730> started----------
  unit temperature=   730.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
- CPU time comsuption of simulation unit=  0.187500000000000     
- overall CPU simulation time comsuption=   1.09375000000000     
+               No. of clusters remained=      7874
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=  0.453125000000000     
+ overall CPU simulation time comsuption=   1.17187500000000     
  ---------simulation unit <730> finished----------
  
  ----------simulation unit <740> started----------
  unit temperature=   740.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
- CPU time comsuption of simulation unit=  0.406250000000000     
- overall CPU simulation time comsuption=   1.50000000000000     
+               No. of clusters remained=      7874
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=  0.390625000000000     
+ overall CPU simulation time comsuption=   1.57812500000000     
  ---------simulation unit <740> finished----------
  
  ----------simulation unit <750> started----------
  unit temperature=   750.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
- CPU time comsuption of simulation unit=  0.750000000000000     
- overall CPU simulation time comsuption=   2.26562500000000     
+               No. of clusters remained=      7871
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=  0.890625000000000     
+ overall CPU simulation time comsuption=   2.46875000000000     
  ---------simulation unit <750> finished----------
  
  ----------simulation unit <760> started----------
  unit temperature=   760.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
- CPU time comsuption of simulation unit=   1.07812500000000     
- overall CPU simulation time comsuption=   3.35937500000000     
+               No. of clusters remained=      7862
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=   1.34375000000000     
+ overall CPU simulation time comsuption=   3.81250000000000     
  ---------simulation unit <760> finished----------
  
  ----------simulation unit <770> started----------
  unit temperature=   770.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
- CPU time comsuption of simulation unit=   1.20312500000000     
- overall CPU simulation time comsuption=   4.56250000000000     
+               No. of clusters remained=      7850
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=   1.34375000000000     
+ overall CPU simulation time comsuption=   5.17187500000000     
  ---------simulation unit <770> finished----------
  
  ----------simulation unit <780> started----------
  unit temperature=   780.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
- CPU time comsuption of simulation unit=   1.93750000000000     
- overall CPU simulation time comsuption=   6.51562500000000     
+               No. of clusters remained=      7821
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=   1.95312500000000     
+ overall CPU simulation time comsuption=   7.12500000000000     
  ---------simulation unit <780> finished----------
  
  ----------simulation unit <790> started----------
  unit temperature=   790.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
- CPU time comsuption of simulation unit=   2.37500000000000     
- overall CPU simulation time comsuption=   8.89062500000000     
+               No. of clusters remained=      7767
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=   2.65625000000000     
+ overall CPU simulation time comsuption=   9.81250000000000     
  ---------simulation unit <790> finished----------
  
  ----------simulation unit <800> started----------
  unit temperature=   800.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
- CPU time comsuption of simulation unit=   2.35937500000000     
- overall CPU simulation time comsuption=   11.2500000000000     
+               No. of clusters remained=      7682
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=   3.21875000000000     
+ overall CPU simulation time comsuption=   13.0312500000000     
  ---------simulation unit <800> finished----------
  
  ----------simulation unit <810> started----------
  unit temperature=   810.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
- CPU time comsuption of simulation unit=   4.68750000000000     
- overall CPU simulation time comsuption=   15.9375000000000     
+               No. of clusters remained=      7539
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=   5.73437500000000     
+ overall CPU simulation time comsuption=   18.7656250000000     
  ---------simulation unit <810> finished----------
  
  ----------simulation unit <820> started----------
  unit temperature=   820.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
- CPU time comsuption of simulation unit=   5.56250000000000     
- overall CPU simulation time comsuption=   21.5156250000000     
+               No. of clusters remained=      7260
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=   6.93750000000000     
+ overall CPU simulation time comsuption=   25.7187500000000     
  ---------simulation unit <820> finished----------
  
  ----------simulation unit <830> started----------
  unit temperature=   830.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
- CPU time comsuption of simulation unit=   7.95312500000000     
- overall CPU simulation time comsuption=   29.4687500000000     
+               No. of clusters remained=      6765
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=   9.10937500000000     
+ overall CPU simulation time comsuption=   34.8281250000000     
  ---------simulation unit <830> finished----------
  
  ----------simulation unit <840> started----------
  unit temperature=   840.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
- CPU time comsuption of simulation unit=   7.92187500000000     
- overall CPU simulation time comsuption=   37.4062500000000     
+               No. of clusters remained=      5989
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=   11.2812500000000     
+ overall CPU simulation time comsuption=   46.1250000000000     
  ---------simulation unit <840> finished----------
  
  ----------simulation unit <850> started----------
  unit temperature=   850.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
- CPU time comsuption of simulation unit=   17.1718750000000     
- overall CPU simulation time comsuption=   54.5781250000000     
+               No. of clusters remained=      4862
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=   5.59375000000000     
+ overall CPU simulation time comsuption=   51.7187500000000     
  ---------simulation unit <850> finished----------
  
  ----------simulation unit <860> started----------
  unit temperature=   860.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
- CPU time comsuption of simulation unit=   16.5000000000000     
- overall CPU simulation time comsuption=   71.0781250000000     
+               No. of clusters remained=      3558
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=   10.9843750000000     
+ overall CPU simulation time comsuption=   62.7031250000000     
  ---------simulation unit <860> finished----------
  
  ----------simulation unit <870> started----------
  unit temperature=   870.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
- CPU time comsuption of simulation unit=   15.1718750000000     
- overall CPU simulation time comsuption=   86.2500000000000     
+               No. of clusters remained=      2193
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=   7.35937500000000     
+ overall CPU simulation time comsuption=   70.0625000000000     
  ---------simulation unit <870> finished----------
  
  ----------simulation unit <880> started----------
  unit temperature=   880.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
- CPU time comsuption of simulation unit=   6.26562500000000     
- overall CPU simulation time comsuption=   92.5156250000000     
+               No. of clusters remained=      1128
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=   5.92187500000000     
+ overall CPU simulation time comsuption=   75.9843750000000     
  ---------simulation unit <880> finished----------
  
  ----------simulation unit <890> started----------
  unit temperature=   890.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
- CPU time comsuption of simulation unit=   4.45312500000000     
- overall CPU simulation time comsuption=   96.9687500000000     
+               No. of clusters remained=       485
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=   3.35937500000000     
+ overall CPU simulation time comsuption=   79.3437500000000     
  ---------simulation unit <890> finished----------
  
  ----------simulation unit <900> started----------
  unit temperature=   900.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
- CPU time comsuption of simulation unit=   2.14062500000000     
- overall CPU simulation time comsuption=   99.1093750000000     
+               No. of clusters remained=       156
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=   1.35937500000000     
+ overall CPU simulation time comsuption=   80.7031250000000     
  ---------simulation unit <900> finished----------
  
  ----------simulation unit <910> started----------
  unit temperature=   910.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
- CPU time comsuption of simulation unit=  0.687500000000000     
- overall CPU simulation time comsuption=   99.7968750000000     
+               No. of clusters remained=        54
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=  0.390625000000000     
+ overall CPU simulation time comsuption=   81.0937500000000     
  ---------simulation unit <910> finished----------
  
  ----------simulation unit <920> started----------
  unit temperature=   920.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
- CPU time comsuption of simulation unit=  0.140625000000000     
- overall CPU simulation time comsuption=   99.9375000000000     
+               No. of clusters remained=        31
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=  7.812500000000000E-002
+ overall CPU simulation time comsuption=   81.1718750000000     
  ---------simulation unit <920> finished----------
  
  ----------simulation unit <930> started----------
  unit temperature=   930.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
- CPU time comsuption of simulation unit=  1.562500000000000E-002
- overall CPU simulation time comsuption=   99.9531250000000     
+               No. of clusters remained=        27
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   81.1718750000000     
  ---------simulation unit <930> finished----------
  
  ----------simulation unit <940> started----------
  unit temperature=   940.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
+               No. of clusters remained=        26
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
  CPU time comsuption of simulation unit=  0.000000000000000E+000
- overall CPU simulation time comsuption=   99.9531250000000     
+ overall CPU simulation time comsuption=   81.1718750000000     
  ---------simulation unit <940> finished----------
  
  ----------simulation unit <950> started----------
  unit temperature=   950.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
+               No. of clusters remained=        26
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
  CPU time comsuption of simulation unit=  0.000000000000000E+000
- overall CPU simulation time comsuption=   99.9531250000000     
+ overall CPU simulation time comsuption=   81.1718750000000     
  ---------simulation unit <950> finished----------
  
  ----------simulation unit <960> started----------
  unit temperature=   960.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
+               No. of clusters remained=        26
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
  CPU time comsuption of simulation unit=  0.000000000000000E+000
- overall CPU simulation time comsuption=   99.9531250000000     
+ overall CPU simulation time comsuption=   81.1718750000000     
  ---------simulation unit <960> finished----------
  
  ----------simulation unit <970> started----------
  unit temperature=   970.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
+               No. of clusters remained=        26
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
  CPU time comsuption of simulation unit=  0.000000000000000E+000
- overall CPU simulation time comsuption=   99.9531250000000     
+ overall CPU simulation time comsuption=   81.1718750000000     
  ---------simulation unit <970> finished----------
  
  ----------simulation unit <980> started----------
  unit temperature=   980.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
+               No. of clusters remained=        26
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
  CPU time comsuption of simulation unit=  0.000000000000000E+000
- overall CPU simulation time comsuption=   99.9531250000000     
+ overall CPU simulation time comsuption=   81.1718750000000     
  ---------simulation unit <980> finished----------
  
  ----------simulation unit <990> started----------
  unit temperature=   990.000000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
+               No. of clusters remained=        26
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
  CPU time comsuption of simulation unit=  0.000000000000000E+000
- overall CPU simulation time comsuption=   99.9531250000000     
+ overall CPU simulation time comsuption=   81.1718750000000     
  ---------simulation unit <990> finished----------
  
  ----------simulation unit <1000> started----------
  unit temperature=   1000.00000000000     
  unit time=   10.0000000000000     
  unit irradiation flux=  0.000000000000000E+000
+               No. of clusters remained=        26
+                No. of defects remained=      7882         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
  CPU time comsuption of simulation unit=  0.000000000000000E+000
- overall CPU simulation time comsuption=   99.9687500000000     
+ overall CPU simulation time comsuption=   81.1718750000000     
  ---------simulation unit <1000> finished----------
  
  
  All simulation units completed
- Total CPU time=   99.9687500000000     
+ Total CPU time=   81.1718750000000     

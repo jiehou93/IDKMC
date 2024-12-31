@@ -1,0 +1,13 @@
+      Temp N_cluster f1_remain f2_remain f3_remain f4_remain f1_desorb f2_desorb f3_desorb f4_desorb  f1_trans  f2_trans  f3_trans  f4_trans  f1_grain  f2_grain  f3_grain  f4_grain           unit_name
+     0.000       523      5585         0         0         0         0         0         0         0         0         0         0         0         0         0         0         0            initiate
+   300.000       523      5585       153         0         0         0        10         0         0         0         0         0         0         0         0         0         0      implantation01
+   300.000       523      5585       280         0         0         0         7         0         0         0         0         0         0         0         0         0         0      implantation02
+   300.000       523      5585       424         0         0         0         9         0         0         0         0         0         0         0         0         0         0      implantation03
+   300.000       523      5585       560         0         0         0        12         0         0         0         0         0         0         0         0         0         0      implantation04
+   300.000       523      5585       710         0         0         0        16         0         0         0         0         0         0         0         0         0         0      implantation05
+   300.000       523      5585       866         0         0         0        15         0         0         0         0         0         0         0         0         0         0      implantation06
+   300.000       523      5585      1017         0         0         0        12         0         0         0         0         0         0         0         0         0         0      implantation07
+   300.000       523      5585      1146         0         0         0         3         0         0         0         0         0         0         0         0         0         0      implantation08
+   300.000       523      5585      1287         0         0         0        15         0         0         0         0         0         0         0         0         0         0      implantation09
+   300.000       523      5585      1411         0         0         0         9         0         0         0         0         0         0         0         0         0         0      implantation10
+   300.000       523      5585      1411         0         0         0         0         0         0         0         0         0         0         0         0         0         0           after_imp

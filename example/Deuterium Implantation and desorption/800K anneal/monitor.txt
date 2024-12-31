@@ -1,0 +1,223 @@
+ Checking files...
+     Implantation files incomplete, irradiation function will be disabled...
+ Loading INPUT file...
+ Loading CONTROL file...
+ Loading implantation database...
+     Implantation database files incomplete, disabling irradiation function.....
+ Loading parameter database...
+ Initiating system...
+     Box_length is defined, automatically generating cell grids...
+     Using customized random seeds...
+     Random seeds set to:      314159    12131415
+     Loading POSITION file...
+     loading         5065 clusters from lmp file
+        5074 clusters successfully loaded
+     Configuration initiated
+ Running diagnostics...
+     Nothing to worry about. At least for now...
+ Output settings...
+ 
+ ########## INPUT PARAMETERS ##########
+ ########### BOX ##########
+                PBC=              1              1              0
+       grain_radius=  0.1000000E+16
+         box_length=    200.0000000    200.0000000   5000.0000000
+          cell_size=     10.0000000     10.0000000     10.0000000
+        cell_number=             20             20            500
+    large_cell_size=     20.0000000     20.0000000     20.0000000
+  large_cell_number=             10             10            250
+      surface_depth=      3.1652000
+    critical_radius=      5.0000000
+ ########### ion and irradiation ##########
+     uniform_damage=              1              1              0
+           ion_type=              2
+            iso_eff=              0
+  implant_direction=              3
+ ########## initial defects ##########
+     initial_defect=      0.0000000      0.0000000      0.0000000      0.0000000
+     intrinsic_type=              0
+       lattice_type=bcc            
+                 a0=      3.1652000
+ ########## others ##########
+           cfg_type=lmp            
+        damage_type=cfg            
+            rd_seed=         314159       12131415        1234567        7654321
+        output_rate=              1
+ ##################################
+ 
+ ########## CONTROL MATRIX ##########
+   #temperature           time rate                name outp
+    300.0000000  0.0000000E+00  0.0000000E+00            initiate    1
+    800.0000000  0.5859000E+00  0.0000000E+00            anneal01    1
+    800.0000000  0.5859000E+00  0.0000000E+00            anneal02    1
+    800.0000000  0.1171900E+01  0.0000000E+00            anneal03    1
+    800.0000000  0.2343800E+01  0.0000000E+00            anneal04    1
+    800.0000000  0.4687500E+01  0.0000000E+00            anneal05    1
+    800.0000000  0.9375000E+01  0.0000000E+00            anneal06    1
+    800.0000000  0.1875000E+02  0.0000000E+00            anneal07    1
+    800.0000000  0.3750000E+02  0.0000000E+00            anneal08    1
+    800.0000000  0.7500000E+02  0.0000000E+00            anneal09    1
+    800.0000000  0.1500000E+03  0.0000000E+00            anneal10    1
+    300.0000000  0.3000000E+03  0.0000000E+00           anneal1ed    1
+ ##################################
+ 
+ All set! Starting simulation...
+ ----------simulation unit <initiate> started----------
+ unit temperature=   300.000000000000     
+ unit time=  0.000000000000000E+000
+ unit irradiation flux=  0.000000000000000E+000
+               No. of clusters remained=      5065
+                No. of defects remained=      5850      8586         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=  0.000000000000000E+000
+ ---------simulation unit <initiate> finished----------
+ 
+ ----------simulation unit <anneal01> started----------
+ unit temperature=   800.000000000000     
+ unit time=  0.585900000000000     
+ unit irradiation flux=  0.000000000000000E+000
+               No. of clusters remained=      4640
+                No. of defects remained=      5767      1086         0         0
+                No. of defects released=        83      6463         0         0
+             No. of defects transmitted=         0      1037         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=   90.7968750000000     
+ overall CPU simulation time comsuption=   90.7968750000000     
+ ---------simulation unit <anneal01> finished----------
+ 
+ ----------simulation unit <anneal02> started----------
+ unit temperature=   800.000000000000     
+ unit time=  0.585900000000000     
+ unit irradiation flux=  0.000000000000000E+000
+               No. of clusters remained=      4291
+                No. of defects remained=      5723       699         0         0
+                No. of defects released=        44       363         0         0
+             No. of defects transmitted=         0        24         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=   3.20312500000000     
+ overall CPU simulation time comsuption=   94.0000000000000     
+ ---------simulation unit <anneal02> finished----------
+ 
+ ----------simulation unit <anneal03> started----------
+ unit temperature=   800.000000000000     
+ unit time=   1.17190000000000     
+ unit irradiation flux=  0.000000000000000E+000
+               No. of clusters remained=      3670
+                No. of defects remained=      5668       474         0         0
+                No. of defects released=        55       216         0         0
+             No. of defects transmitted=         0         9         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=   1.76562500000000     
+ overall CPU simulation time comsuption=   95.7812500000000     
+ ---------simulation unit <anneal03> finished----------
+ 
+ ----------simulation unit <anneal04> started----------
+ unit temperature=   800.000000000000     
+ unit time=   2.34380000000000     
+ unit irradiation flux=  0.000000000000000E+000
+               No. of clusters remained=      2846
+                No. of defects remained=      5622       295         0         0
+                No. of defects released=        46       169         0         0
+             No. of defects transmitted=         0        10         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=   1.73437500000000     
+ overall CPU simulation time comsuption=   97.5156250000000     
+ ---------simulation unit <anneal04> finished----------
+ 
+ ----------simulation unit <anneal05> started----------
+ unit temperature=   800.000000000000     
+ unit time=   4.68750000000000     
+ unit irradiation flux=  0.000000000000000E+000
+               No. of clusters remained=      1878
+                No. of defects remained=      5594       138         0         0
+                No. of defects released=        28       145         0         0
+             No. of defects transmitted=         0        12         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=   1.53125000000000     
+ overall CPU simulation time comsuption=   99.0468750000000     
+ ---------simulation unit <anneal05> finished----------
+ 
+ ----------simulation unit <anneal06> started----------
+ unit temperature=   800.000000000000     
+ unit time=   9.37500000000000     
+ unit irradiation flux=  0.000000000000000E+000
+               No. of clusters remained=      1168
+                No. of defects remained=      5593        53         0         0
+                No. of defects released=         1        77         0         0
+             No. of defects transmitted=         0         8         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=   1.21875000000000     
+ overall CPU simulation time comsuption=   100.265625000000     
+ ---------simulation unit <anneal06> finished----------
+ 
+ ----------simulation unit <anneal07> started----------
+ unit temperature=   800.000000000000     
+ unit time=   18.7500000000000     
+ unit irradiation flux=  0.000000000000000E+000
+               No. of clusters remained=       793
+                No. of defects remained=      5588        11         0         0
+                No. of defects released=         5        38         0         0
+             No. of defects transmitted=         0         4         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=  0.531250000000000     
+ overall CPU simulation time comsuption=   100.796875000000     
+ ---------simulation unit <anneal07> finished----------
+ 
+ ----------simulation unit <anneal08> started----------
+ unit temperature=   800.000000000000     
+ unit time=   37.5000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+               No. of clusters remained=       648
+                No. of defects remained=      5588         0         0         0
+                No. of defects released=         0         9         0         0
+             No. of defects transmitted=         0         2         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=  0.312500000000000     
+ overall CPU simulation time comsuption=   101.109375000000     
+ ---------simulation unit <anneal08> finished----------
+ 
+ ----------simulation unit <anneal09> started----------
+ unit temperature=   800.000000000000     
+ unit time=   75.0000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+               No. of clusters remained=       573
+                No. of defects remained=      5587         0         0         0
+                No. of defects released=         1         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=  0.296875000000000     
+ overall CPU simulation time comsuption=   101.406250000000     
+ ---------simulation unit <anneal09> finished----------
+ 
+ ----------simulation unit <anneal10> started----------
+ unit temperature=   800.000000000000     
+ unit time=   150.000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+               No. of clusters remained=       523
+                No. of defects remained=      5585         0         0         0
+                No. of defects released=         2         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=  0.281250000000000     
+ overall CPU simulation time comsuption=   101.687500000000     
+ ---------simulation unit <anneal10> finished----------
+ 
+ ----------simulation unit <anneal1ed> started----------
+ unit temperature=   300.000000000000     
+ unit time=   300.000000000000     
+ unit irradiation flux=  0.000000000000000E+000
+               No. of clusters remained=       523
+                No. of defects remained=      5585         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=   101.687500000000     
+ ---------simulation unit <anneal1ed> finished----------
+ 
+ 
+ All simulation units completed
+ Total CPU time=   101.687500000000     
