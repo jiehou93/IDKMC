@@ -1,0 +1,10 @@
+ITEM: TIMESTEP
+0
+ITEM: NUMBER OF ATOMS
+           1
+ITEM: BOX BOUNDS pp pp pp
+  0.0000000E+00   1000.00000000000     
+  0.0000000E+00   100.000000000000     
+  0.0000000E+00   100.000000000000     
+ITEM: ATOMS x y z f1 f2 f3 f4 orient radius rate_mig rate_rot rate_emit
+       715.408945       23.245667       80.581549     0     0     1     0     6   1.119 0.173E+10 0.346E+10 0.000E+00

@@ -15,6 +15,7 @@
 *.so
 *.dylib
 *.dll
+*.pdb
 
 # Fortran module files
 *.mod
@@ -30,9 +31,8 @@
 *.out
 *.app
 
-# Word
-*.doc
-*.docx
+# Word files
+manual.docx
 
 # private
 todo.txt
