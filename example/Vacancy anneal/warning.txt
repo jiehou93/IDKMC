@@ -1,1 +1,0 @@
- Error! The cluster           1 in POSITION.txt lies outside of the box

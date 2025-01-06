@@ -10,7 +10,13 @@
     logical rot                                 !表示缺陷是否转向的参量
     type(cell_list),pointer::pointer_dummy
 
-    !if(clu(i)%neigen<-1)print*,'mig',clu(i)%neigen
+    call RANDOM_NUMBER(ran1)
+    if(ran1<=14.4/6.0*(clu(i)%step/grain_radi)**2.0)then
+        !根据sink strength计算晶界吸收概率
+        grain_released=grain_released+clu(i)%formula
+        call dele(i)  
+        return
+    endif
 
     orien=clu(i)%orien                          !读取团簇的方位
 
@@ -82,29 +88,20 @@
             clu(i)%index=>large_cell(a2,b2,c2)%next 
         endif
     endif
-    
-    !根据sink strength计算晶界吸收概率
-    call RANDOM_NUMBER(ran1)
-    if(ran1<=2.5*(clu(i)%step/grain_radi)**2.0)then
-        grain_released=grain_released+clu(i)%formula
-        call dele(i)  
-    else
-        nclu1=i
-        v=vicinity(i)
 
-        do while(v>0)                                                   !检查是否聚合
-            
-            call aggregation(nclu1,v,aggregated)                        !注意避免递归调用
-            nclu1=aggregated
-            if(nclu1>0)then                                             !检查是否发生连续聚合
-                v=vicinity(nclu1)
-            else
-                v=-100000
-            endif
-        enddo
-        if(v>-10)then
-            call dele(nclu1)                                            !absorbed by surface
+    nclu1=i
+    v=vicinity(i)
+    do while(v>0)                                                   !检查是否聚合
+        call aggregation(nclu1,v,aggregated)                        !注意避免递归调用
+        nclu1=aggregated
+        if(nclu1>0)then                                             !检查是否发生连续聚合
+            v=vicinity(nclu1)
+        else
+            v=-100000
         endif
+    enddo
+    if(v>-10)then
+        call dele(nclu1)                                            !absorbed by surface
     endif
 
     end    
