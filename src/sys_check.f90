@@ -92,6 +92,21 @@
         warning=.true.
     endif
     
+    !ºÏ≤ÈPBC uniform_damage implant_direction «∑Ò“ª÷¬
+    log1=SUM(abs(pbc-uniform_damage))/=0
+    if(log1)then
+        write(10,*)'    Warning! PBC  /= uniform_damage. Make sure you know what you are doing.'
+        warning=.true.
+    endif
+    if(pbc(implant_direction)/=0)then
+        write(10,*)'    Warning! PBC=1 along the implant_direction. Usually unphysical for ion irradiation.'
+        warning=.true.
+    endif
+    if(uniform_damage(implant_direction)/=0)then
+        write(10,*)'    Warning! uniform_damage=1 along the implant_direction. Usually unphysical for ion irradiation.'
+        warning=.true.
+    endif
+        
     if(warning)then
         write(*,*)'    Warning! I find something wierd, plese check the monitor.txt file. '
     else
@@ -100,5 +115,6 @@
     endif
 
     
+        
     
     end subroutine sys_check
