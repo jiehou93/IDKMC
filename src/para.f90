@@ -4,7 +4,7 @@
     implicit none
     integer*4 n,formula_in(element),formula(element)
     integer*4 i,j,position,error
-    real*8 parameters
+    real*8 parameters,para_dummy
     
     formula=formula_in
     
@@ -15,13 +15,22 @@
     endif
     
     if(formula(1)<=para_range(1,2).AND.formula(1)>=para_range(1,1).AND.formula(2)<=para_range(2,2).AND.formula(3)<=para_range(3,2).AND.formula(4)<=para_range(4,2))then
-        !假如是已经定义好的部分参数，且是有效参数，则直接读取并返回，否则进入下面的不稳定团簇设置
+        !该团簇组分在参数定义范围内
         parameters=ion_para(n,formula(1),formula(2),formula(3),formula(4))
-        if(ion_para(1,formula(1),formula(2),formula(3),formula(4))>-10)then
-            !确定读取到了有效参数
-            return
+        if(ion_para(1,formula(1),formula(2),formula(3),formula(4))<-10)then
+            !未定义参数，记录为不稳定团簇
+            write(10,'(A35,4I7,A25)')'Warning! undefined parameter for ',formula(1),formula(2),formula(3),formula(4),' setting to unstable!'
+            ion_para(1:2,formula(1),formula(2),formula(3),formula(4))=100         !不可迁移
+            ion_para(3:4,formula(1),formula(2),formula(3),formula(4))=0           !钉扎能为0，半径为0
+            ion_para(5,formula(1),formula(2),formula(3),formula(4))=1E15          !很大的v_emit
+            ion_para(6,formula(1),formula(2),formula(3),formula(4))=0             !v_mig=0
+            para_dummy=maxloc(abs(formula(:)),1)
+            ion_para(7,formula(1),formula(2),formula(3),formula(4))=formula(para_dummy)/abs(formula(para_dummy))*para_dummy   !发射最多的组元
+            ion_para(8,formula(1),formula(2),formula(3),formula(4))=0             !setp=0
+            
+            parameters=ion_para(n,formula(1),formula(2),formula(3),formula(4))
         endif
-
+        return
     endif     
     
     !未定义的团簇均为为不稳定团簇
@@ -30,7 +39,6 @@
         parameters=100
     case(3)
         parameters=0
-         write(10,'(A35,4I7,A25)')'Warning! undefined parameter for ',formula(1),formula(2),formula(3),formula(4),' setting to unstable!'
     case(4)
         parameters=0
     case(5)
