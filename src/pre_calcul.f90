@@ -34,7 +34,7 @@
         !直接设置box大小，元胞网格自动生成,元胞尺寸约为10 A
         write(10,*)'    Box_length is defined, automatically generating cell grids...'
         !确定最大捕获直径，确保大元胞网格尺寸大于该值
-        dmax=2*maxval(ion_para(4,:,:,:,:))
+        dmax=2*maxval(para_table(4,:,:,:,:))
         lmin=max(20.0,dmax)
         !小元胞网格尺寸在10左右
         large2small_ratio=floor(lmin/10)
@@ -186,15 +186,10 @@
     clunull%n=-100000                   !团簇大小
     nullify(clunull%index)              !元胞索引
     clunull%orien=-100000               !方位
-    clunull%emit=-100000                !解离时发射的组分
-    clunull%step=-100000
     clunull%formula=0                   !成分
     clunull%coord=-100000               !坐标
     clunull%rate(:)=0                   !反应速率为0
-    clunull%vm=0                        !尝试频率为0
-    clunull%ve=0
-    clunull%r=0                         !半径为0
-    clunull%em=100                      !能垒为100ev
-    clunull%er=100
-    clunull%eb=100
+    clunull%para(1:3)=100               !能垒为100ev
+    clunull%para(4:6)=0                 !半径、尝试频率为0
+    clunull%para(7:8)=-100000           !离谱的步长、发射组分
     end subroutine pre_calcul

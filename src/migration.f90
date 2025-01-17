@@ -11,7 +11,7 @@
     type(cell_list),pointer::pointer_dummy
 
     call RANDOM_NUMBER(ran1)
-    if(ran1<=14.4/6.0*(clu(i)%step/grain_radi)**2.0)then
+    if(ran1<=14.4/6.0*(clu(i)%para(8)/grain_radi)**2.0)then
         !根据sink strength计算晶界吸收概率
         grain_released=grain_released+clu(i)%formula
         call dele(i)  
@@ -30,11 +30,11 @@
 
     !print*,abs(move(:,orien))-abs(move(:,orien1))
 
-    coord=clu(i)%coord+clu(i)%step*move(:,orien1)   !迁移后的相对坐标（还需进行周期性矫正）
+    coord=clu(i)%coord+clu(i)%para(8)*move(:,orien1)   !迁移后的相对坐标（还需进行周期性矫正）
     coord=coord-floor(coord/length)*length          !周期性矫正
     
 
-    if(clu(i)%r<critical_radius)then            !半径小于临界值，更新原胞列表
+    if(clu(i)%para(4)<critical_radius)then            !半径小于临界值，更新原胞列表
         a1=clu(i)%coord(1)/cell_size(1)+1                !迁移前团簇所在元胞号
         b1=clu(i)%coord(2)/cell_size(2)+1
         c1=clu(i)%coord(3)/cell_size(3)+1

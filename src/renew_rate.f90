@@ -14,19 +14,9 @@ subroutine renew_rate_all()
     enddo
 
     do i=1,nclu                                     !更新二叉树速率为新的温度下的速率
-        !if(clu(i)%orien==0.and.clu(i)%formula(1)<0)then!若SIA团簇的取向不一致，则不可移动（此功能未开启，聚合后团簇取之前较大团簇的方向）
-        !    clu(i)%rate(1)=0
-        !    clu(i)%rate(2)=0
-        !    clu(i)%rate(3)=clu(i)%ve*exp(-clu(i)%eb/kb/tem)
-        !elseif(clu(i)%orien==0)then                !其他情况均可移动
-        !    clu(i)%orien=1
-        !    clu(i)%rate(1)=1.0/3.0*clu(i)%vm*exp(-clu(i)%em/kb/tem)
-        !    clu(i)%rate(2)=2.0/3.0*clu(i)%vm*exp(-clu(i)%er/kb/tem)
-        !    clu(i)%rate(3)=clu(i)%ve*exp(-clu(i)%eb/kb/tem)
-        !else
-        clu(i)%rate(1)=1.0/3.0*clu(i)%vm*exp(-clu(i)%em/kb/tem)
-        clu(i)%rate(2)=clu(i)%rate(1)+2.0/3.0*clu(i)%vm*exp(-clu(i)%er/kb/tem)
-        clu(i)%rate(3)=clu(i)%rate(2)+clu(i)%ve*exp(-clu(i)%eb/kb/tem)
+        clu(i)%rate(1)=1.0/3.0*clu(i)%para(6)*exp(-clu(i)%para(1)/kb/tem)
+        clu(i)%rate(2)=clu(i)%rate(1)+2.0/3.0*clu(i)%para(6)*exp(-clu(i)%para(2)/kb/tem)
+        clu(i)%rate(3)=clu(i)%rate(2)+clu(i)%para(5)*exp(-clu(i)%para(3)/kb/tem)
         !endif
     enddo
 

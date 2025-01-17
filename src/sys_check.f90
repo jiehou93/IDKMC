@@ -86,7 +86,7 @@
 
     !检查large cell size边长是否大于最大的缺陷直径
     lmin=minval(large_cell_size)
-    dmax=2*maxval(ion_para(4,:,:,:,:))
+    dmax=2*maxval(para_table(4,:,:,:,:))
     if(lmin<dmax)then
         write(10,*)'    Warning! Large_cell_size < max defect diameter. Correct neighbor search is not guaranteed. Two large defects can overlap without clustering together.'
         warning=.true.

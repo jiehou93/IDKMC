@@ -11,14 +11,14 @@
         write(*,*)'输入想要查询缺陷的组分,输入4个0退出查询：'
         read(*,*)formula
         if(formula(1)==0.and.formula(2)==0) exit
-        write(*,*)'em=   ',parameters(1,formula)
-        write(*,*)'em+er=',parameters(2,formula)
-        write(*,*)'em+eb=',parameters(3,formula)
-        write(*,*)'r=    ',parameters(4,formula)
-        write(*,*)'ve=   ',parameters(5,formula)
-        write(*,*)'vm=   ',parameters(6,formula)
-        write(*,*)'emit= ',parameters(7,formula)
-        write(*,*)'step= ',parameters(8,formula)
+        !write(*,*)'em=   ',parameters(1,formula)
+        !write(*,*)'em+er=',parameters(2,formula)
+        !write(*,*)'em+eb=',parameters(3,formula)
+        !write(*,*)'r=    ',parameters(4,formula)
+        !write(*,*)'ve=   ',parameters(5,formula)
+        !write(*,*)'vm=   ',parameters(6,formula)
+        !write(*,*)'emit= ',parameters(7,formula)
+        !write(*,*)'step= ',parameters(8,formula)
     enddo
     !open(1005,file='radius.txt')
 

@@ -148,13 +148,13 @@
         if(selective_output==0)then
             !输出所有缺陷
             do i=1,nclu
-                write(110,'(1x,3F16.6,5I6,F8.3)')clu(i)%coord,clu(i)%formula,clu(i)%orien,clu(i)%r 
+                write(110,'(1x,3F16.6,5I6,F8.3)')clu(i)%coord,clu(i)%formula,clu(i)%orien,clu(i)%para(4) 
             enddo
         else
             !输出指定类型缺陷
             do i=1,nclu
                 if((clu(i)%formula(selective_output)/=0))then
-                     write(110,'(1x,3F16.6,5I6,F8.3)')clu(i)%coord,clu(i)%formula,clu(i)%orien,clu(i)%r 
+                     write(110,'(1x,3F16.6,5I6,F8.3)')clu(i)%coord,clu(i)%formula,clu(i)%orien,clu(i)%para(4) 
                 endif
             enddo
         endif
@@ -163,13 +163,13 @@
         if(selective_output==0)then
             !输出所有缺陷
             do i=1,nclu
-                write(110,'(1x,3F16.6,5I6,F8.3,3E10.3)')clu(i)%coord,clu(i)%formula,clu(i)%orien,clu(i)%r,clu(i)%rate(1),clu(i)%rate(2)-clu(i)%rate(1),clu(i)%rate(3)-clu(i)%rate(2) 
+                write(110,'(1x,3F16.6,5I6,F8.3,3E10.3)')clu(i)%coord,clu(i)%formula,clu(i)%orien,clu(i)%para(4),clu(i)%rate(1),clu(i)%rate(2)-clu(i)%rate(1),clu(i)%rate(3)-clu(i)%rate(2) 
             enddo
         else
             !输出指定类型缺陷
             do i=1,nclu
                 if((clu(i)%formula(selective_output)/=0))then
-                     write(110,'(1x,3F16.6,5I6,F8.3,3E10.3)')clu(i)%coord,clu(i)%formula,clu(i)%orien,clu(i)%r,clu(i)%rate(1),clu(i)%rate(2)-clu(i)%rate(1),clu(i)%rate(3)-clu(i)%rate(2) 
+                     write(110,'(1x,3F16.6,5I6,F8.3,3E10.3)')clu(i)%coord,clu(i)%formula,clu(i)%orien,clu(i)%para(4),clu(i)%rate(1),clu(i)%rate(2)-clu(i)%rate(1),clu(i)%rate(3)-clu(i)%rate(2) 
                 endif
             enddo
         endif

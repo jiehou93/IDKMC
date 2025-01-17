@@ -5,17 +5,16 @@
     implicit none
     integer*4 i,j,n,formula(element),orien,a,b,c,nclu1
     real*8 coord(3),coord_in(3)
-    real*8,external::parameters
 
     if(nclu>=size(clu)-1) call extend()                     !注意clu(0)不在nclu统计范围内
     nclu1=nclu                                              !避免用全局变量做形参
     if(.not.associated(clu(nclu+1)%up)) call grow(nclu1+1)  !若加入的缺陷团簇还未链接至二叉树，则二叉树生长出一片新树叶，链接至该缺陷团簇
 
     nclu=nclu+1                                             !团簇总数+1
-    clu(nclu)%r=parameters(4,formula)                       !团簇的俘获半径
+    call assign_para(formula,clu(nclu)%para)                !团簇参数                   
 
     coord=coord_in-floor(coord_in/length)*length                  !PBC correction
-    if(clu(nclu)%r<critical_radius)then                     !根据团簇大小判断加入哪个元胞列表
+    if(clu(nclu)%para(4)<critical_radius)then                     !根据团簇大小判断加入哪个元胞列表
         a=coord(1)/cell_size(1)+1                                !计算添加团簇所在的元胞位置
         b=coord(2)/cell_size(2)+1
         c=coord(3)/cell_size(3)+1    
@@ -39,29 +38,10 @@
     clu(nclu)%n=sum(abs(formula))                           !包含的缺陷总数
     clu(nclu)%orien=orien                                   !团簇的方位
     clu(nclu)%coord=coord                                   !团簇的相对坐标
-    clu(nclu)%em=parameters(1,formula)                      !迁移能垒
-    clu(nclu)%er=parameters(2,formula)                      !转动能垒
-    clu(nclu)%eb=parameters(3,formula)                      !解离能
-    clu(nclu)%ve=parameters(5,formula)                      !尝试频率
-    clu(nclu)%vm=parameters(6,formula)  
-    clu(nclu)%emit=nint(parameters(7,formula))              !解离出的缺陷种类
-    clu(nclu)%step=parameters(8,formula)
-
-
-    !if(orien==0.and.clu(nclu)%formula(1)<0)then            !若SIA团簇的取向不一致，则不可移动（此功能未开启，聚合后团簇取之前较大团簇的方向）
-    !    clu(nclu)%em=100
-    !    clu(nclu)%rate(1)=0
-    !    clu(nclu)%rate(2)=0
-    !    clu(nclu)%rate(3)=clu(nclu)%ve*exp(-clu(nclu)%eb/kb/tem)
-    !elseif(orien==0)then                !其他情况均可移动
-    !    clu(nclu)%orien=1
-    !    clu(nclu)%rate(1)=1.0/3.0*clu(nclu)%vm*exp(-clu(nclu)%em/kb/tem)
-    !    clu(nclu)%rate(2)=2.0/3.0*clu(nclu)%vm*exp(-clu(nclu)%er/kb/tem)
-    !    clu(nclu)%rate(3)=clu(nclu)%ve*exp(-clu(nclu)%eb/kb/tem)
-    !else
-    clu(nclu)%rate(1)=1.0/3.0*clu(nclu)%vm*exp(-clu(nclu)%em/kb/tem)
-    clu(nclu)%rate(2)=clu(nclu)%rate(1)+2.0/3.0*clu(nclu)%vm*exp(-clu(nclu)%er/kb/tem)
-    clu(nclu)%rate(3)=clu(nclu)%rate(2)+clu(nclu)%ve*exp(-clu(nclu)%eb/kb/tem)
+    
+    clu(nclu)%rate(1)=1.0/3.0*clu(nclu)%para(6)*exp(-clu(nclu)%para(1)/kb/tem)
+    clu(nclu)%rate(2)=clu(nclu)%rate(1)+2.0/3.0*clu(nclu)%para(6)*exp(-clu(nclu)%para(2)/kb/tem)
+    clu(nclu)%rate(3)=clu(nclu)%rate(2)+clu(nclu)%para(5)*exp(-clu(nclu)%para(3)/kb/tem)
     !endif
 
     current=>clu(nclu)%up
@@ -109,7 +89,7 @@
     type(cell_list),pointer::temp_dummy
     
     call dele_node(clu(i)%index)
-    if(clu(i)%r<critical_radius)then                        !根据团簇大小判断对哪个元胞链表进行计数器-1
+    if(clu(i)%para(4)<critical_radius)then                        !根据团簇大小判断对哪个元胞链表进行计数器-1
         ai=clu(i)%coord(1)/cell_size(1)+1                        
         bi=clu(i)%coord(2)/cell_size(2)+1
         ci=clu(i)%coord(3)/cell_size(3)+1                            

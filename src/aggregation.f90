@@ -14,11 +14,11 @@
     !检查缺陷是否达到x/y/z表面 
     do j=1,3
         if(pbc(j)==0)then
-            if(clu(i)%coord(j)-clu(i)%r<surface_depth)then
+            if(clu(i)%coord(j)-clu(i)%para(4)<surface_depth)then
                 vicinity=-1
                 defect_released=defect_released+clu(i)%formula
                 return
-            elseif(clu(i)%coord(j)+clu(i)%r>length(j)-surface_depth)then
+            elseif(clu(i)%coord(j)+clu(i)%para(4)>length(j)-surface_depth)then
                 vicinity=-1
                 defect_transmitted=defect_transmitted+clu(i)%formula
                 return
@@ -42,7 +42,7 @@
                     dis=abs(clu(i1)%coord-x)                            !计算周期性边界条件下，团簇与新加入团簇的距离
                     dist=sqrt(min(dis(1),length(1)-dis(1))**2+min(dis(2),length(2)-dis(2))**2+min(dis(3),length(3)-dis(3))**2)
 
-                    if(dist<clu(i)%r+clu(i1)%r)then                     !若二者距离小于俘获半径，返回近邻团簇编号
+                    if(dist<clu(i)%para(4)+clu(i1)%para(4))then                     !若二者距离小于俘获半径，返回近邻团簇编号
                         vicinity=i1                                     !搜索到近邻缺陷后结束搜索
                         return
                     endif
@@ -68,7 +68,7 @@
                     dis=abs(x1-x)                                       !计算周期性边界条件下，团簇与新加入团簇的距离
                     dist=sqrt(min(dis(1),length(1)-dis(1))**2+min(dis(2),length(2)-dis(2))**2+min(dis(3),length(3)-dis(3))**2)
 
-                    if(dist<clu(i)%r+clu(i1)%r)then                                 !若二者距离小于俘获半径，执行聚合操作
+                    if(dist<clu(i)%para(4)+clu(i1)%para(4))then                                 !若二者距离小于俘获半径，执行聚合操作
                         vicinity=i1                                    !搜索到近邻缺陷后结束搜索
                         return
                     endif

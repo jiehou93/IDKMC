@@ -3,7 +3,7 @@
     use default_setting
     implicit none
 
-    real*8,save,allocatable::ion_para(:,:,:,:,:)        !已有参数列表
+    real*8,save,allocatable::para_table(:,:,:,:,:)        !已有参数列表
 
     real*8,parameter::pi=3.1415926                      !圆周率
     real*8,parameter::kb=8.6173324e-5                   !玻尔兹曼常量
@@ -59,17 +59,10 @@
         integer*4 sn                                    !团簇编号
         integer*4 n                                     !大小
         integer*4 orien                                 !方位
-        integer*4 emit                                  !解离缺陷类型
         integer*4 formula(element)                      !组分
         real*8 coord(3)                                 !相对坐标
         real*8 rate(3)                                  !各反应速率
-        real*8 em                                       !迁移能
-        real*8 er                                       !转向能
-        real*8 eb                                       !解离能
-        real*8 r                                        !半径
-        real*8 vm                                       !迁移尝试频率
-        real*8 ve                                       !解离尝试频率
-        real*8 step                                     !迁移步长
+        real*8 para(8)                                  !缺陷参数，1-8分别为E_mig, E_mig+E_rot, E_trap, radius, v_mig, v_emit, jump_distance, emit_type
     end type cluster
     type(cluster),target,save,allocatable::clu(:)       !团簇列表
     type(cluster),save::clunull
@@ -113,17 +106,10 @@
         clu1%index%clu=>clu1
     endif
     clu1%orien=clu2%orien
-    clu1%emit=clu2%emit
-    clu1%step=clu2%step
     clu1%formula=clu2%formula
     clu1%coord=clu2%coord
     clu1%rate=clu2%rate
-    clu1%em=clu2%em                                        
-    clu1%er=clu2%er
-    clu1%r=clu2%r
-    clu1%vm=clu2%vm
-    clu1%ve=clu2%ve
-    clu1%eb=clu2%eb
+    clu1%para=clu2%para
     end subroutine replace
 
     subroutine backup(clu1,clu2)
@@ -138,17 +124,10 @@
         clu1%index%clu=>clu1
     endif
     clu1%orien=clu2%orien
-    clu1%emit=clu2%emit
-    clu1%step=clu2%step
     clu1%formula=clu2%formula
     clu1%coord=clu2%coord
     clu1%rate=clu2%rate
-    clu1%em=clu2%em                                        
-    clu1%er=clu2%er
-    clu1%r=clu2%r
-    clu1%vm=clu2%vm
-    clu1%ve=clu2%ve
-    clu1%eb=clu2%eb
+    clu1%para=clu2%para
     end subroutine backup
 
     end module typ
