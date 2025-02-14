@@ -13,14 +13,98 @@ subroutine load_ion_database()
         call load_ion_database_txt()
     elseif(damage_type=='cfg')then    
         write(10,*)'    Converting aiv.xyz.cfg file to ION/VAC/SIA.txt files...'
-        call cfg2okmc()
-        call load_ion_database_txt()
+        call load_ion_database_cfg()
+        !call cfg2okmc()
+        !call load_ion_database_txt()
         !write(10,*)'Deleting ION/VAC/SIA.txt files...'
     else
         write(10,*)'    Error, damage_type not supported, please choose txt or cfg.'
         stop
     endif
 end subroutine load_ion_database
+
+subroutine load_ion_database_cfg()    
+    !载入离子注入数据库
+    use typ
+    implicit none
+    integer n_ion
+    integer*4 GetFileN,i,j,k,ierr,filelines,cfg_data_size
+    real*4 box_scale,box(3)
+    real*4,allocatable::coord(:,:)
+    integer*4,allocatable::defect_type(:),ion_index(:)
+    character*160 path,content_string,makepath,c_dummy
+    
+    open(1000,file='aiv.xyz.cfg',STATUS='OLD')                       !打开原文件
+    
+    filelines=GetFileN(1000) 
+    cfg_data_size=filelines-19
+    allocate(coord(cfg_data_size,3))
+    allocate(defect_type(cfg_data_size))
+    allocate(ion_index(cfg_data_size))
+    do i=1,19                                           
+        !读取前19行的盒子参数
+        read(1000,'(A160)') content_string
+        if(i==2) read(content_string,*)c_dummy,c_dummy,box_scale
+        if(i==3) read(content_string(11:),*)box(1)
+        if(i==7) read(content_string(11:),*)box(2)
+        if(i==11)read(content_string(11:),*)box(3)
+    enddo
+    box=box*box_scale
+    
+    do  i=1,filelines-19
+        !读取所有cascade
+        read(1000,*)coord(i,:),defect_type(i),ion_index(i)
+    enddo
+    
+    defect_type=defect_type+1
+    !1/2/3分别代表 ion sia vac
+    ion_index=ion_index+1
+    ion_database_size=maxval(ion_index)
+    allocate(cascade(ion_database_size))
+    
+    do i=1,3
+        !计算绝对坐标
+        coord(:,i)=coord(:,i)*box(i)
+    enddo
+
+    cascade(:)%ipi=0
+    cascade(:)%vpi=0
+    do i=1,cfg_data_size
+        !统计ipi和vpi，以便下一步分配内存
+        select case(defect_type(i))
+        case(2)
+            cascade(ion_index(i))%ipi=cascade(ion_index(i))%ipi+1
+        case(3)
+            cascade(ion_index(i))%vpi=cascade(ion_index(i))%vpi+1
+        end select
+    enddo
+    
+    do i=1,ion_database_size
+        !分配内存,并设置默认坐标
+        allocate(cascade(i)%vac_coord(3,cascade(i)%vpi))
+        allocate(cascade(i)%SIA_coord(3,cascade(i)%ipi))
+        cascade(i)%ipi=0
+        cascade(i)%vpi=0
+        cascade(i)%ion_coord=-10000.0
+        cascade(i)%vac_coord=-10000.0
+        cascade(i)%SIA_coord=-10000.0
+    enddo
+    
+    do i=1,cfg_data_size
+        !读取坐标
+        select case(defect_type(i))
+        case(1)
+            cascade(ion_index(i))%ion_coord=coord(i,:)  
+        case(2)
+            cascade(ion_index(i))%ipi=cascade(ion_index(i))%ipi+1
+            cascade(ion_index(i))%sia_coord(:,cascade(ion_index(i))%ipi)=coord(i,:)
+        case(3)
+            cascade(ion_index(i))%vpi=cascade(ion_index(i))%vpi+1
+            cascade(ion_index(i))%vac_coord(:,cascade(ion_index(i))%vpi)=coord(i,:)
+        end select
+    enddo
+    
+end subroutine load_ion_database_cfg
     
 subroutine cfg2okmc()
 !将aiv.xyz.cfg 转换为 ION/VAC/SIA.txt 
@@ -52,9 +136,9 @@ subroutine cfg2okmc()
     enddo
     box=box*box_scale
     
-    do  i=20,filelines
-        !读取所有cascade
-        read(1000,*)coord(i-19,:),defect_type(i-19),ion_index(i-19)
+    do  i=1,filelines-19
+        !读取所有参数
+        read(1000,*)coord(i,:),defect_type(i),ion_index(i)
     enddo
     
     do i=1,3
@@ -66,12 +150,6 @@ subroutine cfg2okmc()
     ion_index=ion_index+1
     
     ion_previous=0
-    !if(defect_type(1,2)>1)then
-    !    write(1001,*)1,-10000,-10000,-10000
-    !    write(1002,*)1,-10000,-10000,-10000
-    !    write(1003,*)1,-10000,-10000,-10000
-    !endif
-    
     do i=1,filelines-19
         if(ion_index(i)==ion_previous(defect_type(i)))then
             !与上一同类缺陷属于同一cascade
@@ -112,15 +190,9 @@ subroutine load_ion_database_txt()
     !载入离子注入数据库
     use typ
     implicit none
-    integer*4 GetFileN,i,j,int_dummy,ion_index,string_length,ion_file_lines,VAC_file_lines,SIA_file_lines,note_location,vpi_max,ipi_max
-    real*8 pair_radius,ran1,ran2,ran3,alpha,beta,rad
+    integer*4 GetFileN,i,j,int_dummy,ion_index,string_length,ion_file_lines,VAC_file_lines,SIA_file_lines
     real*8 coord(3)
     character*300 dummy_string
-
-
-    vpi_max=0
-    ipi_max=0
-
     
     open(1000,file='ION.txt',STATUS='OLD')
     open(2000,file='VAC.txt',STATUS='OLD')
@@ -146,8 +218,6 @@ subroutine load_ion_database_txt()
         cascade(ion_database_size)%ion_coord=coord  
         cascade(ion_database_size)%vpi=0                                            !损伤数归零
         cascade(ion_database_size)%ipi=0
-        cascade(ion_database_size)%vac_coord=-10000.0
-        cascade(ion_database_size)%SIA_coord=-10000.0
     enddo
     
     do i=1,VAC_file_lines                                                           !统计最大vpi值，确定内存分配空间
@@ -161,7 +231,6 @@ subroutine load_ion_database_txt()
         read(dummy_string,*)ion_index,coord
         if(coord(implant_direction)<0)cycle                                                         
         cascade(ion_index)%vpi=cascade(ion_index)%vpi+1
-        if(cascade(ion_index)%vpi>vpi_max)vpi_max=cascade(ion_index)%vpi
     enddo
     
     do i=1,SIA_file_lines                                                           !统计最大ipi值，确定内存分配空间
@@ -175,14 +244,11 @@ subroutine load_ion_database_txt()
         read(dummy_string,*)ion_index,coord
         if(coord(implant_direction)<0)cycle
         cascade(ion_index)%ipi=cascade(ion_index)%ipi+1
-        if(cascade(ion_index)%ipi>ipi_max)ipi_max=cascade(ion_index)%ipi
     enddo
     
     do i=1,ion_database_size
-        allocate(cascade(i)%vac_coord(3,vpi_max))
-        allocate(cascade(i)%SIA_coord(3,ipi_max))
-        cascade(i)%vpi=0
-        cascade(i)%ipi=0
+        allocate(cascade(i)%vac_coord(3,cascade(i)%vpi))
+        allocate(cascade(i)%SIA_coord(3,cascade(i)%ipi))
         cascade(i)%vac_coord=-10000.0
         cascade(i)%SIA_coord=-10000.0
     enddo
@@ -198,7 +264,6 @@ subroutine load_ion_database_txt()
     
         read(dummy_string,*)ion_index,coord
         if(coord(implant_direction)<0)cycle                                                         !小于0代表该离子没有产生损伤
-        cascade(ion_index)%vpi=cascade(ion_index)%vpi+1
         cascade(ion_index)%vac_coord(:,cascade(ion_index)%vpi)=coord
     enddo
     
@@ -213,7 +278,7 @@ subroutine load_ion_database_txt()
     
         read(dummy_string,*)ion_index,coord
         if(coord(implant_direction)<0)cycle
-        cascade(ion_index)%ipi=cascade(ion_index)%ipi+1
+        !cascade(ion_index)%ipi=cascade(ion_index)%ipi+1
         cascade(ion_index)%SIA_coord(:,cascade(ion_index)%ipi)=coord
     enddo
     

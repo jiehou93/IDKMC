@@ -49,6 +49,7 @@
         move(:,6)=(/-1, 1, 1/)
         move(:,7)=(/-1,-1, 1/)
         move(:,8)=(/ 1, 1,-1/)
+		move=move/sqrt(3.0d0)                       !归一化移动基矢
     elseif(lattice_type=='fcc')then
         natom_in_lattice=4
         ndirection=12
@@ -65,14 +66,12 @@
         move(:,10)=(/ 0,-1,-1/)
         move(:,11)=(/ 0, 1,-1/)
         move(:,12)=(/ 0,-1, 1/)
+		move=move/sqrt(2.0d0)                       !归一化移动基矢
     else
         write(10,*)'    Error! Only bcc or fcc lattice_types are supportted!'
         stop
     endif
-    
-    
-
-    move=move*sqrt(3.0d0)/3.0d0                       !归一化移动基矢
+   
     
     ndef=0
     do i=1,element                                                                  !预算每种类型缺陷的初始浓度以及缺陷总数

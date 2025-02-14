@@ -78,7 +78,7 @@
     type(tree),pointer,save::root                       !树根节点
     type(tree),pointer:: current_previous,current       !定义一个临时指针型节点
 
-    !缺单个离子轰击产生的所有损伤
+    !单个离子轰击产生的所有损伤
     type ion_damage                                 
         integer*4 vpi,ipi                               !vacancy per ion,interstitial per ion
         real*4 ion_coord(3)
