@@ -2,6 +2,7 @@ subroutine load_ion_database()
     !根据damage_type的类型，选择离子辐照数据库的输入文件
     use typ
     implicit none
+    integer*4 i,sum_sia,sum_vac
         
     if(irr_status==0)then
         write(10,*)'    Implantation database files incomplete, disabling irradiation function.....'
@@ -12,15 +13,25 @@ subroutine load_ion_database()
         write(10,*)'    Loading ion implantation database from ION/VAC/SIA.txt files...'
         call load_ion_database_txt()
     elseif(damage_type=='cfg')then    
-        write(10,*)'    Converting aiv.xyz.cfg file to ION/VAC/SIA.txt files...'
+        write(10,*)'    Loading ion implantation database from aiv.xyz.cfg file...'
         call load_ion_database_cfg()
-        !call cfg2okmc()
-        !call load_ion_database_txt()
-        !write(10,*)'Deleting ION/VAC/SIA.txt files...'
     else
         write(10,*)'    Error, damage_type not supported, please choose txt or cfg.'
         stop
     endif
+    
+    sum_sia=0
+    sum_vac=0
+    do i=1,ion_database_size
+        sum_sia=sum_sia+cascade(i)%ipi
+        sum_vac=sum_vac+cascade(i)%vpi
+    enddo
+    write(10,*)'    Number of Ions loaded:',ion_database_size
+    write(10,*)'    Number of SIA  loaded:',sum_sia
+    write(10,*)'    Number of VAC  loaded:',sum_vac
+    write(10,*)'    Number of SIA per ION:',sum_sia*1.0/ion_database_size
+    write(10,*)'    Number of VAC per ION:',sum_vac*1.0/ion_database_size
+    
 end subroutine load_ion_database
 
 subroutine load_ion_database_cfg()    
@@ -108,6 +119,7 @@ end subroutine load_ion_database_cfg
     
 subroutine cfg2okmc()
 !将aiv.xyz.cfg 转换为 ION/VAC/SIA.txt 
+!早期遗留代码，现在直接读取cfg，无需调用本函数
     use typ
     implicit none
     integer n_ion
@@ -190,9 +202,15 @@ subroutine load_ion_database_txt()
     !载入离子注入数据库
     use typ
     implicit none
-    integer*4 GetFileN,i,j,int_dummy,ion_index,string_length,ion_file_lines,VAC_file_lines,SIA_file_lines
+    integer*4 GetFileN,i,j,int_dummy,ion_index,string_length,ion_file_lines,VAC_file_lines,SIA_file_lines,note_location,vpi_max,ipi_max
+    real*8 pair_radius,ran1,ran2,ran3,alpha,beta,rad
     real*8 coord(3)
     character*300 dummy_string
+
+
+    vpi_max=0
+    ipi_max=0
+
     
     open(1000,file='ION.txt',STATUS='OLD')
     open(2000,file='VAC.txt',STATUS='OLD')
@@ -218,6 +236,8 @@ subroutine load_ion_database_txt()
         cascade(ion_database_size)%ion_coord=coord  
         cascade(ion_database_size)%vpi=0                                            !损伤数归零
         cascade(ion_database_size)%ipi=0
+        cascade(ion_database_size)%vac_coord=-10000.0
+        cascade(ion_database_size)%SIA_coord=-10000.0
     enddo
     
     do i=1,VAC_file_lines                                                           !统计最大vpi值，确定内存分配空间
@@ -231,6 +251,7 @@ subroutine load_ion_database_txt()
         read(dummy_string,*)ion_index,coord
         if(coord(implant_direction)<0)cycle                                                         
         cascade(ion_index)%vpi=cascade(ion_index)%vpi+1
+        if(cascade(ion_index)%vpi>vpi_max)vpi_max=cascade(ion_index)%vpi
     enddo
     
     do i=1,SIA_file_lines                                                           !统计最大ipi值，确定内存分配空间
@@ -244,11 +265,14 @@ subroutine load_ion_database_txt()
         read(dummy_string,*)ion_index,coord
         if(coord(implant_direction)<0)cycle
         cascade(ion_index)%ipi=cascade(ion_index)%ipi+1
+        if(cascade(ion_index)%ipi>ipi_max)ipi_max=cascade(ion_index)%ipi
     enddo
     
     do i=1,ion_database_size
-        allocate(cascade(i)%vac_coord(3,cascade(i)%vpi))
-        allocate(cascade(i)%SIA_coord(3,cascade(i)%ipi))
+        allocate(cascade(i)%vac_coord(3,vpi_max))
+        allocate(cascade(i)%SIA_coord(3,ipi_max))
+        cascade(i)%vpi=0
+        cascade(i)%ipi=0
         cascade(i)%vac_coord=-10000.0
         cascade(i)%SIA_coord=-10000.0
     enddo
@@ -264,6 +288,7 @@ subroutine load_ion_database_txt()
     
         read(dummy_string,*)ion_index,coord
         if(coord(implant_direction)<0)cycle                                                         !小于0代表该离子没有产生损伤
+        cascade(ion_index)%vpi=cascade(ion_index)%vpi+1
         cascade(ion_index)%vac_coord(:,cascade(ion_index)%vpi)=coord
     enddo
     
@@ -278,7 +303,7 @@ subroutine load_ion_database_txt()
     
         read(dummy_string,*)ion_index,coord
         if(coord(implant_direction)<0)cycle
-        !cascade(ion_index)%ipi=cascade(ion_index)%ipi+1
+        cascade(ion_index)%ipi=cascade(ion_index)%ipi+1
         cascade(ion_index)%SIA_coord(:,cascade(ion_index)%ipi)=coord
     enddo
     

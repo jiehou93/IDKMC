@@ -10,6 +10,7 @@
         call debug()
     case(1)
         open(10,file='monitor.txt')
+        write(10,*)'Last update of IDKMC: 20250303'
         write(10,*)'Checking files...'
         write(*,*)'Checking files...'
         call file_check()
