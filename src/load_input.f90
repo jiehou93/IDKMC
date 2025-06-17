@@ -74,6 +74,8 @@
         read(variable_value,*)a0
     case('lattice_type','LATTICE_TYPE')                                     !æß∏Ò¿‡–Õ
         read(variable_value,*)lattice_type
+    case('damage_direction','DAMAGE_DIRECTION')
+        read(variable_value,*)damage_direction
     end select
 
 

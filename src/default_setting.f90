@@ -26,7 +26,8 @@
     integer*4,save::ion_type=2	                                                    !注入离子类型，默认为第二个元素
 	integer*4,save::iso_eff=0                                                       !同位素效应，0/1表示关闭/开启
     integer*4,save::uniform_damage(3)=(/1,1,0/)                                     !辐照级联是否在三个维度均匀分布，是为1，否为0，不影响级联内部的空间关联
-    integer*4,save::implant_direction=3												!辐照注入方向，默认从第3个方向注入
+    integer*4,save::implant_direction=3												!OKMC中辐照注入方向，默认从第3个方向注入
+    integer*4,save::damage_direction=3										    !数据库中辐照注入方向，默认从第3个方向注入
     integer*4,save::rd_seed(4)=(/0,0,0,0/)                                          !随机数种子，默认为随机值，手动设置可使模拟结果具有可重复性，种子数量为4，部分编译器只需要2个种子，此时只有前两个种子生效
     integer*4,save::output_rate=0                                                   !缺陷构型输出时是否添加速率信息，默认为0，若设为1，则会额外输出团簇的速率信息
     

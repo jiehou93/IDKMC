@@ -23,6 +23,7 @@
     write(10,'(A20,I15)')'ion_type=',ion_type
     write(10,'(A20,I15)')'iso_eff=',iso_eff
     write(10,'(A20,I15)')'implant_direction=',implant_direction
+   write(10,'(A20,I15)')'damage_direction=', damage_direction
     
     write(10,*)'########## initial defects ##########'    
     write(10,'(A20,4F15.7)')'initial_defect=',concen(1:4)

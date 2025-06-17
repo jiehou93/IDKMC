@@ -20,6 +20,15 @@ subroutine load_ion_database()
         stop
     endif
     
+    if (implant_direction /= damage_direction)then
+        !交换implant_direction和damage_direction的坐标数据
+       do i=1,ion_database_size
+           cascade(i)%ion_coord([implant_direction,damage_direction])=cascade(i)%ion_coord([damage_direction,implant_direction])
+           cascade(i)%vac_coord([implant_direction,damage_direction],:)=cascade(i)%vac_coord([damage_direction,implant_direction],:)
+           cascade(i)%SIA_coord([implant_direction,damage_direction],:)=cascade(i)%SIA_coord([damage_direction,implant_direction],:)
+       enddo
+    endif
+       
     sum_sia=0
     sum_vac=0
     do i=1,ion_database_size
@@ -116,87 +125,6 @@ subroutine load_ion_database_cfg()
     enddo
     
 end subroutine load_ion_database_cfg
-    
-subroutine cfg2okmc()
-!将aiv.xyz.cfg 转换为 ION/VAC/SIA.txt 
-!早期遗留代码，现在直接读取cfg，无需调用本函数
-    use typ
-    implicit none
-    integer n_ion
-    integer*4 GetFileN,i,j,k,ierr,filelines,ion_previous(3),ion_miss(3)
-    real*4 box_scale,box(3)
-    real*4,allocatable::coord(:,:)
-    integer*4,allocatable::defect_type(:),ion_index(:)
-    character*160 path,content_string,makepath,c_dummy
-    
-    open(1000,file='aiv.xyz.cfg',STATUS='OLD')                       !打开原文件
-    open(1001,file='ION.txt')
-    open(1002,file='SIA.txt')
-    open(1003,file='VAC.txt')
-    
-    filelines=GetFileN(1000) 
-    allocate(coord(filelines-19,3))
-    allocate(defect_type(filelines-19))
-    allocate(ion_index(filelines-19))
-    do i=1,19                                           
-        !读取前19行的盒子参数
-        read(1000,'(A160)') content_string
-        if(i==2) read(content_string,*)c_dummy,c_dummy,box_scale
-        if(i==3) read(content_string(11:),*)box(1)
-        if(i==7) read(content_string(11:),*)box(2)
-        if(i==11)read(content_string(11:),*)box(3)
-    enddo
-    box=box*box_scale
-    
-    do  i=1,filelines-19
-        !读取所有参数
-        read(1000,*)coord(i,:),defect_type(i),ion_index(i)
-    enddo
-    
-    do i=1,3
-        !计算绝对坐标
-        coord(:,i)=coord(:,i)*box(i)
-    enddo
-    defect_type=defect_type+1
-    !1/2/3分别代表 ion sia vac
-    ion_index=ion_index+1
-    
-    ion_previous=0
-    do i=1,filelines-19
-        if(ion_index(i)==ion_previous(defect_type(i)))then
-            !与上一同类缺陷属于同一cascade
-            write(1000+defect_type(i),*)ion_index(i),coord(i,:)
-        else
-            !与上一同类缺陷属于不同cascade
-            if(ion_index(i)==ion_previous(defect_type(i))+1)then
-                !属于下一cascade产生的缺陷
-                write(1000+defect_type(i),*)ion_index(i),coord(i,:)
-                ion_previous(defect_type(i))=ion_previous(defect_type(i))+1
-            else
-                !下一cascade没有产生该类缺陷，自动填入空缺陷
-                do while(ion_index(i)>ion_previous(defect_type(i))+1)
-                    ion_previous(defect_type(i))=ion_previous(defect_type(i))+1
-                    write(1000+defect_type(i),*)ion_previous(defect_type(i)),-10000,-10000,-10000
-                enddo
-                write(1000+defect_type(i),*)ion_index(i),coord(i,:)
-                ion_previous(defect_type(i))=ion_previous(defect_type(i))+1
-            endif
-        endif
-    enddo
-    
-    !根据最后记录的最大ION,补完三种缺陷，保证数据量相等
-    ion_miss=maxval(ion_previous)-ion_previous
-    do i=1,3
-        do j=1,ion_miss(i)
-            write(1000+i,*)ion_previous(i)+j,-10000,-10000,-10000
-        enddo
-    enddo
-        
-    close(1000)
-    close(1002)
-    close(1003)
-    close(1004)
-end  subroutine cfg2okmc
     
 subroutine load_ion_database_txt()
     !载入离子注入数据库
@@ -310,4 +238,86 @@ subroutine load_ion_database_txt()
     close(1000)
     close(2000)
     close(3000)  
-end subroutine load_ion_database_txt
+    end subroutine load_ion_database_txt
+    
+    
+    !subroutine cfg2okmc()
+!将aiv.xyz.cfg 转换为 ION/VAC/SIA.txt 
+!早期遗留代码，现在直接读取cfg，无需调用本函数
+!    use typ
+!    implicit none
+!    integer n_ion
+!    integer*4 GetFileN,i,j,k,ierr,filelines,ion_previous(3),ion_miss(3)
+!    real*4 box_scale,box(3)
+!    real*4,allocatable::coord(:,:)
+!    integer*4,allocatable::defect_type(:),ion_index(:)
+!    character*160 path,content_string,makepath,c_dummy
+!    
+!    open(1000,file='aiv.xyz.cfg',STATUS='OLD')                       !打开原文件
+!    open(1001,file='ION.txt')
+!    open(1002,file='SIA.txt')
+!    open(1003,file='VAC.txt')
+!    
+!    filelines=GetFileN(1000) 
+!    allocate(coord(filelines-19,3))
+!    allocate(defect_type(filelines-19))
+!    allocate(ion_index(filelines-19))
+!    do i=1,19                                           
+!        !读取前19行的盒子参数
+!        read(1000,'(A160)') content_string
+!        if(i==2) read(content_string,*)c_dummy,c_dummy,box_scale
+!        if(i==3) read(content_string(11:),*)box(1)
+!        if(i==7) read(content_string(11:),*)box(2)
+!        if(i==11)read(content_string(11:),*)box(3)
+!    enddo
+!    box=box*box_scale
+!    
+!    do  i=1,filelines-19
+!        !读取所有参数
+!        read(1000,*)coord(i,:),defect_type(i),ion_index(i)
+!    enddo
+!    
+!    do i=1,3
+!        !计算绝对坐标
+!        coord(:,i)=coord(:,i)*box(i)
+!    enddo
+!    defect_type=defect_type+1
+!    !1/2/3分别代表 ion sia vac
+!    ion_index=ion_index+1
+!    
+!    ion_previous=0
+!    do i=1,filelines-19
+!        if(ion_index(i)==ion_previous(defect_type(i)))then
+!            !与上一同类缺陷属于同一cascade
+!            write(1000+defect_type(i),*)ion_index(i),coord(i,:)
+!        else
+!            !与上一同类缺陷属于不同cascade
+!            if(ion_index(i)==ion_previous(defect_type(i))+1)then
+!                !属于下一cascade产生的缺陷
+!                write(1000+defect_type(i),*)ion_index(i),coord(i,:)
+!                ion_previous(defect_type(i))=ion_previous(defect_type(i))+1
+!            else
+!                !下一cascade没有产生该类缺陷，自动填入空缺陷
+!                do while(ion_index(i)>ion_previous(defect_type(i))+1)
+!                    ion_previous(defect_type(i))=ion_previous(defect_type(i))+1
+!                    write(1000+defect_type(i),*)ion_previous(defect_type(i)),-10000,-10000,-10000
+!                enddo
+!                write(1000+defect_type(i),*)ion_index(i),coord(i,:)
+!                ion_previous(defect_type(i))=ion_previous(defect_type(i))+1
+!            endif
+!        endif
+!    enddo
+!    
+!    !根据最后记录的最大ION,补完三种缺陷，保证数据量相等
+!    ion_miss=maxval(ion_previous)-ion_previous
+!    do i=1,3
+!        do j=1,ion_miss(i)
+!            write(1000+i,*)ion_previous(i)+j,-10000,-10000,-10000
+!        enddo
+!    enddo
+!        
+!    close(1000)
+!    close(1002)
+!    close(1003)
+!    close(1004)
+!end  subroutine cfg2okmc
