@@ -27,9 +27,10 @@
 
     subroutine assign_variable(variable_name,variable_value)
     !将variable_value显示的数值赋值给variable_name对应的变量。
-    use default_setting
+    use typ
     implicit none
     character*300 variable_name,variable_value
+    integer*4 stat
 
     select case(trim(variable_name))
     case('rd_seed','RD_SEED')                                               !随机数种子，默认为随机值，手动设置可使模拟结果具有可重复性，种子数量为4，部分编译器只需要2个种子，此时只有前两个种子生效
@@ -60,8 +61,9 @@
         read(variable_value,*)uniform_damage
     case('implant_direction','IMPLANT_DIRECTION')                           !辐照注入方向，默认从第3个方向注入
         read(variable_value,*)implant_direction       
-	case('ion_type','ION_TYPE')                                             !注入离子类型，默认为第二个元素
-        read(variable_value,*)ion_type  
+    case('ion_type','ION_TYPE')                                             !注入离子类型，默认为第二个元素
+        read(variable_value,*, iostat=stat)ion_type(1),ion_type(2),ion_type(3)  
+        n_beam=COUNT(ion_type/=0)
 	case('iso_eff','ISO_EFF')                           						!同位素效应，0/1表示关闭/开启
         read(variable_value,*)iso_eff  
     case('cfg_type','CFG_TYPE')                           					!构型输入/输出格式，可设置为txt/lmp，默认为txt

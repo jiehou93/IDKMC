@@ -13,7 +13,7 @@
     real*8,save::time1                                  
     real*8,save::time2                              
     real*8,save::tem                                    !温度
-    real*8,save::damage_rate=0                          !损伤速率
+    real*8,save::damage_rate(3)=(/0,0,0/)               !损伤速率
     real*8,save,allocatable::move(:,:)                  !迁移矢量
     real*8,save::surface_area=0                         !注入方向表面积
     integer*4,save::nformula(element)                   !缺陷统计数组
@@ -30,11 +30,12 @@
     integer*4,save::nclu                                !团簇总数
     integer*4,save::level                               !二叉树级层
     integer*4,save::height                              !二叉树总高度
-    integer*4,save::ion_database_size                   !离子注入数据库大小
+    integer*4,save::ion_database_size(3)                !离子注入数据库大小
     integer*4,save::defect_remain(4)                    !滞留的缺陷数
     integer*4,save::defect_transmitted(4)               !透射的缺陷数
     integer*4,save::defect_released(4)                  !脱附的缺陷数
     integer*4,save::grain_released(4)                   !晶界吸收的缺陷数
+    integer*4,save::n_beam                              !辐照束数量
     end module global
 
     module typ
@@ -85,13 +86,15 @@
         real*4,allocatable:: vac_coord(:,:)
         real*4,allocatable:: SIA_coord(:,:)
     end type ion_damage
-    type(ion_damage),save,allocatable::cascade(:)
+    type(ion_damage),save,allocatable,target::cascade(:)
+    type(ion_damage),save,allocatable,target::cascade2(:)
+    type(ion_damage),save,allocatable,target::cascade3(:)
 
     !模拟控制模块关键参数
     type ctrl_module                                       
         real*8 tem                                      !温度
         real*8 time                                     !时间
-        real*8 irr_flux                                 !辐照通量
+        real*8 irr_flux(3)                              !辐照通量
         character*300 name                              !模块名
         integer*4 outp                                  !输出判据
     end type ctrl_module

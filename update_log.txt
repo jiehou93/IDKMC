@@ -1,3 +1,8 @@
+20250710
+增加了多束辐照功能，该功能所涉及的输入参数和文件：ion_type、CONTROL文件、aiv.xyz*.cfg文件（见更新后的manual）
+增加了多束辐照的算例
+载入辐照参数库后，会统计并输出基本信息
+
 20250617
 增加了damage_direction参数，其功能为定义辐照数据库中粒子的入射方向，默认值为3
 当damage_direction与implant_direction不一致时，会自动调换数据库中这两个方向的坐标

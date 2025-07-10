@@ -20,10 +20,10 @@
     
     write(10,*)'########### ion and irradiation ##########'
     write(10,'(A20,3I15)')'uniform_damage=',uniform_damage
-    write(10,'(A20,I15)')'ion_type=',ion_type
+    write(10,'(A20,3I15)')'ion_type=',ion_type
     write(10,'(A20,I15)')'iso_eff=',iso_eff
     write(10,'(A20,I15)')'implant_direction=',implant_direction
-   write(10,'(A20,I15)')'damage_direction=', damage_direction
+    write(10,'(A20,I15)')'damage_direction=', damage_direction
     
     write(10,*)'########## initial defects ##########'    
     write(10,'(A20,4F15.7)')'initial_defect=',concen(1:4)
@@ -42,7 +42,7 @@
     write(10,*)'########## CONTROL MATRIX ##########'
     write(10,'(A15,A15,A5,A20,A5)')'#temperature','time','rate','name','outp'
     do i=1,nctrl
-        write(10,'(F15.7,E15.7,E15.7,A20,I5)')ctrl_matrix(i)%tem,ctrl_matrix(i)%time,ctrl_matrix(i)%irr_flux,trim(adjustl(ctrl_matrix(i)%name)),ctrl_matrix(i)%outp
+        write(10,'(F15.7,E15.7,3E15.7,A20,I5)')ctrl_matrix(i)%tem,ctrl_matrix(i)%time,ctrl_matrix(i)%irr_flux,trim(adjustl(ctrl_matrix(i)%name)),ctrl_matrix(i)%outp
     enddo
     write(10,*)'##################################'
     write(10,*)

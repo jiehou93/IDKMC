@@ -23,7 +23,7 @@ subroutine run_unit(unit_tem,unit_time,unit_irr_flux,unit_name,unit_outp)
     use typ
     implicit none
     integer*4 i,j,k,unit_outp
-    real*8 unit_tem,unit_time,unit_irr_flux,ran1
+    real*8 unit_tem,unit_time,unit_irr_flux(3),ran1
     character*300 unit_name,file_name
 
     write(10,*)'----------simulation unit <'//trim(adjustl(unit_name))//'> started----------'
@@ -33,6 +33,8 @@ subroutine run_unit(unit_tem,unit_time,unit_irr_flux,unit_name,unit_outp)
 	call cpu_time(time1)
 	
     damage_rate=unit_irr_flux*surface_area*10.0**-20.0                            !根据通量计算损伤速率(电子/中子dpa需要进行换算)
+    damage_rate(2)=damage_rate(1)+damage_rate(2)
+    damage_rate(3)=damage_rate(2)+damage_rate(3)
     tem=unit_tem                                                                !设置温度
     call renew_rate_all()
      

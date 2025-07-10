@@ -23,7 +23,7 @@
     real*8,save::concen(element)=(/0,0,0,0/)                                        !默认无初始缺陷                               
     real*8,save::grain_radi=1e15                                                    !球形晶界半径
     integer*4,save::intrinsic_type=0                                                !本征缺陷的类型,SIA/SIA-VAC/VAC   
-    integer*4,save::ion_type=2	                                                    !注入离子类型，默认为第二个元素
+    integer*4,save::ion_type(3)=(/2,0,0/)	                                        !注入离子类型，默认为但束辐照，类型为第二个元素
 	integer*4,save::iso_eff=0                                                       !同位素效应，0/1表示关闭/开启
     integer*4,save::uniform_damage(3)=(/1,1,0/)                                     !辐照级联是否在三个维度均匀分布，是为1，否为0，不影响级联内部的空间关联
     integer*4,save::implant_direction=3												!OKMC中辐照注入方向，默认从第3个方向注入

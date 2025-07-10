@@ -20,7 +20,7 @@ subroutine renew_rate_all()
         !endif
     enddo
 
-    clu(0)%rate(3)=damage_rate              !外部事件速率
+    clu(0)%rate=damage_rate              !外部事件速率
     do i=0,nclu
         current=>clu(i)%up
         do level=height,1,-1                !更新二叉树速率

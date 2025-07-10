@@ -1,0 +1,254 @@
+ Last update of IDKMC: 20250617
+ Checking files...
+     POSITION file not found, system will start from stracth...
+ Loading INPUT file...
+ Loading CONTROL file...
+ Loading implantation database...
+     Loading ion implantation database from aiv.xyz.cfg file...
+     Information for damage database           1
+         Ion type:           2
+         Number of Ions loaded:      100000
+         Number of Ions reflected:       53528
+         Number of SIA  loaded:           0
+         Number of VAC  loaded:           0
+         Number of SIA per ION:  0.0000000E+00
+         Number of VAC per ION:  0.0000000E+00
+         Mean ION depth:   149.454830555851     
+         Mean SIA depth:                     NaN
+         Mean VAC depth:                     NaN
+ 
+     Information for damage database           2
+         Ion type:           3
+         Number of Ions loaded:      100000
+         Number of Ions reflected:       56196
+         Number of SIA  loaded:       14735
+         Number of VAC  loaded:       15245
+         Number of SIA per ION:  0.1473500    
+         Number of VAC per ION:  0.1524500    
+         Mean ION depth:   169.556826969269     
+         Mean SIA depth:   43.2499352792177     
+         Mean VAC depth:   43.8264914319491     
+ 
+ Loading parameter database...
+ Initiating system...
+     Box_length is defined, automatically generating cell grids...
+     Using default random seeds...
+     Random seeds set to:   950429893         495
+     Loading POSITION file...
+     POSITION file not found, starting from stracth...
+     Configuration initiated
+ Running diagnostics...
+     Nothing to worry about. At least for now...
+ Output settings...
+ 
+ ########## INPUT PARAMETERS ##########
+ ########### BOX ##########
+                PBC=              1              1              0
+       grain_radius=  0.6500000E+04
+         box_length=    300.0000000    300.0000000   1000.0000000
+          cell_size=     10.0000000     10.0000000     10.0000000
+        cell_number=             30             30            100
+    large_cell_size=     20.0000000     20.0000000     20.0000000
+  large_cell_number=             15             15             50
+      surface_depth=      3.1652000
+    critical_radius=      5.0000000
+ ########### ion and irradiation ##########
+     uniform_damage=              1              1              0
+           ion_type=              2              3              0
+            iso_eff=              1
+  implant_direction=              3
+   damage_direction=              3
+ ########## initial defects ##########
+     initial_defect=      0.0000000      0.0000000      0.0000000      0.0000000
+     intrinsic_type=              1
+       lattice_type=bcc            
+                 a0=      3.1652000
+ ########## others ##########
+           cfg_type=lmp            
+        damage_type=cfg            
+            rd_seed=      950429893            495              0              0
+        output_rate=              0
+ ##################################
+ 
+ ########## CONTROL MATRIX ##########
+   #temperature           time rate                name outp
+      0.0000000  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00            initiate    1
+    300.0000000  0.1000000E+01  0.2000000E+19  0.2000000E+19  0.0000000E+00           charge001    1
+    300.0000000  0.1000000E+01  0.2000000E+19  0.2000000E+19  0.0000000E+00           charge002    1
+    300.0000000  0.1000000E+01  0.2000000E+19  0.2000000E+19  0.0000000E+00           charge003    1
+    300.0000000  0.1000000E+01  0.2000000E+19  0.2000000E+19  0.0000000E+00           charge004    1
+    300.0000000  0.1000000E+01  0.2000000E+19  0.2000000E+19  0.0000000E+00           charge005    1
+    300.0000000  0.1000000E+01  0.2000000E+19  0.2000000E+19  0.0000000E+00           charge006    1
+    300.0000000  0.1000000E+01  0.2000000E+19  0.2000000E+19  0.0000000E+00           charge007    1
+    300.0000000  0.1000000E+01  0.2000000E+19  0.2000000E+19  0.0000000E+00           charge008    1
+    300.0000000  0.1000000E+01  0.2000000E+19  0.2000000E+19  0.0000000E+00           charge009    1
+    300.0000000  0.1000000E+01  0.2000000E+19  0.2000000E+19  0.0000000E+00           charge010    1
+ ##################################
+ 
+ All set! Starting simulation...
+ ----------simulation unit <initiate> started----------
+ unit temperature=  0.000000000000000E+000
+ unit time=  0.000000000000000E+000
+ unit irradiation flux=  0.000000000000000E+000  0.000000000000000E+000
+  0.000000000000000E+000
+               No. of clusters remained=         0
+                No. of defects remained=         0         0         0         0
+                No. of defects released=         0         0         0         0
+             No. of defects transmitted=         0         0         0         0
+        No. of defects absored by grain=         0         0         0         0
+ CPU time comsuption of simulation unit=  0.000000000000000E+000
+ overall CPU simulation time comsuption=  0.000000000000000E+000
+ ---------simulation unit <initiate> finished----------
+ 
+ ----------simulation unit <charge001> started----------
+ unit temperature=   300.000000000000     
+ unit time=   1.00000000000000     
+ unit irradiation flux=  2.000000000000000E+018  2.000000000000000E+018
+  0.000000000000000E+000
+  Warning! undefined parameter for       0      2      0      0     setting as unstable!
+  Warning! undefined parameter for       0      7      0      0     setting as unstable!
+  Warning! undefined parameter for       0      6      0      0     setting as unstable!
+  Warning! undefined parameter for       0      5      0      0     setting as unstable!
+  Warning! undefined parameter for       0      4      0      0     setting as unstable!
+  Warning! undefined parameter for       0      3      0      0     setting as unstable!
+               No. of clusters remained=       170
+                No. of defects remained=       171       377       336         0
+                No. of defects released=      -162       345       351         0
+             No. of defects transmitted=        -4       105       117         0
+        No. of defects absored by grain=         0         6         7         0
+ CPU time comsuption of simulation unit=   1.04687500000000     
+ overall CPU simulation time comsuption=   1.04687500000000     
+ ---------simulation unit <charge001> finished----------
+ 
+ ----------simulation unit <charge002> started----------
+ unit temperature=   300.000000000000     
+ unit time=   1.00000000000000     
+ unit irradiation flux=  2.000000000000000E+018  2.000000000000000E+018
+  0.000000000000000E+000
+  Warning! undefined parameter for       0      8      0      0     setting as unstable!
+               No. of clusters remained=       314
+                No. of defects remained=       315       794       768         0
+                No. of defects released=      -135       284       243         0
+             No. of defects transmitted=        -7       101       116         0
+        No. of defects absored by grain=         0        17        15         0
+ CPU time comsuption of simulation unit=   2.67187500000000     
+ overall CPU simulation time comsuption=   3.71875000000000     
+ ---------simulation unit <charge002> finished----------
+ 
+ ----------simulation unit <charge003> started----------
+ unit temperature=   300.000000000000     
+ unit time=   1.00000000000000     
+ unit irradiation flux=  2.000000000000000E+018  2.000000000000000E+018
+  0.000000000000000E+000
+               No. of clusters remained=       466
+                No. of defects remained=       470      1230      1224         0
+                No. of defects released=      -142       254       270         0
+             No. of defects transmitted=        -7        86       118         0
+        No. of defects absored by grain=        -1        12        15         0
+ CPU time comsuption of simulation unit=   2.92187500000000     
+ overall CPU simulation time comsuption=   6.64062500000000     
+ ---------simulation unit <charge003> finished----------
+ 
+ ----------simulation unit <charge004> started----------
+ unit temperature=   300.000000000000     
+ unit time=   1.00000000000000     
+ unit irradiation flux=  2.000000000000000E+018  2.000000000000000E+018
+  0.000000000000000E+000
+               No. of clusters remained=       593
+                No. of defects remained=       599      1697      1667         0
+                No. of defects released=      -118       246       227         0
+             No. of defects transmitted=        -7       105       130         0
+        No. of defects absored by grain=         0        13        16         0
+ CPU time comsuption of simulation unit=   3.06250000000000     
+ overall CPU simulation time comsuption=   9.70312500000000     
+ ---------simulation unit <charge004> finished----------
+ 
+ ----------simulation unit <charge005> started----------
+ unit temperature=   300.000000000000     
+ unit time=   1.00000000000000     
+ unit irradiation flux=  2.000000000000000E+018  2.000000000000000E+018
+  0.000000000000000E+000
+               No. of clusters remained=       727
+                No. of defects remained=       735      2153      2102         0
+                No. of defects released=      -129       267       232         0
+             No. of defects transmitted=        -7        82       105         0
+        No. of defects absored by grain=        -1        15        20         0
+ CPU time comsuption of simulation unit=   2.32812500000000     
+ overall CPU simulation time comsuption=   12.0468750000000     
+ ---------simulation unit <charge005> finished----------
+ 
+ ----------simulation unit <charge006> started----------
+ unit temperature=   300.000000000000     
+ unit time=   1.00000000000000     
+ unit irradiation flux=  2.000000000000000E+018  2.000000000000000E+018
+  0.000000000000000E+000
+  Warning! undefined parameter for       1     12      0      0     setting as unstable!
+  Warning! undefined parameter for       1     11      0      0     setting as unstable!
+               No. of clusters remained=       837
+                No. of defects remained=       849      2587      2489         0
+                No. of defects released=      -105       274       267         0
+             No. of defects transmitted=        -7        83        89         0
+        No. of defects absored by grain=         0        16        12         0
+ CPU time comsuption of simulation unit=   2.59375000000000     
+ overall CPU simulation time comsuption=   14.6406250000000     
+ ---------simulation unit <charge006> finished----------
+ 
+ ----------simulation unit <charge007> started----------
+ unit temperature=   300.000000000000     
+ unit time=   1.00000000000000     
+ unit irradiation flux=  2.000000000000000E+018  2.000000000000000E+018
+  0.000000000000000E+000
+               No. of clusters remained=       930
+                No. of defects remained=       948      3041      2855         0
+                No. of defects released=       -98       269       282         0
+             No. of defects transmitted=        -4       105       126         0
+        No. of defects absored by grain=        -1        17        10         0
+ CPU time comsuption of simulation unit=   2.45312500000000     
+ overall CPU simulation time comsuption=   17.0937500000000     
+ ---------simulation unit <charge007> finished----------
+ 
+ ----------simulation unit <charge008> started----------
+ unit temperature=   300.000000000000     
+ unit time=   1.00000000000000     
+ unit irradiation flux=  2.000000000000000E+018  2.000000000000000E+018
+  0.000000000000000E+000
+               No. of clusters remained=      1043
+                No. of defects remained=      1066      3435      3222         0
+                No. of defects released=      -110       336       293         0
+             No. of defects transmitted=        -4       109       118         0
+        No. of defects absored by grain=        -1        13        16         0
+ CPU time comsuption of simulation unit=   3.07812500000000     
+ overall CPU simulation time comsuption=   20.1718750000000     
+ ---------simulation unit <charge008> finished----------
+ 
+ ----------simulation unit <charge009> started----------
+ unit temperature=   300.000000000000     
+ unit time=   1.00000000000000     
+ unit irradiation flux=  2.000000000000000E+018  2.000000000000000E+018
+  0.000000000000000E+000
+               No. of clusters remained=      1154
+                No. of defects remained=      1178      3804      3587         0
+                No. of defects released=      -103       354       332         0
+             No. of defects transmitted=        -4       100       116         0
+        No. of defects absored by grain=         0        14        11         0
+ CPU time comsuption of simulation unit=   3.29687500000000     
+ overall CPU simulation time comsuption=   23.4687500000000     
+ ---------simulation unit <charge009> finished----------
+ 
+ ----------simulation unit <charge010> started----------
+ unit temperature=   300.000000000000     
+ unit time=   1.00000000000000     
+ unit irradiation flux=  2.000000000000000E+018  2.000000000000000E+018
+  0.000000000000000E+000
+               No. of clusters remained=      1280
+                No. of defects remained=      1304      4197      3950         0
+                No. of defects released=      -111       304       316         0
+             No. of defects transmitted=        -9        92       101         0
+        No. of defects absored by grain=         0        14        20         0
+ CPU time comsuption of simulation unit=   3.06250000000000     
+ overall CPU simulation time comsuption=   26.5312500000000     
+ ---------simulation unit <charge010> finished----------
+ 
+ 
+ All simulation units completed
+ Total CPU time=   26.5312500000000     

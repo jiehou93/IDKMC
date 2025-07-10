@@ -88,7 +88,7 @@
     allocate(clu(0:ndef))                       !给所有对象分配内存空间
     clu(0)%sn=0                                 !0号对象代表外部事件被触发（辐照产生缺陷）
     nullify(clu(0)%index)
-    clu(0)%rate(3)=damage_rate                  !外部事件反应速率（默认值为0）
+    clu(0)%rate=damage_rate                  !外部事件反应速率（默认值为0）
     do i=0,ndef                               !给每个对象分配编号                           
         clu(i)%sn=i
         nullify(clu(i)%up)                      !up指针空指
